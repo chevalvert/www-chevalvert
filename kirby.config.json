@@ -1,0 +1,26 @@
+{
+  "modules": {
+    "core": "https://github.com/getkirby/kirby.git",
+    "panel": "https://github.com/getkirby/panel.git",
+    "fields": {
+      "previewfiles": "https://github.com/brocessing/kirby-previewfiles.git",
+      "tabs": "https://github.com/afbora/Kirby-Tabs-Field.git",
+      "relationship": "https://github.com/olach/kirby-relationship.git"
+    },
+    "plugins": {
+      "typography": "https://github.com/fabianmichael/kirby-typography.git",
+      "focus": "https://github.com/flokosiol/kirby-focus.git",
+      "kirby-index-field": "https://github.com/jongacnik/kirby-index-field.git",
+      "feed": "https://github.com/getkirby-plugins/feed-plugin.git",
+      "kirby-html-minifier": "https://github.com/kirby-deprecated-plugins/kirby-html-minifier.git",
+      "kirby-hidebar-field": "https://github.com/jongacnik/kirby-hidebar-field.git",
+      "field-engineer": "https://github.com/kirby-deprecated-plugins/field-engineer.git",
+      "simplemde": "https://github.com/medienbaecker/kirby-simplemde.git",
+      "image-shrink": "https://github.com/schnti/kirby-image-shrink.git"
+    },
+    "tags": {},
+    "widgets": {
+      "kirby-backup-widget": "https://github.com/arnaudjuracek/kirby-backup-widget.git"
+    }
+  }
+}

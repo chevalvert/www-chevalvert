@@ -1,0 +1,77 @@
+.projects-list {
+  &__header {
+    @include apply-grid;
+    padding: $banner-padding;
+    position: sticky;
+    top: calc(#{$menu-height} + 1px);
+    margin-bottom: 1px;
+
+    background-color: $black;
+    z-index: 2;
+
+
+    &-label span {
+      @include underline;
+      display: inline;
+      cursor: pointer;
+      margin-right: 2ch;
+    }
+
+    &-label span.is-sorting::after {
+      position: absolute;
+    }
+
+    &-label span.is-sorting[data-sort='ASC']::after {
+      content: '\2009\2193';
+      transform: translateX(6px) translateY(1px);
+    }
+
+    &-label span.is-sorting[data-sort='DESC']::after {
+      content: '\2009\2193';
+      transform: scaleY(-1) translateX(6px) translateY(2px);
+    }
+  }
+
+  &__item {
+    &-cover {
+      user-select: none;
+      display: none;
+      pointer-events: none;
+      position: fixed;
+      width: 500px;
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    a {
+      @include apply-grid;
+      cursor: pointer;
+      padding: $banner-padding;
+      display: block;
+      height: 100%;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      border-color: $white;
+    }
+
+    &:hover {
+      z-index: 1;
+      position: relative;
+    }
+
+    @include desktop {
+      &:hover &-cover {
+        display: block;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: $menu-height;
+    }
+  }
+}

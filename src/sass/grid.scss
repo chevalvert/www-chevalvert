@@ -1,0 +1,39 @@
+$grid-gutter: $gutter;
+$grid-columns: (
+  percentage(7/20),
+  percentage(9/20),
+  percentage(4/20),
+);
+
+@mixin row () {
+  position: relative;
+  width: 100%;
+  font-size: 0;
+}
+
+@mixin col-offset ($nth) {
+  margin-left: nth($grid-columns, $nth);
+}
+
+@mixin col ($nth: 2, $vertical-align: top) {
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: $vertical-align;
+
+  padding-left: if($nth > 1, $grid-gutter / 2, 0);
+  padding-right: if($nth < length($grid-columns), $grid-gutter / 2, 0);
+
+  width: nth($grid-columns, $nth);
+}
+
+// This is useful when markup corresponds to grid composition
+@mixin apply-grid {
+  @include row;
+  @for $index from 1 through length($grid-columns) {
+    $col: nth($grid-columns, $index);
+    & > *:nth-child(#{$index}) {
+      @include col($index);
+    }
+  }
+}

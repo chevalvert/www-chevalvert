@@ -1,0 +1,19 @@
+Title: Projets
+
+----
+
+Categories: 
+
+- 
+  fr: exposition
+  en: exhibition
+- 
+  fr: identité
+  en: identity
+- 
+  fr: test
+  en: test
+
+----
+
+Pinned: projects/tout-se-transforme, projects/projet-de-test, projects/projet-de-test-2, projects/projet-de-test-3

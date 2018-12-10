@@ -1,0 +1,13 @@
+.sitemap {
+  ul {
+    padding-left: 1ch;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  ul > li:first-child {
+    margin-top: 1.3em;
+  }
+}

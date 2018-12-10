@@ -1,0 +1,44 @@
+title: About
+icon: folder
+
+pages:
+  hide: false
+  template: about.section
+files: false
+
+fields:
+  hidebar:
+    type: hidebar
+
+  tab1:
+    label: Général
+    type: tabs
+
+  title: _title
+
+  pageindex:
+    label: 'Sections de page'
+    type: index
+    options: children
+    rows: 50
+    filter: PanelHelpers::parseProjects
+    order: asc
+    addedit: true
+    columns:
+      parsedPosition:
+        label: Position
+        width: 80
+      parsedTitle: Titre
+
+  tab2:
+    label: Ancres
+    type: tabs
+
+  anchors:
+    type: checkboxes
+    translate: false
+    options: query
+    columns: 1
+    query:
+      fetch: children
+      value: '{{id}}'

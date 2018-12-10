@@ -1,0 +1,61 @@
+* { box-sizing: border-box }
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Friction Mono', monospace;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: $black;
+  color: $white;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  &.is-loading::before, &.is-loading::after { opacity: 1 }
+  &::before, &::after {
+    @include easing(300ms, opacity);
+    @include progress-loader(1px, 75vw, $white);
+    top: 0;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+  }
+
+  &.no-scroll {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+* {
+  font-size: 1.4rem;
+  line-height: $line-height;
+  font-weight: normal;
+}
+
+::selection {
+  background: $black;
+  color: $white;
+}
+
+a {
+  @include underline;
+  color: inherit;
+  line-height: 1;
+}
+
+main {
+  margin-top: $menu-height;
+  flex: 1 0 auto;
+}
+
+p {
+  max-width: 70ch;
+}

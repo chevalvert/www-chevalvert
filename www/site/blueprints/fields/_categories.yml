@@ -1,0 +1,13 @@
+label: Catégorie(s)
+required: true
+translate: false
+type: checkboxes
+
+# NOTE: this list will increase in the future
+# SEE: www/site/languages/[fr|en].yml for translations
+options: query
+query:
+  page: categories
+  fetch: children
+  value: '{{uid}}'
+  text: '{{fr}}'

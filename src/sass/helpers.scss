@@ -1,0 +1,38 @@
+@mixin debug ($color: red, $width: 1px) {
+  outline: $width solid $color;
+}
+
+@mixin underline () {
+  border-bottom: 1px solid;
+  text-decoration: none;
+  margin-bottom: -1px;
+  display: inline-block;
+}
+
+@mixin easing ($duration: 100ms, $property: all) {
+  @if type-of($property) == list {
+    $transitions: '';
+    @each $p in $property {
+      $transitions: #{$p} #{$duration} cubic-bezier(0.250, 0.100, 0.250, 1.000), #{$transitions};
+    }
+    transition: $transitions;
+  } @else {
+    transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+  }
+}
+
+@mixin progress-loader ($thickness: 1rem, $size: 50vw, $foreground: black, $background: transparent, $speed: 1s) {
+ @keyframes loader-move {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(100vw + 100%)); }
+  }
+  content: '';
+
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  width: $size;
+
+  border-top: $thickness solid $foreground;
+  animation: loader-move $speed linear infinite;
+}

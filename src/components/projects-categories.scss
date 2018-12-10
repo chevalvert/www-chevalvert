@@ -1,0 +1,8 @@
+.project-categories {
+  // TODO: handle overflow-x
+  display: inline-block;
+
+  a:not(:hover):not(.is-active) {
+    border: none;
+  }
+}

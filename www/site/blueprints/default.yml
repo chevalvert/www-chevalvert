@@ -1,0 +1,8 @@
+title: Default
+icon: file-code-o
+hide: true
+pages: false
+files: false
+
+fields:
+  title: _title

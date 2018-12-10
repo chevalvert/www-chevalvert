@@ -1,0 +1,13 @@
+.project-date {
+  // NOTE: this is used to avoid space between inline elements
+  font-size: 0;
+  white-space: nowrap;
+
+  time {
+    display: inline;
+  }
+
+  time + time::before {
+    content: '-';
+  }
+}

@@ -1,0 +1,11 @@
+.project-categories {
+  white-space: nowrap;
+
+  li {
+    display: inline;
+  }
+
+  li + li::before {
+    content: ' / ';
+  }
+}

@@ -1,0 +1,41 @@
+.project-preview {
+  width: 100%;
+
+  a {
+    display: block;
+    border: none;
+    font-size: 0;
+
+    &:hover h1 {
+      @include underline;
+      display: inline;
+    }
+  }
+
+  &__header {
+    @include apply-grid;
+    padding: $banner-padding;
+    background-color: $black;
+    color: $white;
+
+    @include mobile {
+      *:nth-child(2) {
+        width: auto;
+        float: right;
+      }
+
+      *:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  &__cover {
+    user-select: none;
+    font-size: 0;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

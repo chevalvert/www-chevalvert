@@ -1,0 +1,28 @@
+title: Mot
+icon: font
+
+pages: false
+files: false
+
+fields:
+  hidebar: _hidebar
+  title:
+    extends: _title
+    label: Identifiant
+    translate: false
+
+  fr:
+    type: text
+    label: Mot en français
+    icon: font
+    translate: false
+    required: true
+    width: 1/2
+
+  en:
+    type: text
+    label: Mot en anglais
+    translate: false
+    required: true
+    width: 1/2
+    icon: font

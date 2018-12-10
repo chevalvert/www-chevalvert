@@ -1,0 +1,105 @@
+pages: false
+files: false
+
+fields:
+  hgeneral:
+    type: tabs
+    label: Général
+
+  title:
+    type:  text
+    label: Titre du site
+    translate: false
+
+  subtitle:
+    type:  text
+    icon: font
+    label: Sous-titre du site
+    translate: true
+
+  hfooter:
+    type: headline
+    numbered: false
+    label: Footer
+
+  footer_left:
+    extends: _text
+    label: Colonne de gauche
+    width: 1/4
+
+  footer_center:
+    extends: _text
+    label: Colonne du centre
+    width: 2/4
+
+  footer_right:
+    extends: _text
+    label: Colonne de droite
+    width: 1/4
+
+  gseo:
+    type: tabs
+    label: SEO
+
+  description:
+    type: textarea
+    label: Description du site
+    buttons: false
+    help: Utilisé par les moteurs de recherches et les réseaux sociaux
+    icon: search
+    validate:
+      maxLength: 150
+    translate: false
+
+  keywords:
+    type: tags
+    help: Utilisé par les moteurs de recherches et les réseaux sociaux
+    label: Mots-clefs
+    translate: false
+
+  redirections:
+    type: structure
+    label: Redirections spécifiques
+    style: table
+    translate: false
+    fields:
+      from:
+        label: Ancienne URL
+        type: url
+        required: true
+      to:
+        label: Nouvelle page
+        type: page
+        required: true
+
+  hcontact:
+    type: tabs
+    label: Réseaux sociaux
+
+  facebook:
+    type: text
+    help: https://facebook.com/<b>[ACCOUNT]</b>
+    icon: facebook
+    label: Facebook
+    width: 1/2
+
+  twitter:
+    type: text
+    help: https://twitter.com/<b>[ACCOUNT]</b>
+    icon: twitter
+    label: Twitter
+    width: 1/2
+
+  vimeo:
+    type: text
+    help: https://vimeo.com/<b>[ACCOUNT]</b>
+    icon: vimeo
+    label: Vimeo
+    width: 1/2
+
+  instagram:
+    type: text
+    help: https://www.instagram.com/<b>[ACCOUNT]</b>
+    icon: instagram
+    label: Instagram
+    width: 1/2

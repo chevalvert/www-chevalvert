@@ -1,0 +1,11 @@
+title: Default
+icon: home
+hide: true
+
+pages: false
+files: false
+
+fields:
+  title: _title
+
+

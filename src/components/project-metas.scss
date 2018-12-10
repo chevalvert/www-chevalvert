@@ -1,0 +1,10 @@
+.project-metas {
+  &__meta {
+    margin-bottom: $line-height;
+  }
+
+  &__meta-label::after {
+    content: ':';
+    margin-left: -1ch;
+  }
+}

@@ -1,0 +1,231 @@
+title: Project
+icon: file-o
+pages: false
+files:
+  fields:
+    _file: _file
+
+fields:
+  pf: _previewfiles
+
+  tab1:
+    label: Général
+    type: tabs
+
+  title: _title
+
+  yearBegin:
+    type: number
+    label: Année du projet
+    default: 2018
+    icon: calendar-o
+    required: true
+    translate: false
+    width: 1/2
+
+  yearEnd:
+    type: number
+    label: Année de fin projet (optionnel)
+    icon: calendar-o
+    placeholder: ''
+    translate: false
+    width: 1/2
+
+  categories: _categories
+
+  tab2:
+    label: Couverture
+    type: tabs
+
+  cover:
+    type: image
+    label: Image de couverture…
+    help: L'image sélectionnée sera utilisée comme image de couverture lorsque le projet est épinglé en page d'accueil.
+    translate: false
+  vimeo:
+    type: url
+    label: …ou vidéo de couverture
+    help: Lien Vimeo valide. Attention, pour toute vidéo privée, l'embed doit être autorisé pour chevalvert.fr
+    icon: vimeo
+    translate: false
+    width: 2/3
+  vimeo_playback_offset:
+    type: number
+    label: Commencer à… (secondes)
+    icon: clock-o
+    placeholder: '0'
+    translate: false
+    width: 1/3
+
+  tab3:
+    label: Méta-données
+    type: tabs
+
+  metas:
+    translate: false
+    type: engineer
+    fields:
+      metadata:
+        type: select
+        label: Méta-donnée
+        required: true
+        translate: false
+        options: query
+        query:
+          page: metadatas
+          fetch: children
+          value: '{{uid}}'
+      fr:
+        required: true
+        type: text
+        label: Contenu (fr)
+        translate: false
+        icon: font
+        width: 1/2
+      en:
+        label: Contenu (en) (optionnel)
+        type: text
+        translate: false
+        icon: font
+        width: 1/2
+
+  tab4:
+    label: Liens
+    type: tabs
+
+  links:
+    type: engineer
+    translate: false
+    fieldsets:
+      url:
+        fields:
+          url:
+            label: Lien
+            required: true
+            translate: false
+            type: url
+            width: 2/4
+          fr:
+            label: '[FR]'
+            required: true
+            translate: false
+            type: text
+            icon: font
+            width: 1/4
+          en:
+            label: '[EN]'
+            type: text
+            translate: false
+            icon: font
+            width: 1/4
+      fichier:
+        fields:
+          url:
+            label: Lien
+            required: true
+            translate: false
+            type: select
+            width: 2/4
+            options: files
+          fr:
+            label: '[FR]'
+            required: true
+            translate: false
+            type: text
+            icon: font
+            width: 1/4
+          en:
+            label: '[EN]'
+            translate: false
+            type: text
+            icon: font
+            width: 1/4
+
+  tab5:
+    label: Description
+    type: tabs
+
+  text:
+    extends: _text
+    label: false
+
+  tab6:
+    label: Images
+    type: tabs
+
+  gallery:
+    # SEE: https://github.com/kirby-deprecated-plugins/field-engineer
+    type: engineer
+    translate: false
+    buttons:
+      - delete
+      - sort-up
+      - sort-down
+      - sort
+    fieldsets:
+      image:
+        fields:
+          image:
+            label: Image
+            type: image
+            translate: false
+          layout:
+            label: Grille
+            required: true
+            type: imageradio
+            columns: 5
+            translate: false
+            options:
+              -
+                label: 1-1
+                image: layouts/1.png
+              -
+                label: 2-1
+                image: layouts/2.png
+              -
+                label: 2-2
+                image: layouts/3.png
+              -
+                label: 1-2
+                image: layouts/4.png
+              -
+                label: 1-3
+                image: layouts/5.png
+      vimeo:
+        fields:
+          vimeo:
+            label: Vimeo
+            icon: vimeo
+            type: url
+            width: 2/3
+            translate: false
+            placeholder: https://vimeo.com/306221795
+          playback_offset:
+            label: Commencer à… (secondes)
+            type: number
+            translate: false
+            icon: clock-o
+            width: 1/3
+            placeholder: '0'
+          layout:
+            label: Grille
+            required: true
+            type: imageradio
+            columns: 5
+            translate: false
+            options:
+              -
+                label: 1-1
+                image: layouts/1.png
+              -
+                label: 2-1
+                image: layouts/2.png
+              -
+                label: 2-2
+                image: layouts/3.png
+              -
+                label: 1-2
+                image: layouts/4.png
+              -
+                label: 1-3
+                image: layouts/5.png

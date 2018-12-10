@@ -1,0 +1,21 @@
+.project {
+  &__header, &__body {
+    @include desktop {
+      @include apply-grid;
+    }
+
+    padding: $banner-padding;
+    background-color: $white;
+    color: $black;
+  }
+
+  &__header {
+    z-index: 1;
+    top: $menu-height;
+    position: sticky;
+
+    h1 {
+      @include underline;
+    }
+  }
+}

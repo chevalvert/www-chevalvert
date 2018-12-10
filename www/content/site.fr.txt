@@ -1,0 +1,58 @@
+Title: Chevalvert
+
+----
+
+Description: Chevalvert est un studio de design graphique, typographique et interactif.
+
+----
+
+Keywords: 
+
+----
+
+Redirections: 
+
+----
+
+Facebook: chevalvert.fr
+
+----
+
+Twitter: chevalvert
+
+----
+
+Vimeo: chevalvert
+
+----
+
+Instagram: chevalvert_studio
+
+----
+
+Subtitle: Design visuel & interactif
+
+----
+
+Footer-left: 
+
+Chevalvert est un studio de design graphique,
+typographique et interactif.
+
+----
+
+Footer-center: 
+
+137 avenue Jean Jaurès 
+75019 Paris, France
+(tel: +33 1 42 00 96 34)
+(email: contact@chevalvert.fr)
+
+----
+
+Footer-right: 
+
+[facebook](#)
+[twitter](#)
+[instagram](#)
+[viméo](#)

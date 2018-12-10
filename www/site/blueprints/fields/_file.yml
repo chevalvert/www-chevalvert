@@ -1,0 +1,7 @@
+type: group
+
+fields:
+  focus:
+    label: Point de focus
+    type: focus
+    help: La position du focus permet d'optimiser le rognage des vignettes

@@ -1,0 +1,52 @@
+title: Projets
+icon: folder
+pages:
+  template: project
+files: false
+
+fields:
+  hidebar: _hidebar
+
+  tab1:
+    label: Général
+    type: tabs
+
+  title: _title
+
+  pageindex:
+    type: index
+    label: 'Tous les projets'
+    addedit: true
+    filter: PanelHelpers::parseProjects
+    options: children
+    order: desc
+    rows: 50
+    columns:
+      parsedPosition:
+        label: Position
+        width: 80
+      parsedTitle: Titre
+      parsedCategories:
+        label: Categories
+      parsedYear:
+        label: Date
+        width: 120
+
+  tab2:
+    label: Projets épinglés
+    type: tabs
+
+  pinned:
+    # SEE: https://github.com/olach/kirby-relationship
+    type: relationship
+    help: Les projets sélectionnés seront affichés sur la page d'accueil dans l'ordre choisi.
+    options: query
+    search: true
+    translate: false
+    thumbs:
+      field: cover
+    query:
+      page: projects
+      fetch: visibleChildren
+      value: '{{id}}'
+

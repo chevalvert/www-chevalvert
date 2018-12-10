@@ -1,0 +1,56 @@
+.menu {
+  @include row;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  display: flex;
+  padding: $banner-padding;
+  text-transform: lowercase;
+
+  user-select: none;
+
+  border-bottom: 1px solid;
+  background-color: $black;
+
+  a:not(:hover) {
+    border: none;
+  }
+
+  &__logo {
+    @include col(1);
+  }
+
+  &__subtitle {
+    @include col(2);
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__nav {
+    @include col(3);
+    @include mobile {
+      width: 100%;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      @include mobile {
+        justify-content: flex-end;
+      }
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    li + li {
+      margin-left: $gutter * 2;
+    }
+  }
+}
+
+body[data-template='home'] .menu {
+  border-color: transparent;
+}

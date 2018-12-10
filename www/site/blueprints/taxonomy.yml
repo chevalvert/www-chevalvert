@@ -1,0 +1,27 @@
+title: Taxonomie
+icon: font
+
+pages:
+  template: taxonomy.word
+files: false
+
+fields:
+  hidebar: _hidebar
+  help:
+    type: info
+    label: Taxonomie
+    text: >
+      Cette page permet de définir une liste de mots-clefs ainsi que leur traduction, utilisable dans les pages de projet.
+
+  pageindex:
+    type: index
+    label: 'Tous les mots'
+    addedit: true
+    filter: PanelHelpers::parseProjects
+    options: children
+    order: desc
+    rows: 50
+    columns:
+      title: Identifiant
+      fr: fr
+      en: en
