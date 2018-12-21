@@ -18,6 +18,7 @@
 
   <ul class="projects-list__items">
     <?php foreach ($projects as $project) : ?>
+    <?php if ($project->vimeo()->isNotEmpty() || $project->cover()->isNotEmpty()) : ?>
     <li class="projects-list__item">
       <div class="projects-list__item-cover">
         <?php
@@ -50,6 +51,7 @@
         </div>
       </a>
     </li>
+    <?php endif ?>
     <?php endforeach ?>
   </ul>
 

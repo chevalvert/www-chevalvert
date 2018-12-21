@@ -31,6 +31,10 @@ fields:
       parsedYear:
         label: Date
         width: 120
+      trash:
+        label: ' '
+        sort: false
+        width: 1
 
   tab2:
     label: Projets épinglés
@@ -39,7 +43,7 @@ fields:
   pinned:
     # SEE: https://github.com/olach/kirby-relationship
     type: relationship
-    help: Les projets sélectionnés seront affichés sur la page d'accueil dans l'ordre choisi.
+    help: Les projets sélectionnés seront affichés sur la page d'accueil dans l'ordre choisi
     options: query
     search: true
     translate: false

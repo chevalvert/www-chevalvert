@@ -8,4 +8,5 @@ fields:
   focus:
     label: Point de focus
     type: focus
-    help: La position du focus permet d'optimiser le rognage des vignettes
+    help: >
+      La position du point de focus permet d'optimiser le rognage des vignettes sur la page d'accueil

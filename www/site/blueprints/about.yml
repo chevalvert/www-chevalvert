@@ -29,6 +29,10 @@ fields:
         label: Position
         width: 80
       parsedTitle: Titre
+      trash:
+        label: ' '
+        sort: false
+        width: 1
 
   tab2:
     label: Ancres

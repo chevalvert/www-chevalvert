@@ -11,13 +11,23 @@
   }
 
   function getMetadata ($id, $lang = null) {
-    $lang = $lang ? $lang : site()->language()->code();
-    return page('metadatas')->find($id)->$lang();
+    $site = site();
+    $lang = $lang ? $lang : $site->language()->code();
+    // SEE: blueprints/taxonomy.word
+    if ($lang === $site->defaultLanguage()->code()) $lang = 'title';
+
+    $metadata = page('metadatas')->find($id);
+    return $metadata ? $metadata->$lang() : '<a href="'. PanelHelpers::getPanelURL($site->page(), 'edit') .'">UNDEFINED</a>';
   }
 
   function getCategory ($id, $lang = null) {
-    $lang = $lang ? $lang : site()->language()->code();
-    return page('categories')->find($id)->$lang();
+    $site = site();
+    $lang = $lang ? $lang : $site->language()->code();
+    // SEE: blueprints/taxonomy.word
+    if ($lang === $site->defaultLanguage()->code()) $lang = 'title';
+
+    $category = page('categories')->find($id);
+    return $category ? $category->$lang() : '<a href="'. PanelHelpers::getPanelURL($site->page(), 'edit') .'">UNDEFINED</a>';
   }
 
   function getVimeoId ($url) {

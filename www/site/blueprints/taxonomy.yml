@@ -22,6 +22,9 @@ fields:
     order: desc
     rows: 50
     columns:
-      title: Identifiant
-      fr: fr
+      title: fr
       en: en
+      trash:
+        label: ' '
+        sort: false
+        width: 1

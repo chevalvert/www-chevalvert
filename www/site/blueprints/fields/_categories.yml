@@ -2,6 +2,10 @@ label: Catégorie(s)
 required: true
 translate: false
 type: checkboxes
+help: >
+  <a href="/panel/pages/categories/edit"><i class="icon icon-left fa fa-pencil"></i><span>Éditer les catégories</span></a>
+  &nbsp;/&nbsp;
+  <a href="/panel/pages/categories/add" data-modal><i class="icon icon-left fa fa-plus-circle"></i><span>Ajouter une nouvelle catégorie</span></a>
 
 # NOTE: this list will increase in the future
 # SEE: www/site/languages/[fr|en].yml for translations
@@ -10,4 +14,4 @@ query:
   page: categories
   fetch: children
   value: '{{uid}}'
-  text: '{{fr}}'
+  text: '{{title}}'

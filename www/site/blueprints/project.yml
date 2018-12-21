@@ -1,5 +1,5 @@
 title: Project
-icon: file-o
+icon: picture-o
 pages: false
 files:
   fields:
@@ -37,23 +37,33 @@ fields:
     label: Couverture
     type: tabs
 
+  cover_help:
+    type: info
+    text: >
+      <p>
+        <b>Attention&nbsp;:</b><br>Pour que ce projet puisse être épinglé en page d'accueil, il est obligatoire de sélectionner à minima une image de couverture.<br>
+        <br>
+        <i>Si une vidéo est également sélectionnée, l'image de couverture servira en cas de non-chargement de la vidéo.</i>
+      </p>
   cover:
     type: image
     label: Image de couverture…
-    help: L'image sélectionnée sera utilisée comme image de couverture lorsque le projet est épinglé en page d'accueil.
+    required: true
     translate: false
   vimeo:
     type: url
     label: …ou vidéo de couverture
-    help: Lien Vimeo valide. Attention, pour toute vidéo privée, l'embed doit être autorisé pour chevalvert.fr
     icon: vimeo
+    help: Lien Vimeo vers une vidéo <b>publique</b>
+    placeholder: https://vimeo.com/306221795
     translate: false
     width: 2/3
   vimeo_playback_offset:
     type: number
-    label: Commencer à… (secondes)
+    label: Commencer à…
     icon: clock-o
-    placeholder: '0'
+    placeholder: '0 '
+    help: Durée en secondes
     translate: false
     width: 1/3
 
@@ -71,6 +81,10 @@ fields:
         required: true
         translate: false
         options: query
+        help: >
+          <a href="/panel/pages/metadatas/edit"><i class="icon icon-left fa fa-pencil"></i><span>Éditer les méta-données</span></a>
+          &nbsp;/&nbsp;
+          <a href="/panel/pages/metadatas/add" data-modal><i class="icon icon-left fa fa-plus-circle"></i><span>Ajouter une nouvelle méta-donnée</span></a>
         query:
           page: metadatas
           fetch: children
@@ -78,12 +92,12 @@ fields:
       fr:
         required: true
         type: text
-        label: Contenu (fr)
+        label: '[FR]'
         translate: false
         icon: font
         width: 1/2
       en:
-        label: Contenu (en) (optionnel)
+        label: '[EN] (optionnel)'
         type: text
         translate: false
         icon: font
@@ -113,7 +127,7 @@ fields:
             icon: font
             width: 1/4
           en:
-            label: '[EN]'
+            label: '[EN] (optionnel)'
             type: text
             translate: false
             icon: font
@@ -135,7 +149,7 @@ fields:
             icon: font
             width: 1/4
           en:
-            label: '[EN]'
+            label: '[EN] (optionnel)'
             translate: false
             type: text
             icon: font
@@ -199,9 +213,11 @@ fields:
             type: url
             width: 2/3
             translate: false
+            help: Lien Vimeo vers une vidéo <b>publique</b>
             placeholder: https://vimeo.com/306221795
           playback_offset:
-            label: Commencer à… (secondes)
+            label: Commencer à…
+            help: Durée en secondes
             type: number
             translate: false
             icon: clock-o

@@ -12,6 +12,11 @@ class PanelHelpers {
       $page['parsedTitle'] = '<b>' . $p->title()->html() . '</b>';
       $page['parsedYear'] = $p->yearBegin()->value() . r($p->yearEnd()->isNotEmpty(), '-' . $p->yearEnd()->value());
       $page['parsedCategories'] = join(' / ', $p->categories()->split());
+
+      $page['trash'] = '
+        <a data-modal="" class="btn btn-with-icon" href="' . self::getPanelURL($p, 'delete?_redirect=pages/' . $p->parent() . '/edit') . '">
+          <i class="icon fa fa-trash-o"></i>
+        </a>';
     }
     return $pages;
   }

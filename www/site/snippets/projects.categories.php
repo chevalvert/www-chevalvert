@@ -10,7 +10,7 @@
   <?php foreach ($categories as $category) : ?>
   <li>
     <a class="<?= r($param_category === str::slug(getCategory($category)), 'is-active') ?>" href="<?= url('./' . url::paramsToString(['type' => str::slug(getCategory($category))])) ?>">
-      <?= getCategory($category)->lower()->html() ?>
+      <?= html(str::lower(getCategory($category))) ?>
     </a>
   </li>
   <?php endforeach ?>

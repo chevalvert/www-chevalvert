@@ -1,3 +1,4 @@
+<?php if ($project->vimeo()->isNotEmpty() || $project->cover()->isNotEmpty()) : ?>
 <section class="project-preview">
   <a href="<?= $project->url() ?>" title="<?= $project->title() ?>">
     <figure class="project-preview__cover">
@@ -40,3 +41,4 @@
     </header>
   </a>
 </section>
+<?php endif ?>
