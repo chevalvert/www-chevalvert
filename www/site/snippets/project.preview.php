@@ -19,6 +19,8 @@
             'width' => 1920,
             'ratio' => 16/9,
             'quality' => 70,
+            // NOTE: no title on image because wrapping <a> already has one
+            'title' => false,
             'lazy' => true
           ]);
         }

@@ -6,8 +6,11 @@
   $width = min($minwidth, $image->width());
   $height = isset($height) ? $height : $width / $ratio;
 
+  $alt = isset($alt)
+    ? $alt
+    : $image->caption();
+  $title = isset($title) ? $title : $alt;
   $image = $image->focusCrop($width, $height, compact('quality'));
-
   $linkable = isset($linkable) ? $linkable : false;
 ?>
 
@@ -19,8 +22,8 @@
     class="<?= isset($class) ? $class : '' ?>"
     width="<?= $image->width() ?>"
     height="<?= $image->height() ?>"
-    alt="<?= isset($alt) ? $alt : '' ?>"
-    title="<?= isset($alt) ? $alt : '' ?>"
+    <?= r($alt, 'alt="'.$alt.'"') ?>
+    <?= r($title, 'title="'.$title.'"') ?>
 
     <?php if (isset($attributes)) {
       foreach ($attributes as $attribute => $value) {
@@ -36,7 +39,7 @@
       echo 'src="' . $image->url() . '" ';
     } ?>
   />
-  <noscript><img src="<?= $image->url() ?>" /></noscript>
+  <noscript><img src="<?= $image->url() ?>" <?= r($alt, 'alt="'.$alt.'"') ?> <?= r($title, 'title="'.$title.'"') ?>/></noscript>
 
 <?php if ($linkable) : ?>
 </a>

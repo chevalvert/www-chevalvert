@@ -1,6 +1,10 @@
 type: group
 
 fields:
+  caption:
+    label: Légende de l'image
+    type: text
+    icon: font
   focus:
     label: Point de focus
     type: focus
