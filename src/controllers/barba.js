@@ -8,7 +8,7 @@ import cloneAttributes from 'utils/dom-clone-attributes'
 export default ({
   wrapperId = 'main',
   containerClass = 'wrapper',
-  excludedExtensions = /.jpg|.png|.pdf|.jpeg/i,
+  excludedExtensions = /.jpg|.png|.pdf|.jpeg|panel/i,
   transitionsMap = {},
   // SEE http://barbajs.org/events
   linkClicked = noop,

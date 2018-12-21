@@ -36,8 +36,8 @@ c::set([
   ],
 
   'routes' => [
+    // SEE: https://github.com/arnaudjuracek/kirby-backup-widget#security
     [
-      // SEE: https://github.com/arnaudjuracek/kirby-backup-widget#security
       'pattern' => 'content/backups/(:any)',
       'action' => function ($file) {
         if (site()->user()) {
@@ -49,12 +49,23 @@ c::set([
         }
       }
     ],
+    // NOTE: redirect studio subpages to studio anchors
     [
       'pattern' => 'studio/(:any)',
       'action' => function ($anchor) {
         return go('studio#' . $anchor);
       }
-    ]
+    ],
+    // NOTE: quick access to the panel from any page
+    [
+      'pattern' => '(:all)/panel',
+      'action' => function ($path) {
+        $panel_path = "pages/$path/edit";
+        return site()->user()
+          ? go("panel/$panel_path")
+          : go("panel/login?_redirect=$panel_path");
+      }
+    ],
   ]
 ]);
 
