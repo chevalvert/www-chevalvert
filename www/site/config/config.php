@@ -60,7 +60,7 @@ c::set([
     [
       'pattern' => '(?:en/|)(:all)/panel',
       'action' => function ($path) {
-        $panel_path = "pages/$path/edit";
+        $panel_path = $path === 'en' ? "" : "pages/$path/edit";
         return site()->user()
           ? go("panel/$panel_path")
           : go("panel/login?_redirect=$panel_path");
