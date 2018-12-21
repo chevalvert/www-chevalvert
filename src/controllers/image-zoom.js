@@ -1,9 +1,9 @@
-import 'nodelist-foreach'
 import Zoom from 'components/zoom'
+import html from 'nanohtml'
 
 export default ({
   selector = '[data-zoom]',
-  className = 'zoom',
+  className = 'zoom-media',
   container = document.documentElement,
   stripAttributes = {
     'IMG': ['class', 'width', 'height', 'data-lozad'],
@@ -13,26 +13,34 @@ export default ({
   const links = document.querySelectorAll(selector)
   if (!links || !links.length) return
 
-  links.forEach(link => {
+  let zooms = Array.from(links).map(link => {
     const media = link.querySelector('img, iframe')
     if (!media) return
 
-    link.zoom = new Zoom({
+    return new Zoom({
+      link,
       container,
       media: clone(media),
       url: link.getAttribute('data-zoom')
     })
+  }).map((zoom, index, zooms) => {
+    if (!zoom) return
+    zoom.previous = zooms[(index + zooms.length - 1) % zooms.length]
+    zoom.next = zooms[(index + 1) % zooms.length]
 
-    link.addEventListener('click', e => {
+    zoom.link.addEventListener('click', e => {
       if (e.which > 1 || e.shiftKey || e.altKey || e.metaKey || e.ctrlKey) return
       e.preventDefault()
-      link.zoom.open()
+      zoom.open()
     }, false)
+
+    return zoom
   })
 
   return {
     destroy: () => {
-      links.forEach(link => link.zoom.destroy())
+      zooms.forEach(zoom => zoom.destroy())
+      zooms = undefined
     }
   }
 
@@ -51,13 +59,13 @@ export default ({
     const ratio = iframe.getAttribute('data-ratio')
     if (!ratio) return
 
-    const wrapper = document.createElement('div')
-    wrapper.style.paddingTop = parseFloat(ratio) * 100 + '%'
-
-    wrapper.classList = iframe.classList
+    // Transfer all iframe's classes to its wrapper
+    const classes = Array.from(iframe.classList)
     iframe.classList = ''
 
-    wrapper.append(iframe)
-    return wrapper
+    return html`
+    <div class='${classes}' style='padding-top: ${parseFloat(ratio) * 100}%'>
+      ${iframe}
+    </div>`
   }
 }

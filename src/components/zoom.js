@@ -1,24 +1,24 @@
 import 'nodelist-foreach'
+import html from 'nanohtml'
 
 export default class Zoom {
-  constructor ({ media, container, url } = {}) {
+  constructor ({ link, media, container, url, previous, next } = {}) {
+    this.link = link
     this.container = container
-
-    this.element = document.createElement('div')
-    this.element.classList.add('zoom-container')
-
     this.media = media
+
     if (url) {
-      if (media.tagName === 'IMG' || media.tagName === 'IFRAME') {
-        media.setAttribute('src', url)
+      if (this.media.tagName === 'IMG' || this.media.tagName === 'IFRAME') {
+        this.media.setAttribute('src', url)
       } else {
-        media.querySelectorAll('img, iframe').forEach(el => {
+        this.media.querySelectorAll('img, iframe').forEach(el => {
           el.setAttribute('src', url)
         })
       }
     }
-    this.element.append(media)
 
+    // TODO: add prev/next buttons
+    this.element = html`<div class='zoom-container'>${this.media}</div>`
     this.bindFuncs(['interceptClick', 'interceptKey'])
   }
 
@@ -29,14 +29,11 @@ export default class Zoom {
   mount () {
     this.mounted = true
     this.container.append(this.element)
-
-    this.bind()
   }
 
   destroy () {
     this.mounted = false
     this.element.remove()
-    this.unbind()
   }
 
   bind () {
@@ -50,13 +47,21 @@ export default class Zoom {
   }
 
   interceptClick (e) {
+    if (e.which > 1 || e.shiftKey || e.altKey || e.metaKey || e.ctrlKey) return
     e.preventDefault()
     this.close()
   }
 
   interceptKey (e) {
-    if (e.code !== 'Escape') return
-    this.close()
+    if (e.code === 'Escape') this.close()
+    if (~['ArrowLeft', 'ArrowUp'].indexOf(e.code)) {
+      this.close()
+      this.previous.open()
+    }
+    if (~['ArrowRight', 'ArrowDown'].indexOf(e.code)) {
+      this.close()
+      this.next.open()
+    }
   }
 
   open () {
@@ -64,11 +69,15 @@ export default class Zoom {
     this.isOpen = true
     this.element.classList.add('is-open')
     this.element.style.display = ''
+    this.bind()
+    document.body.classList.add('no-scroll')
   }
 
   close () {
     this.isOpen = false
     this.element.classList.remove('is-open')
     this.element.style.display = 'none'
+    this.unbind()
+    document.body.classList.remove('no-scroll')
   }
 }
