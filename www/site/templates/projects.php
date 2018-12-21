@@ -39,13 +39,13 @@
         ?>
       </div>
       <a href="<?= $project->url() ?>">
-        <div class="projects-list__item-title">
+        <div class="projects-list__item-title" data-label="<?= l('projects-list.name') ?>">
           <?= $project->title()->html() ?>
         </div>
-        <div class="projects-list__item-type">
+        <div class="projects-list__item-type" data-label="<?= l('projects-list.type') ?>">
           <?php snippet('project.categories', compact('project')) ?>
         </div>
-        <div class="projects-list__item-date">
+        <div class="projects-list__item-date" data-label="<?= l('projects-list.date') ?>">
           <?php snippet('project.date', compact('project')) ?>
         </div>
       </a>

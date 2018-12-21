@@ -16,6 +16,9 @@
 
     h1 {
       @include underline;
+      @include mobile {
+        margin-bottom: $line-height;
+      }
     }
   }
 }

@@ -1,6 +1,13 @@
-.project-categories {
-  // TODO: handle overflow-x
+.projects-categories {
   display: inline-block;
+
+  li {
+    display: inline;
+  }
+
+  li + li::before {
+    content: ' / ';
+  }
 
   a:not(:hover):not(.is-active) {
     border: none;

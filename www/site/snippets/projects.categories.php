@@ -1,6 +1,6 @@
 <?php $lang = $site->language()->code() ?>
 
-<ul class="project-categories">
+<ul class="projects-categories">
   <li>
     <a class="<?= r(!$param_category, 'is-active') ?>" href="<?= url('./') ?>">
       <?= l('categories.all') ?>
