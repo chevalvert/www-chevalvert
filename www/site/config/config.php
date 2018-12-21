@@ -58,7 +58,7 @@ c::set([
     ],
     // NOTE: quick access to the panel from any page
     [
-      'pattern' => '(:all)/panel',
+      'pattern' => '(?:en/|)(:all)/panel',
       'action' => function ($path) {
         $panel_path = "pages/$path/edit";
         return site()->user()
