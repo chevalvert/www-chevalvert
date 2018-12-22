@@ -1,9 +1,5 @@
 .projects-list {
   &__header {
-    @include mobile {
-      display: none;
-    }
-
     @include apply-grid;
     position: sticky;
     top: calc(#{$menu-height} + 1px);
@@ -32,6 +28,31 @@
     &-label span.is-sorting[data-sort='DESC']::after {
       content: '\2009\2193';
       transform: scaleY(-1) translateX(6px) translateY(2px);
+    }
+
+    @include mobile {
+      border-bottom: 1px solid $white;
+      margin-bottom: -1px;
+      overflow-x: scroll;
+      overflow-y: visible;
+
+      &-label:first-child,
+      &-label:last-child {
+        display: none;
+      }
+
+      &-label:nth-child(2) {
+        span {
+          display: none;
+        }
+        display: block;
+        width: 100%;
+        padding: 0;
+        .projects-categories {
+          padding-right: $gutter;
+          white-space: nowrap;
+        }
+      }
     }
   }
 
