@@ -19,4 +19,5 @@
 } ?>
 
 <?php snippet('barba.footer') ?>
+<?php snippet('footer') ?>
 <?php snippet('site.footer') ?>
