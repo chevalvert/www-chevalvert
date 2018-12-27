@@ -1,4 +1,5 @@
 import 'nodelist-foreach'
+import isMobile from 'utils/is-mobile'
 import seedableRandom from 'utils/seedable-random'
 import { lerp } from 'missing-math'
 
@@ -6,6 +7,7 @@ export default ({
   elements = document.querySelectorAll('img'),
   margin = [0, 0, 0, 0]
 } = {}) => {
+  if (isMobile()) return
   if (!elements || !elements.length) return
 
   const seed = Math.random() * 1000

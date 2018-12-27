@@ -1,5 +1,6 @@
-import Zoom from 'components/zoom'
 import html from 'nanohtml'
+import isMobile from 'utils/is-mobile'
+import Zoom from 'components/zoom'
 
 export default ({
   selector = '[data-zoom]',
@@ -10,6 +11,8 @@ export default ({
     'IFRAME': ['class']
   }
 } = {}) => {
+  if (isMobile()) return
+
   const links = document.querySelectorAll(selector)
   if (!links || !links.length) return
 
