@@ -2,6 +2,7 @@ title: Projets
 icon: folder
 pages:
   template: project
+  num: zero
 files: false
 
 fields:
@@ -22,15 +23,20 @@ fields:
     order: desc
     rows: 50
     columns:
-      parsedPosition:
-        label: Position
-        width: 80
       parsedTitle: Titre
       parsedCategories:
-        label: Categories
+        label: Catégories
       parsedYear:
         label: Date
         width: 120
+      preview:
+        label: ' '
+        width: 1
+        sort: false
+      visible:
+        label: ' '
+        width: 1
+        sort: false
       trash:
         label: ' '
         sort: false
