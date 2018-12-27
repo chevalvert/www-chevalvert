@@ -36,6 +36,16 @@ c::set([
   ],
 
   'routes' => [
+    // NOTE: quick access to the panel from any page
+    [
+      'pattern' => '(?:en/|)(:all)/panel',
+      'action' => function ($path) {
+        $panel_path = $path === 'en' ? "" : "pages/$path/edit";
+        return site()->user()
+          ? go("panel/$panel_path")
+          : go("panel/login?_redirect=$panel_path");
+      }
+    ],
     // SEE: https://github.com/arnaudjuracek/kirby-backup-widget#security
     [
       'pattern' => 'content/backups/(:any)',
@@ -49,21 +59,11 @@ c::set([
         }
       }
     ],
-    // NOTE: redirect studio subpages to studio anchors
+    // NOTE: redirect studio#subpage to studio#anchor
     [
       'pattern' => 'studio/(:any)',
       'action' => function ($anchor) {
-        return go('studio#' . $anchor);
-      }
-    ],
-    // NOTE: quick access to the panel from any page
-    [
-      'pattern' => '(?:en/|)(:all)/panel',
-      'action' => function ($path) {
-        $panel_path = $path === 'en' ? "" : "pages/$path/edit";
-        return site()->user()
-          ? go("panel/$panel_path")
-          : go("panel/login?_redirect=$panel_path");
+        go(site()->find("studio/$anchor") ? "studio#$anchor" : 'error');
       }
     ],
   ]
