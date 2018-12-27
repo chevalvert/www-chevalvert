@@ -73,7 +73,7 @@ c::set([
 c::set([
   'date.handler' => 'strftime',
   'date.format' => '%e %B %Y',
-  'language.detect' => true,
+  'language.detect' => false,
   'languages' => [
     [
       'code' => 'fr',
