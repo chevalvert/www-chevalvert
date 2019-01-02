@@ -14,7 +14,7 @@
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="msapplication-config" content="<?= $kirby->urls()->assets() ?>/favicons/browserconfig.xml">
 
-<meta name="theme-color" content="#000000"
+<meta name="theme-color" content="#000000">
 
 <meta property="og:url" content="<?= $site->url() ?>">
 <meta property="og:type" content="website">
@@ -30,10 +30,26 @@
 <meta name="twitter:title" content="<?= r($page !== $site->homePage(), $page->title()->html() . ' | ') . $site->title()->html() ?>">
 <meta name="twitter:description" content="<?= $site->description()->text() ?>">
 
-<?php if ($image = $page->cover()->isNotEmpty() ? $page->image($page->cover()) : null) : ?>
-  <?php $og_cover = $image->focusCrop(1200, 630) ?>
-  <meta property="og:image" content="<?= $og_cover->url() ?>">
-  <meta property="og:image:width" content="<?= $og_cover->width() ?>">
-  <meta property="og:image:height" content="<?= $og_cover->height() ?>">
-  <meta name="twitter:image" content="<?= $image->url() ?>">
+<?php
+  $image = $page->cover()->isNotEmpty() ? $page->image($page->cover()) : null;
+
+  // NOTE: if on a page without cover, find the first project with a usable cover
+  if (!$image) {
+    $firstCoveredProject = page('projects')
+      ->children()
+      ->visible()
+      ->filter(function ($p) { return $p->cover()->isNotEmpty(); })
+      ->first();
+    $image = $firstCoveredProject ? $firstCoveredProject->image($firstCoveredProject->cover()) : null;
+  }
+
+  $og_cover = $image ? $image->focusCrop(1200, 630) : null;
+  $tw_cover = $image ? $image->focusCrop(280, 150) : null;
+?>
+
+<?php if (isset($image)) : ?>
+<meta property="og:image" content="<?= $og_cover->url() ?>">
+<meta property="og:image:width" content="<?= $og_cover->width() ?>">
+<meta property="og:image:height" content="<?= $og_cover->height() ?>">
+<meta name="twitter:image" content="<?= $tw_cover->url() ?>">
 <?php endif ?>
