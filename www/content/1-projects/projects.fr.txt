@@ -16,4 +16,4 @@ Categories:
 
 ----
 
-Pinned: projects/tout-se-transforme, projects/projet-de-test, projects/projet-de-test-2, projects/projet-de-test-3
+Pinned: projects/projet-de-test, projects/tout-se-transforme, projects/projet-de-test-2, projects/projet-de-test-3
