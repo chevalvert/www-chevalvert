@@ -51,6 +51,25 @@ a {
   line-height: 1;
 }
 
+figure {
+  font-size: 0;
+  &, * {
+    position: relative;
+  }
+
+  &::before {
+    @include spinner;
+  }
+}
+
+[data-lozad] {
+  opacity: 0;
+}
+
+[data-lozad][data-loaded="true"] {
+  opacity: 1;
+}
+
 main {
   margin-top: $menu-height;
   flex: 1 0 auto;

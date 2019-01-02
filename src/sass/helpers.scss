@@ -36,3 +36,28 @@
   border-top: $thickness solid $foreground;
   animation: loader-move $speed linear infinite;
 }
+
+@mixin spinner ($size: 1rem, $thickness: 2px, $foreground: transparent, $background: $white, $speed: 500ms) {
+  @keyframes loader-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  content: '';
+
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: $size;
+  height: $size;
+  margin-left: -$size / 2;
+  margin-top: -$size / 2;
+
+  border: $thickness solid $background;
+  border-top: $thickness solid $foreground;
+  border-left: $thickness solid $foreground;
+  border-radius: 50%;
+  animation: loader-spin $speed linear infinite;
+}
+
