@@ -6,5 +6,5 @@
     ->feed([
       'title' => $page->title(),
       'description' => $page->text(),
-      'link' => '$page->url()'
+      'link' => $page->url()
     ]);
