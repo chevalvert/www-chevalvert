@@ -3,8 +3,7 @@
     'debug' => true,
     'cache' => false,
     'language.detect' => false,
-    'ssl' => false,
-    'plugin.html.minifier.active' => false
+    'ssl' => false
   ]);
 
   // The code below are required for the kirby-webpack dev server to work

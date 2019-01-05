@@ -1,9 +1,14 @@
 <?php
 
-return function ($site, $pages, $page) {
+return function ($site, $pages, $page, $options) {
   return [
-    'projects' => param('random', false)
-      ? page('projects')->children()->visible()->shuffle()->limit(param('random'))
+    'projects' => array_key_exists('random', $options)
+      ? page('projects')
+        ->children()
+        ->visible()
+        ->shuffle()
+        // NOTE: if 'random' => true, do not limit the projects collection
+        ->limit($options['random'] === true ? null : $options['random'])
       : page('projects')->pinned()->pages(',')
   ];
 };

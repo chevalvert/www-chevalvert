@@ -9,9 +9,7 @@ c::set([
   'cache.ignore' => ['sitemap', 'feed'],
   'panel.kirbytext' => true,
   'smartypants' => true,
-  'markdown.extra' => true,
-  'plugin.html.minifier.active' => true,
-  'plugin.html.minifier.blacklist' => ['feed', 'sitemap'],
+  'markdown.extra' => true
 ]);
 
 // Medias
@@ -66,6 +64,19 @@ c::set([
         go(site()->find("studio/$anchor") ? "studio#$anchor" : 'error');
       }
     ],
+    // NOTE: redirect /random & random/<LENGTH> to the homepage with random projects
+    [
+      'pattern' => 'random',
+      'action' => function () {
+        return ['home', ['random' => true]];
+      }
+    ],
+    [
+      'pattern' => 'random/(:num)',
+      'action' => function ($length) {
+        return ['home', ['random' => $length]];
+      }
+    ]
   ]
 ]);
 

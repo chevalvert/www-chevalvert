@@ -78,7 +78,6 @@ www/site/fields/relationship
 www/site/plugins/typography
 www/site/plugins/focus
 www/site/plugins/kirby-index-field
-www/site/plugins/kirby-html-minifier
 www/site/plugins/kirby-hidebar-field
 www/site/plugins/field-engineer
 www/site/plugins/simplemde
