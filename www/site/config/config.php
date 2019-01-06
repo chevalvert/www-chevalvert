@@ -6,7 +6,7 @@
 // Core
 c::set([
   'cache' => true,
-  'cache.ignore' => ['sitemap', 'feed'],
+  'cache.ignore' => ['sitemap', 'feed', 'home'],
   'panel.kirbytext' => true,
   'smartypants' => true,
   'markdown.extra' => true
