@@ -1,5 +1,6 @@
 import 'nodelist-foreach'
 import html from 'nanohtml'
+import VimeoPlayer from '@vimeo/player'
 
 export default class Zoom {
   constructor ({ link, media, container, url, previous, next } = {}) {
@@ -17,6 +18,11 @@ export default class Zoom {
       }
     }
 
+    const iframe = this.media.tagName === 'IFRAME'
+      ? this.media
+      : this.media.querySelector('iframe')
+    if (iframe) this.player = new VimeoPlayer(iframe)
+
     // TODO: add prev/next buttons
     this.element = html`<div class='zoom-container'>${this.media}</div>`
     this.bindFuncs(['interceptClick', 'interceptKey'])
@@ -33,6 +39,7 @@ export default class Zoom {
 
   destroy () {
     this.mounted = false
+    if (this.player) this.player.destroy()
     this.element.remove()
   }
 
@@ -77,6 +84,10 @@ export default class Zoom {
     this.isOpen = false
     this.element.classList.remove('is-open')
     this.element.style.display = 'none'
+    if (this.player) {
+      this.player.pause()
+      this.player.setCurrentTime(0)
+    }
     this.unbind()
     document.body.classList.remove('no-scroll')
   }
