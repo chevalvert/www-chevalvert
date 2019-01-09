@@ -21,4 +21,8 @@
       }
     }
   }
+
+  p + p {
+    margin-top: $line-height;
+  }
 }
