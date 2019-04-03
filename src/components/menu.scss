@@ -35,7 +35,7 @@
 
     ul {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       @include mobile {
         justify-content: flex-end;
       }
