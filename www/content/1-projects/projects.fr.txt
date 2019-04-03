@@ -16,4 +16,4 @@ Categories:
 
 ----
 
-Pinned: projects/projet-de-test, projects/tout-se-transforme, projects/projet-de-test-2, projects/projet-de-test-3
+Pinned: projects/projet-de-test-3, projects/rythmus, projects/tout-se-transforme, projects/stratum, projects/wip-map
