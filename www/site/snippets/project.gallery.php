@@ -1,10 +1,18 @@
 <?php
-/*
-  | 1 : 2 :   |
-  |   : 3 : 3 |
-  | 4 : 4 :   |
-  | 5 : 5 : 5 |
-*/
+  /*
+    | 1 : 2 :   |
+    |   : 3 : 3 |
+    | 4 : 4 :   |
+    | 5 : 5 : 5 |
+  */
+
+  $tbn_sizes = [
+    1 => 600,
+    2 => 900,
+    3 => 1024,
+    4 => 1280,
+    5 => 1920
+  ];
 ?>
 
 <ul class="project-gallery">
@@ -20,6 +28,7 @@
       if ($item->image()->isNotEmpty()) {
         snippet('image', [
           'image' => $project->image($item->image()),
+          'width' => $tbn_sizes[$layout],
           'lazy' => true,
           'linkable' => true
         ]);

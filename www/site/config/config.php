@@ -14,8 +14,8 @@ c::set([
 
 // Medias
 c::set([
-  'thumbnail.quality' => 80,
-  'thumbnail.maxSize' => 700,
+  'thumbnail.quality' => 90,
+  'thumbnail.maxSize' => 1200,
   'ka.image.shrink.maxDimension' => 1920,
   'project-gallery.lineBreakerLayouts' => [1, 4, 5]
 ]);
