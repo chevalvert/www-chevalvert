@@ -49,7 +49,7 @@ function phpInit () {
     // enable custom php router
     // to handle routes with dots in it (like /default.json)
     // this is needed to use content representations
-    path.join(user.paths.www, 'site', 'router.php')
+    path.join(user.paths.kirby.core, 'router.php')
   ]
 
   if (user.devServer.logPhpErrors) {

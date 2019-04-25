@@ -6,7 +6,6 @@
 
 <link rel="icon" type="image/png" sizes="32x32" href="<?= $kirby->urls()->assets() ?>/favicons/favicon-32x32.png?v=3">
 <link rel="icon" type="image/png" sizes="16x16" href="<?= $kirby->urls()->assets() ?>/favicons/favicon-16x16.png?v=3">
-<link rel="manifest" href="<?= $kirby->urls()->assets() ?>/favicons/manifest.json?v=3">
 <link rel="mask-icon" href="<?= $kirby->urls()->assets() ?>/favicons/safari-pinned-tab.svg?v=3" color="#000000">
 <link rel="shortcut icon" href="favicon.ico?v=3">
 

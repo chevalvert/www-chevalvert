@@ -49,13 +49,9 @@ paths.basepaths = {
 // all kirby paths
 paths.kirby = {
   core: path.join(paths.www, 'kirby'),
-  panel: path.join(paths.www, 'panel'),
   assets: path.join(paths.www, 'assets'),
   cache: path.join(paths.www, 'site', 'cache'),
-  fields: path.join(paths.www, 'site', 'fields'),
-  tags: path.join(paths.www, 'site', 'tags'),
-  plugins: path.join(paths.www, 'site', 'plugins'),
-  widgets: path.join(paths.www, 'site', 'widgets')
+  plugins: path.join(paths.www, 'site', 'plugins')
 }
 
 /**

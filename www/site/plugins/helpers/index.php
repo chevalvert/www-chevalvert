@@ -1,7 +1,7 @@
 <?php
 
   // globally available helpers function
-  @include __DIR__ . DS . 'helpers.panel.php';
+  @include __DIR__ . DS . 'panel.php';
 
   function getTopLevelPage ($page) {
     if ($page->depth() === 1) return $page;

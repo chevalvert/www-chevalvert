@@ -1,6 +1,6 @@
 <header role="banner" class="menu">
   <div class="menu__logo">
-    <a href="<?= $site->url() ?>" title="<?= l('go-home') ?>" class="menu__logo-link">
+    <a href="<?= $site->url() ?>" title="<?= t('go-home') ?>" class="menu__logo-link">
       <?= $site->title()->html() ?>
     </a>
   </div>
@@ -13,7 +13,7 @@
     <ul>
     <?php foreach ($pages->visible() as $item) : ?>
       <li>
-        <a href="<?= $item->url() ?>" class="<?= r($item->isActive(), 'is-active', '') ?>" title="<?= l('go-to') .' '. $item->title() ?>">
+        <a href="<?= $item->url() ?>" class="<?= r($item->isActive(), 'is-active', '') ?>" title="<?= t('go-to') .' '. $item->title() ?>">
           <?= $item->title()->html() ?>
         </a>
       </li>
