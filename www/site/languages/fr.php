@@ -4,7 +4,6 @@ return [
   'code' => 'fr',
   'name' => 'French',
   'default' => true,
-  'url' => '/',
   'locale'  =>  'fr_FR.UTF-8',
 
   'translations' => [

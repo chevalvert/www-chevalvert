@@ -1,18 +1,16 @@
-<?php snippet('site.header') ?>
-<?php snippet('barba.header') ?>
+<?php snippet('html/header') ?>
+<?php snippet('barba/header') ?>
 <?php snippet('menu') ?>
 
-<section class="about-section">
-  <div class="about-section__column">
-    <h2>
-      <?= $page->title()->html() ?>
-    </h2>
+<article class="default">
+  <div class="default__column">
+    <h1><?= $page->title()->html() ?></h1>
   </div>
-  <div class="about-section__column">
+  <div class="default__column">
     <?= $page->text()->kirbytext() ?>
   </div>
-</section>
+</article>
 
-<?php snippet('barba.footer') ?>
+<?php snippet('barba/footer') ?>
 <?php snippet('footer') ?>
-<?php snippet('site.footer') ?>
+<?php snippet('html/footer') ?>

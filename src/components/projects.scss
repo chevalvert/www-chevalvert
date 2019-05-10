@@ -1,0 +1,53 @@
+.projects {
+  &__header {
+    @include grid($main-grid);
+    @include menubar;
+
+    position: sticky;
+    top: calc(#{$menu-height});
+
+    color: $black;
+    background-color: $white;
+    z-index: 2;
+
+    & > * {
+      width: 100% !important;
+    }
+  }
+
+  &__items {
+    @include row;
+    margin-top: $gutter;
+  }
+
+  .project-preview {
+    @include col(4);
+    margin-bottom: $gutter + $line-height;
+
+    @include tablet { @include col(8); }
+    @include mobile { @include col(16); }
+  }
+
+  .project-preview:hover h3 {
+    @include underline;
+  }
+
+  .project-preview__header {
+    display: block !important;
+    background-color: transparent !important;
+    color: $white !important;
+    padding: $menu-padding-top 0 0 0;
+    height: auto;
+    white-space: nowrap;
+
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .project__header-column {
+    padding: 0;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+}

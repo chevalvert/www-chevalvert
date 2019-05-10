@@ -1,92 +1,56 @@
-$debug: false;
-
 .project-gallery {
-  @include row;
-  padding: $gutter;
   user-select: none;
-  padding-bottom: 0;
 
-  li {
-    margin-bottom: $gutter;
+  a, figure, img, iframe {
     font-size: 0;
-  }
-
-  li img {
+    display: block;
+    box-sizing: border-box;
+    border: 0;
     width: 100%;
     height: auto;
   }
 
-  li a {
-    width: 100%;
+  li {
     font-size: 0;
-    border: 0;
+    width: 100%;
   }
 
-  &__line-break {
-    display: block;
-  }
-
-  /*
-    | 1 : 2 :   |
-    |   : 3 : 3 |
-    | 4 : 4 :   |
-    | 5 : 5 : 5 |
-  */
-
-  @include desktop {
-    li[data-layout='1'] {
-      @include col(1);
-    }
-
-    li[data-layout='2'] {
-      @include col(2);
-      margin-left: nth($grid-columns, 1);
-    }
-
-    li[data-layout='1'] + li[data-layout='2'] {
-      margin-left: 0;
-    }
-
-    li[data-layout='3'] {
-      @include col;
-      width: nth($grid-columns, 3) + nth($grid-columns, 2);
-      padding-right: 0;
-      margin-left: nth($grid-columns, 1);
-    }
-
-    li[data-layout='1'] + li[data-layout='3'] {
-      margin-left: 0;
-    }
-
-    li[data-layout='4'] {
-      @include col;
-      padding-left: 0;
-      width: nth($grid-columns, 1) + nth($grid-columns, 2);
-    }
-
-    li[data-layout='5'] {
-      @include col;
-      padding-left: 0;
-      padding-right: 0;
-      width: 100%;
+  @if $debug {
+    img, iframe {
+      @include debug(white);
     }
   }
-}
 
-@if $debug {
-  .project-gallery {
-    background-color: gray;
-    li {
-      position: relative;
-      &::after {
-        content: attr(data-layout);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        color: cyan;
-        transform: translate(-50%, -50%);
-        font-size: 10rem;
-        text-shadow: 0 0 10px black;
+  &__row {
+    margin-top: $grid-gutter;
+    margin-bottom: $grid-gutter;
+
+    @include desktop {
+      &[data-ratio='█████████████░░░ (13-)'] { @include grid((13)); }
+      &[data-ratio='░░░█████████████ (-13)'] { @include grid((13), 3); }
+      &[data-ratio='███████████░░░░░ (11-)'] { @include grid((11)); }
+      &[data-ratio='░░░░░███████████ (-11)'] { @include grid((11), 5); }
+      &[data-ratio='████████░░░░░░░░ (8-)'] { @include grid((8)); }
+      &[data-ratio='░░░░░░░░████████ (-8)'] { @include grid((8), 8); }
+      &[data-ratio='█████░░░░░░░░░░░ (5-)'] { @include grid((5)); }
+      &[data-ratio='░░░░░░░░░░░█████ (-5)'] { @include grid((5), 11); }
+      &[data-ratio='███████████▓▓▓▓▓ (11-5)'] { @include grid((11, 5)); }
+      &[data-ratio='█████▓▓▓▓▓▓▓▓▓▓▓ (5-11)'] { @include grid((5, 11)); }
+      &[data-ratio='████████▓▓▓▓▓▓▓▓ (8-8)'] { @include grid((8, 8)); }
+      &[data-ratio='████████▓▓▓▓▓░░░ (8-5-)'] { @include grid((8, 5)); }
+      &[data-ratio='█████▓▓▓▓▓▓▓▓░░░ (5-8-)'] { @include grid((5, 8)); }
+      &[data-ratio='░░░████████▓▓▓▓▓ (-8-5)'] { @include grid((8, 5), 3); }
+      &[data-ratio='░░░█████▓▓▓▓▓▓▓▓ (-5-8)'] { @include grid((5, 8), 3); }
+      &[data-ratio='█████▓▓▓▓▓░░░░░░ (5-5-)'] { @include grid((5, 5)); }
+      &[data-ratio='░░░░░░█████▓▓▓▓▓ (-5-5)'] { @include grid((5, 5), 6); }
+      &[data-ratio='█████▓▓▓▓▓█████░ (5-5-5-)'] { @include grid((5, 5, 5)); }
+      &[data-ratio='░█████▓▓▓▓▓█████ (-5-5-5)'] { @include grid((5, 5, 5), 1); }
+    }
+
+    @include devices(mobile, tablet) {
+      @include grid((16, 16, 16));
+      li + li {
+        margin-top: $gutter;
       }
     }
   }

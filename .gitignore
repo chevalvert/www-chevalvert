@@ -2,6 +2,7 @@
 # By default, git ignores all content from sub-pages folders
 # Comment the line below if you want git to handle all your content
 www/content/*/*/*
+www/content/**/.lock
 
 www/media/*
 !www/media/index.html
@@ -72,5 +73,8 @@ Temporary Items
 
 # <KirbyWebpack>
 www/kirby
+www/site/plugins/kirby3-autoid
+www/site/plugins/focus
+www/site/plugins/kirby-builder
 # </KirbyWebpack>
 *.bak

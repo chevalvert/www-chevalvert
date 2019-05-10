@@ -1,17 +1,81 @@
-Facebook: chevalvert.fr
+Title: Chevalvert
 
 ----
 
-Twitter: chevalvert
+Subtitle: Visual & interactif design
 
 ----
 
-Vimeo: chevalvert
+Subtitle-alternates: Cartographie sensible, Géographie organique
 
 ----
 
-Instagram: chevalvert_studio
+Subtitle-alternates-duration: 10
 
 ----
 
-Subtitle: Visual and interactive design
+Description: Chevalvert est un studio de design graphique, typographique et interactif.
+
+----
+
+Keywords: design, graphisme, installation, typographie
+
+----
+
+Footer-left: 
+
+Chevalvert est un studio de design graphique,
+typographique et interactif.
+
+----
+
+Footer-center: 
+
+137 avenue Jean Jaurès
+75019 Paris, France
+(tel: +33 1 42 00 96 34)
+(email: contact@chevalvert.fr)
+
+----
+
+Footer-right: 
+
+(facebook:)
+(twitter:)
+(instagram:)
+(vimeo:)
+
+----
+
+Footer: 
+
+----
+
+Studio: 
+
+----
+
+Projects: 
+
+----
+
+Section: 
+
+- 
+  text: Stéphane Buellet
+  link: /pages/studio+3-stephane-buellet
+  id: studio/3-stephane-buellet
+  info: ""
+  image:
+    ratio: 3/2
+    back: pattern
+    cover: false
+  icon:
+    type: page
+    ratio: 3/2
+    back: pattern
+  hasChildren: false
+
+----
+
+Mail: 

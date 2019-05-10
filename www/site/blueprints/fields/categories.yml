@@ -1,0 +1,11 @@
+label: Catégories
+type: multiselect
+translate: false
+options: query
+help: |
+  &rarr;&nbsp;<a href="/panel/pages/taxonomy#categories" target="_blank">&Eacute;diter la taxonomie</a>
+query:
+  fetch: site.page('taxonomy').categories.toStructure
+  text: "{{ structureItem.fr }}"
+  value: "{{ structureItem.autoid }}"
+

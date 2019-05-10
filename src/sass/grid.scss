@@ -1,39 +1,71 @@
 $grid-gutter: $gutter;
-$grid-columns: (
-  percentage(7/20),
-  percentage(9/20),
-  percentage(4/20),
-);
+$grid-length: 16;
 
+// Define a block as a row containing columns
 @mixin row () {
   position: relative;
   width: 100%;
+  padding-left: $site-margin - ($grid-gutter / 2);
+  padding-right: $site-margin - ($grid-gutter / 2);
   font-size: 0;
+
+  @if $debug {
+    &::after {
+      content: '';
+      z-index: 1;
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-top: 1px dotted cyan;
+      border-bottom: 1px dotted cyan;
+    }
+  }
 }
 
-@mixin col-offset ($nth) {
-  margin-left: nth($grid-columns, $nth);
-}
-
-@mixin col ($nth: 2, $vertical-align: top) {
-  width: 100%;
+// Set a block to a specific column
+@mixin col ($width: 2, $offset: 0, $vertical-align: top) {
   display: inline-block;
   box-sizing: border-box;
   vertical-align: $vertical-align;
 
-  padding-left: if($nth > 1, $grid-gutter / 2, 0);
-  padding-right: if($nth < length($grid-columns), $grid-gutter / 2, 0);
+  @if $offset > 0 {
+    @include col-offset($offset);
+  }
 
-  width: nth($grid-columns, $nth);
+  padding-left: $grid-gutter / 2;
+  padding-right: $grid-gutter / 2;
+  width: percentage($width / $grid-length);
+
+  @if $debug {
+    position: relative;
+    &::after {
+      content: '';
+      z-index: 1;
+      position: absolute;
+      pointer-events: none;
+      top: -$grid-gutter;
+      bottom: -$grid-gutter;
+      left: $grid-gutter / 2;
+      right: $grid-gutter / 2;
+      border-left: 1px dotted cyan;
+      border-right: 1px dotted cyan;
+    }
+  }
 }
 
-// This is useful when markup corresponds to grid composition
-@mixin apply-grid {
+@mixin col-offset ($offset: 0) {
+  margin-left: percentage($offset / $grid-length);
+}
+
+// Apply grid to a corresponding markup
+@mixin grid ($grid-columns, $offset: 0) {
   @include row;
   @for $index from 1 through length($grid-columns) {
-    $col: nth($grid-columns, $index);
     & > *:nth-child(#{$index}) {
-      @include col($index);
+      @include col(nth($grid-columns, $index), if($index == 1, $offset, 0));
     }
   }
 }

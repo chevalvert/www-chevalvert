@@ -1,0 +1,41 @@
+Title: Taxonomie
+
+----
+
+Categories: 
+
+- 
+  fr: exposition
+  en: exhibition
+  autoid: mif6rqrf
+- 
+  fr: installation
+  en: installation
+  autoid: xqtuahtt
+- 
+  fr: une catégorie qui doit être sluggée
+  en: a category which should be slugged
+  autoid: ek7tozfl
+
+----
+
+Metas: 
+
+- 
+  autoid: 9fd51ahy
+  fr: Production
+  en: Production
+  category: mif6rqrf
+  categories: ""
+- 
+  autoid: hqyuxl4k
+  fr: Développement technique et fabrication
+  en: Développement technique et
+  category: xqtuahtt
+  categories: mif6rqrf
+- 
+  autoid: oc8gu9qg
+  fr: Lieu
+  en: Lieu
+  category: ek7tozfl
+  categories: mif6rqrf

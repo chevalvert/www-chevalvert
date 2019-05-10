@@ -1,0 +1,193 @@
+Title: Studio
+
+----
+
+Sections:
+
+-
+  title: Studio
+  ismergedwithprevious: 'false'
+  left: |
+    137 avenue Jean Jaurès
+    75019 Paris, France
+    (phone:)
+    (email:)
+  center: |
+    Chevalvert est un studio de design visuel co-fondé par Patrick Paleta et Stéphane Buellet en 2007. Basé sur une approche du design ouverte, multidisciplinaire et transversale, les réalisations du studio se partagent entre des commandes institutionnelles, culturelles, industrielles et des projets autoproduits.
+
+    L’expérience et le savoir-faire du (link: studio text: studio) offrent un regard croisé sur les problématiques et permet ainsi d’apporter des réponses pertinentes et cohérentes, du design graphique aux installations interactives.
+  right: |
+    (facebook:)
+    (twitter:)
+    (instagram:)
+    (vimeo:)
+    (github:)
+    (tooooools:)
+  _key: basic
+  _uid: basic_1560516184760_90
+-
+  title: Équipe
+  ismergedwithprevious: 'false'
+  items:
+    -
+      text: |
+        Patrick Paleta
+        co-fondateur
+        directeur artistique
+        2007
+      _key: item
+      _uid: item_1560524306584_671
+    -
+      text: |
+        Stéphane Buellet
+        co-fondateur
+        directeur artistique
+        2007
+      _key: item
+      _uid: item_1560524320452_748
+    -
+      text: |
+        Camille Coquard
+        co-gérante
+        studio manager
+        2013
+      _key: item
+      _uid: item_1560524332045_825
+    -
+      text: |
+        Mathieu Mohamad
+        directeur artistique
+        designer graphique
+        2016
+      _key: item
+      _uid: item_1560524343163_902
+    -
+      text: |
+        Arnaud Juracek
+        designer interactif
+        designer produit
+        2016
+      _key: item
+      _uid: item_1560524356629_979
+    -
+      text: |
+        Pricilla Degardin
+        designer graphique
+        2018
+      _key: item
+      _uid: item_1560524369754_1056
+  _key: grid
+  _uid: grid_1560524301953_600
+-
+  title: Anciens collaborateurs
+  ismergedwithprevious: 'true'
+  list: |
+    + (link: http://juliapuyo.com/ text: Julia Puyo)
+    + (link: https://maximefittes.fr/ text: Maxime Fittes)
+    + (link: http://vdesclaux.com/ text: Vincent Desclaux)
+  nocsscol: 'true'
+  _key: list
+  _uid: list_1560524462120_870
+-
+  title: stagiaires depuis 2013
+  ismergedwithprevious: 'true'
+  list: |
+    + Romain Garcia
+    + Victor Boonen
+    + Thomas Bouillet
+    + Baptiste Plantin
+    + Émilie Pillet
+    + Pierre-Henri Terrade
+    + Dylan Cote-Colisson
+    + Marine Stephan
+    + Thibaut Evrard
+    + Yohann Le Goff
+    + Anne-Dorothée Schulz
+  nocsscol: 'false'
+  _key: list
+  _uid: list_1560523238839_544
+-
+  title: Prix
+  ismergedwithprevious: 'false'
+  items:
+    -
+      text: |
+        (link: https://edawards.com text: European Design Awards)
+        Golden prize
+        Digital category
+        2014
+      _key: item
+      _uid: item_1560517793913_285
+    -
+      text: |
+        Un prix bidon avec un très long texte qui fait sauter plusieurs lignes de texte
+        Silver prize
+        Digital Art category
+        2014
+      _key: item
+      _uid: item_1560519788403_314
+    -
+      text: |
+        Lumen Prize
+        Silver prize
+        Digital Art category
+        2014
+      _key: item
+      _uid: item_1560517797094_362
+    -
+      text: |
+        Lumen Prize
+        Silver prize
+        2014
+      _key: item
+      _uid: item_1560520689981_353
+    -
+      text: |
+        Lumen Prize
+        Silver prize
+        2014
+      _key: item
+      uniquekey: 0
+      showpreviewinitially: false
+      _uid: item_1560520701256_398
+    -
+      text: |
+        Lumen Prize
+        Silver prize
+        2014
+      _key: item
+      uniquekey: 1
+      showpreviewinitially: false
+      isnew: true
+      _uid: item_1560520702790_482
+  _key: grid
+  _uid: grid_1560517789427_214
+-
+  title: partenaires
+  ismergedwithprevious: 'false'
+  list: |
+    + AG2RLAMONDIALE
+    + Mirage festival
+    + Hémisphère
+    + Stéréolux
+    + Le troisième pôle
+    + Studio Adeline Rispal
+  nocsscol: 'true'
+  _key: list
+  _uid: list_1560522427521_488
+
+----
+
+Anchors: studio/le-studio, studio/credits
+
+----
+
+Pinned:
+
+- studio/1-le-studio
+- studio/3-stephane-buellet
+- studio/2-patrick-paleta
+
+----
+
+Links: studio/le-studio

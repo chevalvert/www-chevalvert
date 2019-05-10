@@ -1,43 +1,30 @@
 .menu {
-  @include row;
+  @include grid($main-grid);
+  @include menubar;
+
   z-index: 2;
   position: fixed;
   top: 0;
   display: flex;
-  padding: $banner-padding;
   text-transform: lowercase;
 
   user-select: none;
-
-  border-bottom: 1px solid;
   background-color: $black;
 
   a:not(:hover) {
     border: none;
   }
 
-  &__logo {
-    @include col(1);
-  }
-
-  &__subtitle {
-    @include col(2);
-    @include mobile {
-      display: none;
-    }
-  }
-
   &__nav {
-    @include col(3);
-    @include mobile {
-      width: 100%;
-    }
-
     ul {
       display: flex;
-      justify-content: flex-start;
-      @include mobile {
+      justify-content: space-between;
+      @include devices(mobile, tablet) {
         justify-content: flex-end;
+      }
+
+      @include big-ass-desktop {
+        justify-content: flex-start;
       }
     }
 
@@ -49,8 +36,13 @@
       margin-left: $gutter * 2;
     }
   }
-}
 
-body[data-template='home'] .menu {
-  border-color: transparent;
+  @include mobile {
+    &__subtitle {
+      visibility: hidden;
+    }
+    &__nav {
+      width: 100%;
+    }
+  }
 }

@@ -1,40 +1,73 @@
 .about-section {
-  @include desktop {
-    @include apply-grid;
+  position: relative;
+  padding-top: $menu-padding-top;
+  padding-bottom: $line-height * 2;
+  background-color: $white;
+  color: $black;
+
+  & + & {
+    border-top: 1px solid;
   }
 
-  @include mobile {
+  @include desktop {
+    &.is-merged-with-previous-section {
+      border-top: none;
+      padding-top: 0;
+      margin-top: -$line-height;
+    }
+  }
+
+  @include devices(mobile, tablet) {
+    padding-left: $site-margin;
+    padding-right: $site-margin;
     &__column + &__column {
       margin-top: 1em;
     }
   }
 
-  position: relative;
-  background-color: $white;
-  color: $black;
-  border-bottom: 1px solid;
-
-  padding: 3rem $gutter;
-
   &__anchor {
-    @include debug;
     position: absolute;
     top: -($menu-height * 2);
     visibility: hidden;
+
+    @if $debug {
+      visibility: visible;
+      height: 0px;
+      border-top: 2px dashed rgba(red, 0.3);
+      &::after {
+        content: '#'attr(id);
+        color: rgba(red, 0.3);
+      }
+    }
   }
 
-  h2 {
+  h2, h3 {
+    text-transform: lowercase;
     margin-bottom: $line-height;
   }
 
-  p + p,
-  li + li {
+  p + p {
     margin-top: $line-height;
   }
 
   // NOTE: this allows the last .about-section to be big enough
   // to trigger controllers/toc-highlighter on its anchor
   &:last-child {
-    min-height: calc(100vh - #{$menu-height * 2});
+    min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--desktop});
+
+    @include devices(mobile, tablet) {
+      min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--mobile});
+    }
   }
+
+  @include devices(mobile, tablet) {
+    padding-top: 0;
+    &__column:first-child h1,
+    &__column:first-child h2,
+    &__column:first-child h3 {
+      @include menubar;
+      @include hr;
+    }
+  }
+
 }

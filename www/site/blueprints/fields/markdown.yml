@@ -1,0 +1,9 @@
+type: textarea
+
+font: monospace
+
+buttons:
+  - link
+  - file
+  - email
+  - pagelink

@@ -2,11 +2,15 @@
   outline: $width solid $color;
 }
 
-@mixin underline () {
-  border-bottom: 1px solid;
-  text-decoration: none;
-  margin-bottom: -1px;
-  display: inline-block;
+@mixin invisible-x-scroll {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scrollbar-height: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    height: 0;
+    background: transparent;
+  }
 }
 
 @mixin easing ($duration: 100ms, $property: all) {
@@ -37,27 +41,31 @@
   animation: loader-move $speed linear infinite;
 }
 
-@mixin spinner ($size: 1rem, $thickness: 2px, $foreground: transparent, $background: $white, $speed: 500ms) {
+@mixin loader ($size: 1rem, $thickness: 2px, $foreground: transparent, $background: $white, $speed: 500ms) {
   @keyframes loader-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
   }
-  content: '';
 
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
 
-  width: $size;
-  height: $size;
-  margin-left: -$size / 2;
-  margin-top: -$size / 2;
+  &::before {
+    content: '';
+    z-index: -1;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  border: $thickness solid $background;
-  border-top: $thickness solid $foreground;
-  border-left: $thickness solid $foreground;
-  border-radius: 50%;
-  animation: loader-spin $speed linear infinite;
+    width: $size;
+    height: $size;
+    margin-left: -$size / 2;
+    margin-top: -$size / 2;
+
+    border: $thickness solid $background;
+    border-top: $thickness solid $foreground;
+    border-left: $thickness solid $foreground;
+    border-radius: 50%;
+    animation: loader-spin $speed linear infinite;
+  }
 }
-

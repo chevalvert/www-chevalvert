@@ -66,11 +66,10 @@
   "dependencies": {
     "@vimeo/player": "^2.6.6",
     "barba.js": "^1.0.0",
-    "bowser": "^2.0.0-beta.3",
+    "bowser": "^2.4.0",
     "fast-random": "^2.0.4",
-    "intersection-observer": "^0.5.1",
+    "intersection-observer": "^0.7.0",
     "lozad": "^1.7.0",
-    "medium-zoom": "^1.0.2",
     "missing-math": "^2.0.1",
     "nanohtml": "^1.4.0",
     "nodelist-foreach": "^1.0.1"

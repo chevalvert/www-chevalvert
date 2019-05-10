@@ -1,9 +1,0 @@
-Title: Studio
-
-----
-
-Links: studio/le-studio
-
-----
-
-Anchors: studio/le-studio, studio/credits

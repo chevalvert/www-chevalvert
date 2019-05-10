@@ -1,0 +1,9 @@
+title: Fichier
+
+fields:
+  caption:
+    label: Légende de l'image
+    type: text
+
+  focus:
+    type: focus

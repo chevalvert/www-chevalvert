@@ -1,10 +1,17 @@
 <?php
 
-return function ($site, $pages, $page) {
+function getTopLevelPage ($page) {
+  if ($page->depth() === 1) return $page;
+
+  $parents = $page->parents();
+  return $parents->last();
+}
+
+return function ($page) {
   function walk ($parent = null) {
-    $sitemap = '<ul class="sitemap">';
+    $sitemap = '<ul>';
     foreach ($parent as $child) {
-      if (in_array(getTopLevelPage($child)->uri(), c::get('sitemap.ignore'))) continue;
+      if (in_array(getTopLevelPage($child)->uri(), option('sitemap.ignore'))) continue;
 
       $sitemap .= '<li>';
       $sitemap .= '<a href="'. $child->url() .'">'. $child->title()->html() .'</a>';
@@ -15,6 +22,6 @@ return function ($site, $pages, $page) {
     return $sitemap;
   }
 
-  $sitemap = walk($pages);
+  $sitemap = walk(site()->pages());
   return compact('sitemap');
 };

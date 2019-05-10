@@ -5,8 +5,8 @@
     </a>
   </div>
 
-  <div class="menu__subtitle">
-    <?= $site->subtitle()->html() ?>
+  <div class="menu__subtitle" data-alternates="<?= $site->subtitle_alternates() ?>" data-alternates-delay="<?= $site->subtitle_alternates_duration() ?>">
+    <?= $site->subtitle() ?>
   </div>
 
   <nav role="navigation" class="menu__nav">
@@ -19,10 +19,8 @@
       </li>
     <?php endforeach ?>
       <li>
-        <?php snippet('menu.language') ?>
+        <?php snippet('menu-language') ?>
       </li>
     </ul>
   </nav>
-
-
 </header>

@@ -1,0 +1,33 @@
+@mixin mobile {
+  @media only screen and (max-width: 768px) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 769px) and (max-width: 1120px) {
+    @content
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1121px) {
+    @content
+  }
+}
+
+@mixin big-ass-desktop {
+  @media only screen and (min-width: 2400px) {
+    @content
+  }
+}
+
+@mixin devices ($device-list...) {
+  @each $device in $device-list {
+    // NOTE: you cannot dynamically invoke mixins using `@include #{mixin-name}`
+    @if $device == 'mobile' { @include mobile { @content } }
+    @if $device == 'tablet' { @include tablet { @content } }
+    @if $device == 'desktop' { @include desktop { @content } }
+    @if $device == 'big-ass-desktop' { @include big-ass-desktop { @content } }
+  }
+}

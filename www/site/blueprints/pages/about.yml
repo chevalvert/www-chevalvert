@@ -1,0 +1,15 @@
+title: À propos
+icon: text
+
+fields:
+
+  sections:
+    type: builder
+
+    fieldsets:
+      basic:
+        extends: builder/about-section--basic
+      grid:
+        extends: builder/about-section--grid
+      list:
+        extends: builder/about-section--list

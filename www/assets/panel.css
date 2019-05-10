@@ -1,0 +1,80 @@
+.panel-gallery {
+  white-space: nowrap;
+  font-size: 0;
+}
+
+.panel-gallery__medias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.panel-gallery__media,
+.panel-gallery figure,
+.panel-gallery .vimeo {
+  margin: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.panel-gallery__media { padding: 6px }
+.panel-gallery__media + .panel-gallery__media { padding-left: 0 }
+
+.panel-gallery figure,
+.panel-gallery .vimeo,
+.panel-gallery figure img {
+  width: 100%;
+  height: auto;
+}
+
+.panel-gallery .vimeo {
+  position: relative;
+  padding: 0;
+
+  line-height: 0;
+  font-size: 0;
+}
+
+.panel-gallery .vimeo iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+[data-ratio='█████████████░░░ (13-)'] > *:nth-child(1) { width: calc(13 / 16 * 100%) }
+[data-ratio='░░░█████████████ (-13)'] > *:nth-child(1) { width: calc(13 / 16 * 100%); margin-left: calc(3 / 16 * 100%) }
+[data-ratio='███████████░░░░░ (11-)'] > *:nth-child(1) { width: calc(11 / 16 * 100%) }
+[data-ratio='░░░░░███████████ (-11)'] > *:nth-child(1) { width: calc(11 / 16 * 100%); margin-left: calc(5 / 16 * 100%) }
+[data-ratio='████████░░░░░░░░ (8-)'] > *:nth-child(1) { width: calc(8 / 16 * 100%) }
+[data-ratio='░░░░░░░░████████ (-8)'] > *:nth-child(1) { width: calc(8 / 16 * 100%); margin-left: calc(8 / 16 * 100%) }
+[data-ratio='█████░░░░░░░░░░░ (5-)'] > *:nth-child(1) { width: calc(5 / 16 * 100%) }
+[data-ratio='░░░░░░░░░░░█████ (-5)'] > *:nth-child(1) { width: calc(5 / 16 * 100%); margin-left: calc(11 / 16 * 100%) }
+[data-ratio='███████████▓▓▓▓▓ (11-5)'] > *:nth-child(1) { width: calc(11 / 16 * 100%) }
+[data-ratio='███████████▓▓▓▓▓ (11-5)'] > *:nth-child(2) { width: calc(5 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓▓▓▓▓▓▓ (5-11)'] > *:nth-child(1) { width: calc(5 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓▓▓▓▓▓▓ (5-11)'] > *:nth-child(2) { width: calc(11 / 16 * 100%) }
+[data-ratio='████████▓▓▓▓▓▓▓▓ (8-8)'] > *:nth-child(1) { width: calc(8 / 16 * 100%) }
+[data-ratio='████████▓▓▓▓▓▓▓▓ (8-8)'] > *:nth-child(2) { width: calc(8 / 16 * 100%) }
+[data-ratio='████████▓▓▓▓▓░░░ (8-5-)'] > *:nth-child(1) { width: calc(8 / 16 * 100%) }
+[data-ratio='████████▓▓▓▓▓░░░ (8-5-)'] > *:nth-child(2) { width: calc(5 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓▓▓▓░░░ (5-8-)'] > *:nth-child(1) { width: calc(5 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓▓▓▓░░░ (5-8-)'] > *:nth-child(2) { width: calc(8 / 16 * 100%) }
+[data-ratio='░░░████████▓▓▓▓▓ (-8-5)'] > *:nth-child(1) { width: calc(8 / 16 * 100%); margin-left: calc(3 / 16 * 100%) }
+[data-ratio='░░░████████▓▓▓▓▓ (-8-5)'] > *:nth-child(2) { width: calc(5 / 16 * 100%) }
+[data-ratio='░░░█████▓▓▓▓▓▓▓▓ (-5-8)'] > *:nth-child(1) { width: calc(5 / 16 * 100%); margin-left: calc(3 / 16 * 100%) }
+[data-ratio='░░░█████▓▓▓▓▓▓▓▓ (-5-8)'] > *:nth-child(2) { width: calc(8 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓░░░░░░ (5-5-)'] > *:nth-child(1) { width: calc(5 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓░░░░░░ (5-5-)'] > *:nth-child(2) { width: calc(5 / 16 * 100%) }
+[data-ratio='░░░░░░█████▓▓▓▓▓ (-5-5)'] > *:nth-child(1) { width: calc(5 / 16 * 100%); margin-left: calc(6 / 16 * 100%) }
+[data-ratio='░░░░░░█████▓▓▓▓▓ (-5-5)'] > *:nth-child(2) { width: calc(5 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓█████░ (5-5-5-)'] > *:nth-child(1) { width: calc(5 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓█████░ (5-5-5-)'] > *:nth-child(2) { width: calc(5 / 16 * 100%) }
+[data-ratio='█████▓▓▓▓▓█████░ (5-5-5-)'] > *:nth-child(3) { width: calc(5 / 16 * 100%) }
+[data-ratio='░█████▓▓▓▓▓█████ (-5-5-5)'] > *:nth-child(1) { width: calc(5 / 16 * 100%); margin-left: calc(1 / 16 * 100%) }
+[data-ratio='░█████▓▓▓▓▓█████ (-5-5-5)'] > *:nth-child(2) { width: calc(5 / 16 * 100%) }
+[data-ratio='░█████▓▓▓▓▓█████ (-5-5-5)'] > *:nth-child(3) { width: calc(5 / 16 * 100%) }
+

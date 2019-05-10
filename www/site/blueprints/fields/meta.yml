@@ -1,0 +1,12 @@
+label: Métadonnée
+type: select
+required: true
+translate: false
+help: |
+  &rarr;&nbsp;<a href="/panel/pages/taxonomy#metas" target="_blank">&Eacute;diter la taxonomie</a>
+options: query
+query:
+  fetch: site.page('taxonomy').metas.toStructure
+  text: "{{ structureItem.fr }}"
+  value: "{{ structureItem.autoid }}"
+

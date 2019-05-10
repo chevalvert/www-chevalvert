@@ -1,29 +1,46 @@
-body[data-template='about'] .footer {
-  display: none;
-}
-
 .footer {
-  background-color: $white;
-  color: $black;
-  padding: 3rem $gutter;
+  @include grid((5, 2, 2, 4, 3));
+  @include menubar;
 
-  @include desktop {
-    @include apply-grid;
+  white-space: unset;
+  height: auto;
+
+  color: $white;
+  background-color: $black;
+  text-transform: lowercase;
+
+  a:not(:hover) {
+    border: none;
   }
 
-  @include mobile {
-    &__column + &__column {
-      margin-top: 1em;
+  .logo {
+    float: left;
+    margin-right: $gutter;
+    border: none;
+    img {
+      height: calc(1em + #{$line-height});
     }
   }
 
-  h2 {
-    @include underline;
-    margin-bottom: $line-height;
-  }
+  @include devices(mobile, tablet) {
+    .logo {
+      float: none;
+      margin-bottom: $menu-padding-top;
+    }
 
-  p + p,
-  li + li {
-    margin-top: $line-height;
+    &__column {
+      width: 100% !important;
+      &:not(.should-not-break) {
+        margin-bottom: $line-height;
+      }
+    }
+
+    div {
+      width: 100%;
+    }
   }
+}
+
+body[data-template='projects'] .footer {
+  filter: invert(1);
 }

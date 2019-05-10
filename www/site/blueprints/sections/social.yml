@@ -1,0 +1,62 @@
+type: fields
+
+fields:
+
+  phone:
+    translate: false
+    width: 1/2
+    label: Téléphone
+    type: tel
+
+  email:
+    translate: false
+    width: 1/2
+    label: Email
+    type: email
+
+  facebook:
+    translate: false
+    width: 1/2
+    label: Facebook
+    type: text
+    icon: facebook
+    before: facebook.com/
+
+  twitter:
+    translate: false
+    width: 1/2
+    label: Twitter
+    type: text
+    before: twitter.com/
+    icon: twitter
+
+  vimeo:
+    translate: false
+    width: 1/2
+    type: text
+    before: vimeo.com/
+    icon: video
+    label: Vimeo
+
+  instagram:
+    translate: false
+    width: 1/2
+    type: text
+    before: instagram.com/
+    icon: instagram
+    label: Instagram
+
+  github:
+    translate: false
+    width: 1/2
+    type: text
+    before: github.com/
+    icon: code
+    label: Github
+
+  tooooools:
+    translate: false
+    width: 1/2
+    type: url
+    icon: cog
+    label: Tooooools

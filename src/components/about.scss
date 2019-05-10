@@ -1,7 +1,10 @@
 .about {
   &__sections {
     @include row;
-    padding: $banner-padding;
+    @include inline-list;
+    @include menubar;
+    @include invisible-x-scroll;
+
     background-color: $white;
     color: $black;
     border-bottom: 1px solid;
@@ -10,12 +13,8 @@
     top: $menu-height;
     z-index: 2;
 
-    li {
-      display: inline-block;
-    }
-
-    li + li::before {
-      content: ' / ';
+    ul {
+      @include col(16);
     }
 
     a:not(:hover):not(.is-active) {
