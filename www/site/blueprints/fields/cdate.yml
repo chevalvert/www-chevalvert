@@ -1,0 +1,7 @@
+type: date
+default: now
+time: true
+
+when: never
+disabled: true
+translate: false

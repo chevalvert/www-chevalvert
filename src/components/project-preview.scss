@@ -5,25 +5,21 @@
     display: block;
     border: none;
     font-size: 0;
-
-    &:hover h1 {
-      @include underline;
-      display: inline;
-    }
   }
 
   &__header {
-    @include apply-grid;
-    padding: $banner-padding;
+    @include grid($main-grid);
+    @include menubar;
+
     background-color: $black;
     color: $white;
 
     @include mobile {
-      *:first-child {
+      & > *:first-child {
         width: 100%;
         display: block;
       }
-      *:not(:first-child) {
+      & > *:not(:first-child) {
         display: none;
       }
     }
@@ -33,8 +29,18 @@
     user-select: none;
     font-size: 0;
     img {
+      display: block;
       width: 100%;
       height: auto;
+    }
+  }
+}
+
+body[data-template='home'] {
+  .project-preview:last-child .project-preview__header {
+    display: none;
+    @include mobile {
+      display: block;
     }
   }
 }

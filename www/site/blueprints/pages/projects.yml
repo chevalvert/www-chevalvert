@@ -1,0 +1,27 @@
+title:
+  fr: Projets
+  en: Projects
+
+columns:
+  - width: 1/3
+    sections:
+      drafts:
+        extends: sections/projects
+        headline: Brouillons
+        status: draft
+      unlisted:
+        extends: sections/projects
+        headline: Projet non listés
+        status: unlisted
+        help: |
+          <b>Note</b> : ces projets ne sont accessibles que via URL
+
+  - width: 2/3
+    sections:
+      listed:
+        extends: sections/projects
+        headline: Projets publiés
+        layout: cards
+        size: medium
+        status: listed
+

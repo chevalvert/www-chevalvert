@@ -1,0 +1,11 @@
+label: Vidéo Vimeo
+type: pages
+multiple: false
+translate: false
+layout: cards
+
+query: page.children.filterBy('intendedTemplate', 'vimeo')
+
+image:
+  query: page.cover
+  back: black

@@ -1,0 +1,64 @@
+title: Vimeo
+icon: video
+
+status:
+  unlisted: true
+  listed: false
+
+addFields:
+  vimeo_id:
+    label: ID
+    type: text
+    before: vimeo.com/
+    required: true
+    icon: url
+
+tabs:
+  main:
+    label: Vimeo
+    icon: video
+    columns:
+      - width: 2/3
+        sections:
+          - type: fields
+            fields:
+              preview:
+                label: Preview
+                type: vimeo
+                id: "{{ page.vimeo_id }}"
+                playback_offset: "{{ page.playback_offset }}"
+
+      - width: 1/3
+        sections:
+          info:
+            type: info
+            headline: ''
+            text: >
+              <b>ID :</b> <a href="{{ page.externalUrl }}" target="_blank">{{ page.vimeo_id }}</a><br>
+              <b>Format :</b> {{ page.width }}x{{ page.height }} px<br>
+
+          content:
+            type: fields
+            fields:
+              vimeo_id:
+                type: hidden
+
+              playback_offset:
+                label: Commence à…
+                default: 0
+                type: number
+                after: secondes
+
+              caption:
+                label: Légende de la vidéo
+                type: text
+
+  metas:
+    label: Méta-données
+    icon: template
+    fields:
+      metadatas:
+        label: Méta-données
+        type: textarea
+        buttons: false
+        disabled: true

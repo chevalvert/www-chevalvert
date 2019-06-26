@@ -1,33 +1,39 @@
 @import 'sass/reset';
 @import 'sass/fonts';
 @import 'sass/helpers';
+@import 'sass/devices';
+
+$debug: false;
 
 $black: #000000;
 $white: #FFFFFF;
-$gutter: 1.5rem;
-$banner-padding: 2rem $gutter 1.8rem $gutter;
-$menu-height: 5.6rem;
-$line-height: 1.3em;
 
-@mixin mobile {
-  @media only screen and (max-width: 760px) {
-    @content
-  }
-}
+$font-size: 1.6rem;
+$line-height: 2.0rem;
 
-@mixin desktop {
-  @media only screen and (min-width: 761px) {
-    @content
-  }
-}
+$main-grid: (5, 8, 3);
+$gutter: 1.2rem;
+$site-margin: $gutter;
 
+$menu-height: 3.6rem;
+$menu-padding-top: 0.9rem;
+$menu-padding-bottom: 0.9rem;
+
+$footer-height--desktop: 5.7rem;
+$footer-height--mobile: 31.9rem;
+
+@import 'sass/mixins';
 @import 'sass/base';
 @import 'sass/grid';
-@import 'sass/vendors/kirby-typography';
 
 @import 'components/about';
 @import 'components/about-section';
+@import 'components/about-section--basic';
+@import 'components/about-section--grid';
+@import 'components/about-section--list';
+@import 'components/default';
 @import 'components/footer';
+@import 'components/fullscreen';
 @import 'components/menu';
 @import 'components/project';
 @import 'components/project-categories';
@@ -36,8 +42,8 @@ $line-height: 1.3em;
 @import 'components/project-links';
 @import 'components/project-metas';
 @import 'components/project-preview';
+@import 'components/project-related';
+@import 'components/projects';
 @import 'components/projects-categories';
-@import 'components/projects-list';
 @import 'components/sitemap';
 @import 'components/vimeo';
-@import 'components/zoom';

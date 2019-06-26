@@ -1,0 +1,113 @@
+label: Galerie
+
+type: builder
+translate: false
+
+fieldsets:
+  one:
+    label: Ligne d'une image
+    defaultView: preview
+    preview:
+      snippet: panel/gallery
+      css: /assets/panel.css
+    fields:
+      media_1:
+        label: Image
+        type: select
+        options: query
+        query: page.medias
+        translate: false
+        required: true
+      ratio:
+        label: Ratio
+        type: select
+        translate: false
+        required: true
+        options:
+          '█████████████░░░ (13-)': "⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛➖➖➖ (13-)"
+          '░░░█████████████ (-13)': "➖➖➖⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ (-13)"
+          '███████████░░░░░ (11-)': "⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛➖➖➖➖➖ (11-)"
+          '░░░░░███████████ (-11)': "➖➖➖➖➖⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ (-11)"
+          '████████░░░░░░░░ (8-)': "⬛⬛⬛⬛⬛⬛⬛⬛➖➖➖➖➖➖➖➖ (8-)"
+          '░░░░░░░░████████ (-8)': "➖➖➖➖➖➖➖➖⬛⬛⬛⬛⬛⬛⬛⬛ (-8)"
+          '█████░░░░░░░░░░░ (5-)': "⬛⬛⬛⬛⬛➖➖➖➖➖➖➖➖➖➖➖ (5-)"
+          '░░░░░░░░░░░█████ (-5)': "➖➖➖➖➖➖➖➖➖➖➖⬛⬛⬛⬛⬛ (-5)"
+
+  two:
+    label: Ligne de deux images
+    defaultView: preview
+    preview:
+      snippet: panel/gallery
+      css: /assets/panel.css
+    fields:
+      media_1:
+        label: "Image #1"
+        type: select
+        options: query
+        query: page.medias
+        translate: false
+        required: true
+        width: 1/2
+      media_2:
+        label: "Image #2"
+        type: select
+        options: query
+        query: page.medias
+        translate: false
+        required: true
+        width: 1/2
+      ratio:
+        label: Ratio
+        type: select
+        required: true
+        translate: false
+        options:
+          '███████████▓▓▓▓▓ (11-5)': "⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ (11-5)"
+          '█████▓▓▓▓▓▓▓▓▓▓▓ (5-11)': "⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ (5-11)"
+          '████████▓▓▓▓▓▓▓▓ (8-8)': "⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ (8-8)"
+          '████████▓▓▓▓▓░░░ (8-5-)': "⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜➖➖➖ (8-5-)"
+          '█████▓▓▓▓▓▓▓▓░░░ (5-8-)': "⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜➖➖➖ (5-8-)"
+          '░░░████████▓▓▓▓▓ (-8-5)': "➖➖➖⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ (-8-5)"
+          '░░░█████▓▓▓▓▓▓▓▓ (-5-8)': "➖➖➖⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ (-5-8)"
+          '█████▓▓▓▓▓░░░░░░ (5-5-)': "⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜➖➖➖➖➖➖ (5-5-)"
+          '░░░░░░█████▓▓▓▓▓ (-5-5)': "➖➖➖➖➖➖⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ (-5-5)"
+
+  three:
+    label: Ligne de trois images
+    defaultView: preview
+    preview:
+      snippet: panel/gallery
+      css: /assets/panel.css
+    fields:
+      media_1:
+        label: "Image #1"
+        type: select
+        options: query
+        query: page.medias
+        translate: false
+        required: true
+        width: 1/3
+      media_2:
+        label: "Image #2"
+        type: select
+        options: query
+        query: page.medias
+        translate: false
+        required: true
+        width: 1/3
+      media_3:
+        label: "Image #3"
+        type: select
+        options: query
+        query: page.medias
+        translate: false
+        required: true
+        width: 1/3
+      ratio:
+        label: Ratio
+        type: select
+        required: true
+        translate: false
+        options:
+          '█████▓▓▓▓▓█████░ (5-5-5-)': "⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛➖ (5-5-5-)"
+          '░█████▓▓▓▓▓█████ (-5-5-5)': "➖⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛ (-5-5-5)"

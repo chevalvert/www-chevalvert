@@ -1,1 +1,5 @@
 Title: Erreur
+
+----
+
+Text: La page demandée n'existe pas.

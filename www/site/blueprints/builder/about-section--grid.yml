@@ -1,0 +1,28 @@
+label: Grille
+
+fields:
+  title:
+    label: Titre
+    type: text
+    required: true
+    width: 3/4
+
+  isMergedWithPrevious:
+    label: Fusionner avec la section précédente
+    type: toggle
+    default: false
+    width: 1/4
+    text:
+      - Non
+      - Oui
+
+  items:
+    type: builder
+    columns: 3
+    fieldsets:
+      item:
+        label: Item
+        fields:
+          text:
+            label: Texte
+            extends: fields/markdown

@@ -1,12 +1,17 @@
 <?php
-  c::set([
-    'debug' => true,
-    'cache' => false,
-    'language.detect' => false,
-    'ssl' => false
-  ]);
 
-  // The code below are required for the kirby-webpack dev server to work
-  if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] === 'webpack') {
-    c::set('url',  $_SERVER['HTTP_X_FORWARDED_PROTO'] . '://' . $_SERVER['HTTP_X_FORWARDED_HOST']);
+return [
+  'debug' => true,
+  'whoops' => true,
+  'cache' => false,
+  'language.detect' => false,
+
+  // The code below is required for the kirby-webpack dev server to work
+  'url' => function () {
+    if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] === 'webpack') {
+      return $_SERVER['HTTP_X_FORWARDED_PROTO'] . '://' . $_SERVER['HTTP_X_FORWARDED_HOST'];
+    }
+
+    return false;
   }
+];

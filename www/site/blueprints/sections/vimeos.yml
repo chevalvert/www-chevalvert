@@ -1,0 +1,9 @@
+type: pages
+headline: Vidéos Vimeo
+empty: Pas encore de vidéo
+parent: page
+template: vimeo
+
+image:
+  query: page.cover
+  back: black

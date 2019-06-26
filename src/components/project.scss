@@ -1,28 +1,57 @@
 .project {
-  &__header, &__body {
-    @include desktop {
-      @include apply-grid;
-    }
-
-    padding: $banner-padding;
-    background-color: $white;
-    color: $black;
-  }
-
   &__header {
+    @include grid($main-grid);
+    @include menubar;
+
     z-index: 1;
     top: $menu-height;
     position: sticky;
 
-    h1 {
-      @include underline;
-      @include mobile {
-        margin-bottom: $line-height;
+    @include devices(mobile, tablet) {
+      & > *:nth-child(2) {
+        visibility: hidden;
+      }
+      & > *:nth-child(3) {
+        text-align: right;
       }
     }
   }
 
-  p + p {
-    margin-top: $line-height;
+  &__body {
+    @include row;
+    & > *:nth-child(1) { @include col(4); }
+    & > *:nth-child(2) { @include col(7, 1); }
+    & > *:nth-child(3) { @include col(3, 1); }
+
+    overflow: hidden;
+    padding-top: $menu-padding-top;
+    padding-bottom: $menu-height;
+    background-color: $white;
+    color: $black;
+
+    p + p {
+      margin-top: $line-height;
+    }
+
+    @include devices(mobile, tablet) {
+      @include grid((16, 16, 16));
+
+      &-column {
+        margin-left: 0 !important;
+
+        &:empty {
+          display: none;
+        }
+
+        &:not(:last-child) {
+          padding-bottom: $line-height * 2;
+        }
+
+        &:not(:empty) + & {
+          @include hr(top);
+          padding-top: $menu-padding-top;
+        }
+      }
+    }
   }
 }

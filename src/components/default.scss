@@ -1,0 +1,49 @@
+.default {
+  @include row;
+
+  @include desktop {
+    padding-top: $menu-padding-top;
+    &__column:nth-child(1) { @include col(4); }
+    &__column:nth-child(2) { @include col(7, 1); }
+  }
+
+  @include tablet {
+    padding-top: $menu-padding-top;
+    &__column:nth-child(1) { @include col(4); }
+    &__column:nth-child(2) { @include col(11, 1); }
+  }
+
+  @include mobile {
+    &__column:nth-child(1) {
+      @include col(16);
+      @include menubar;
+      @include hr;
+      position: relative;
+      margin-bottom: $menu-padding-top;
+      position: sticky;
+      top: $menu-height;
+      background-color: $white;
+      z-index: 1;
+    }
+    &__column:nth-child(2) { @include col(16); }
+  }
+
+  padding-bottom: $line-height * 2;
+  background-color: $white;
+  color: $black;
+
+  min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--desktop});
+
+  h2, h3 {
+    text-transform: lowercase;
+    margin-bottom: $line-height;
+  }
+
+  p + p {
+    margin-top: $line-height;
+  }
+
+  @include devices(mobile, tablet) {
+    min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--mobile});
+  }
+}

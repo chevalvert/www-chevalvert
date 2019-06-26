@@ -2,15 +2,47 @@ Title: Chevalvert
 
 ----
 
+Quick-access:
+
+- projects
+- studio
+- taxonomy
+- error
+- legals
+
+----
+
+Pinned:
+
+- projects/projet-de-test-ne-pas-supprimer
+
+----
+
+Subtitle: Design visuel & interactif
+
+----
+
+Subtitle-alternates: Cartographie sensible, Géographie organique
+
+----
+
+Subtitle-alternates-duration: 10
+
+----
+
 Description: Chevalvert est un studio de design graphique, typographique et interactif.
 
 ----
 
-Keywords: 
+Keywords: design, graphisme, installation, typographie
 
 ----
 
-Redirections: 
+Phone: +33 1 42 00 96 34
+
+----
+
+Email: contact@chevalvert.fr
 
 ----
 
@@ -30,29 +62,64 @@ Instagram: chevalvert_studio
 
 ----
 
-Subtitle: Design visuel & interactif
+Github: chevalvert
+
+----
+
+Tooooools: https://tooooools.chevalvert.fr
 
 ----
 
 Footer-left: 
 
-Chevalvert est un studio de design graphique,
-typographique et interactif.
+----
+
+Footer-center:
+
+(tel:)
+(email:)
 
 ----
 
-Footer-center: 
+Footer-right:
 
-137 avenue Jean Jaurès 
-75019 Paris, France
-(tel: +33 1 42 00 96 34)
-(email: contact@chevalvert.fr)
+(facebook:)
+(twitter:)
+(instagram:)
+(vimeo:)
+(github:)
 
 ----
 
-Footer-right: 
+Footer: 
 
-[facebook](#)
-[twitter](#)
-[instagram](#)
-[viméo](#)
+----
+
+Studio: 
+
+----
+
+Projects: 
+
+----
+
+Section:
+
+- 
+  text: Stéphane Buellet
+  link: /pages/studio+3-stephane-buellet
+  id: studio/3-stephane-buellet
+  info: ""
+  image:
+    ratio: 3/2
+    back: pattern
+    cover: false
+  icon:
+    type: page
+    ratio: 3/2
+    back: pattern
+  hasChildren: false
+
+----
+
+Mail: 

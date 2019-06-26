@@ -1,6 +1,0 @@
-label: Texte
-type: simplemde
-buttons:
-  - email
-  - link
-  - pagelink

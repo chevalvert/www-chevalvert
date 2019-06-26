@@ -1,0 +1,21 @@
+.about-section--list {
+  @include desktop {
+    .about-section__row { @include row; }
+    .about-section__column:nth-child(1) { @include col(4); }
+    .about-section__column:nth-child(2) { @include col(11, 1); }
+  }
+
+  &:not(.force-one-column) ul {
+    columns: 3;
+    column-gap: calc(#{percentage(1 / ($grid-length - 5))} + #{$grid-gutter});
+
+    @include tablet {
+      columns: 2;
+      column-gap: unset;
+    }
+
+    @include mobile {
+      columns: unset;
+    }
+  }
+}

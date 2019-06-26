@@ -1,0 +1,38 @@
+label: Liste
+
+fields:
+  title:
+    label: Titre
+    type: text
+    required: true
+    width: 3/4
+
+  isMergedWithPrevious:
+    label: Fusionner avec la section précédente
+    type: toggle
+    default: false
+    width: 1/4
+    text:
+      - Non
+      - Oui
+
+  list:
+    label: Liste
+    type: textarea
+    extends: fields/markdown
+    size: small
+    width: 3/4
+    placeholder: |
+      + item 1
+      + item 2
+      + item 3
+
+  noCSSCol:
+    label: Forcer la liste sur une seule colonne
+    type: toggle
+    default: false
+    width: 1/4
+    text:
+      - Non
+      - Oui
+

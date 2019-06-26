@@ -7,7 +7,10 @@
     display: inline;
   }
 
-  time + time::before {
-    content: '-';
+  time + time {
+    margin-left: 0.6em;
+    &::before {
+      content: ' — ';
+    }
   }
 }

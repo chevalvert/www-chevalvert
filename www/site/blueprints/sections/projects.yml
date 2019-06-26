@@ -1,0 +1,11 @@
+type: pages
+template: project
+sortBy: modified desc
+
+empty: Aucun projet
+parent: site.find("projects")
+limit: 10
+
+image:
+  query: page.panelPreviewCover
+  back: black

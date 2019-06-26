@@ -28,14 +28,14 @@ body {
     opacity: 0;
   }
 
-  &.no-scroll {
+  &[no-scroll] {
     height: 100%;
     overflow: hidden;
   }
 }
 
 * {
-  font-size: 1.4rem;
+  font-size: $font-size;
   line-height: $line-height;
   font-weight: normal;
 }
@@ -52,14 +52,8 @@ a {
 }
 
 figure {
+  @include loader;
   font-size: 0;
-  &, * {
-    position: relative;
-  }
-
-  &::before {
-    @include spinner;
-  }
 }
 
 [data-lozad] {
@@ -67,14 +61,19 @@ figure {
 }
 
 [data-lozad][data-loaded="true"] {
+  @include easing(1s, opacity);
   opacity: 1;
+}
+
+[data-contrast="light"] {
+  color: $black !important;
+}
+
+[data-contrast="dark"] {
+  color: $white !important;
 }
 
 main {
   margin-top: $menu-height;
   flex: 1 0 auto;
-}
-
-p {
-  max-width: 70ch;
 }

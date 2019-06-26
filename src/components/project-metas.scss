@@ -1,10 +1,14 @@
 .project-metas {
-  &__meta {
+  &__meta:not(:last-child) {
     margin-bottom: $line-height;
+  }
+
+  &__meta-label {
+    display: block;
+    text-transform: lowercase;
   }
 
   &__meta-label::after {
     content: ':';
-    margin-left: -1ch;
   }
 }

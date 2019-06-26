@@ -1,0 +1,29 @@
+label: Section basique (trois colonnes)
+
+fields:
+  title:
+    label: Titre
+    type: text
+    required: true
+    width: 3/4
+
+  isMergedWithPrevious:
+    label: Fusionner avec la section précédente
+    type: toggle
+    default: false
+    width: 1/4
+    text:
+      - Non
+      - Oui
+  left:
+    label: Colonne gauche
+    extends: fields/markdown
+    width: 1/4
+  center:
+    label: Colonne centre
+    extends: fields/markdown
+    width: 2/4
+  right:
+    label: Colonne droite
+    extends: fields/markdown
+    width: 1/4

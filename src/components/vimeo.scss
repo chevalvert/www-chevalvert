@@ -1,13 +1,11 @@
 .vimeo {
-  position: relative;
+  @include loader;
+
   // NOTE: padding-top is applied inline based on vimeo's ratio, SEE snippets/vimeo.php
   padding: 0;
 
   line-height: 0;
   font-size: 0;
-
-  background-repeat: no-repeat;
-  background-size: cover;
 
   .vimeo__link {
     position: absolute;

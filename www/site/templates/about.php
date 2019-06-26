@@ -1,23 +1,31 @@
-<?php snippet('site.header') ?>
-<?php snippet('barba.header') ?>
+<?php snippet('html/header') ?>
+<?php snippet('barba/header') ?>
 <?php snippet('menu') ?>
 
-<nav class="about__sections">
-  <ul>
-  <?php foreach ($page->anchors()->pages(',') as $anchor) : ?>
-    <li>
-      <a href="#<?= $anchor->uid() ?>">
-        <?= $anchor->title()->html() ?>
-      </a>
-    </li>
-  <?php endforeach ?>
-  </ul>
-</nav>
+<?php
+  $sectionsInNav = $page->sections()->toBuilderBlocks()->filter(function ($section) {
+    return !$section->isMergedWithPrevious()->bool();
+  });
+?>
 
-<?php foreach ($page->children()->visible() as $section) {
-  snippet('about.section', compact('section'));
-} ?>
+<article class="about">
+  <nav class="about__sections">
+    <ul>
+    <?php foreach ($sectionsInNav as $section) : ?>
+      <li>
+        <a href="#<?= str::slug($section->title()) ?>">
+          <?= $section->title()->html() ?>
+        </a>
+      </li>
+    <?php endforeach ?>
+    </ul>
+  </nav>
 
-<?php snippet('barba.footer') ?>
+  <?php foreach ($page->sections()->toBuilderBlocks() as $section) {
+    snippet('about-section--' . $section->_key(), compact('section'));
+  } ?>
+</article>
+
+<?php snippet('barba/footer') ?>
 <?php snippet('footer') ?>
-<?php snippet('site.footer') ?>
+<?php snippet('html/footer') ?>

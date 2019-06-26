@@ -1,14 +1,8 @@
 .projects-categories {
-  display: inline-block;
+  @include inline-list;
+  @include invisible-x-scroll;
 
-  li {
-    display: inline;
-  }
-
-  li + li::before {
-    content: ' / ';
-  }
-
+  &:hover a:not(:hover),
   a:not(:hover):not(.is-active) {
     border: none;
   }

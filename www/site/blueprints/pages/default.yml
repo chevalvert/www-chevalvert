@@ -1,0 +1,8 @@
+title: Défaut
+
+fields:
+
+  text:
+    extends: fields/markdown
+    label: Texte
+    size: large

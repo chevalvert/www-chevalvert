@@ -1,0 +1,25 @@
+.project-related {
+  display: flex;
+
+  @include mobile {
+    display: block;
+  }
+
+  .project-preview {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 50%;
+
+    @include mobile {
+      min-width: 100%;
+    }
+
+    .project__header-column:not(:first-child) {
+      display: none;
+    }
+
+    &:hover h3 {
+      @include underline;
+    }
+  }
+}
