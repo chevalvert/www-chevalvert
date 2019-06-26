@@ -7,12 +7,22 @@
     top: $menu-height;
     position: sticky;
 
-    @include devices(mobile, tablet) {
+    @include devices(tablet) {
       & > *:nth-child(2) {
         visibility: hidden;
       }
       & > *:nth-child(3) {
         text-align: right;
+      }
+    }
+
+    @include devices(mobile) {
+      & > *:nth-child(1) {
+        width: 100%;
+      }
+      & > *:nth-child(2),
+      & > *:nth-child(3) {
+        display: none;
       }
     }
   }

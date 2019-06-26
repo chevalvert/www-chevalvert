@@ -25,6 +25,7 @@
   padding-top: $menu-padding-top;
   padding-bottom: $menu-padding-bottom;
   height: $menu-height;
+  overflow: hidden;
 }
 
 @mixin hr ($position: bottom) {
