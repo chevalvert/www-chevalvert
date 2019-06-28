@@ -4,7 +4,7 @@
   $height = isset($height) ? $height : $width / $ratio;
   $quality = isset($quality) ? $quality : 100;
 
-  $alt = isset($alt) ? $alt : $image->caption();
+  $alt = isset($alt) ? Escape::html($alt) : Escape::html($image->caption());
   $title = isset($title) ? $title : $alt;
   $class = isset($class) ? $class : '';
   $attributes = isset($attributes) ? $attributes : [];

@@ -4,20 +4,6 @@ import VimeoPlayer from '@vimeo/player'
 import isMeta from 'utils/is-meta-key'
 import swipeListener from 'utils/swipe-listener'
 
-// function conserveIframeRatio (iframe) {
-//   const ratio = iframe.getAttribute('data-ratio')
-//   if (!ratio) return
-
-//   // Transfer all iframe's classes to its wrapper
-//   const classes = Array.from(iframe.classList)
-//   iframe.classList = ''
-
-//   return html`
-//   <div class='${classes}' style='padding-top: ${parseFloat(ratio) * 100}%'>
-//     ${iframe}
-//   </div>`
-// }
-
 export default class Fullscreen {
   constructor (url, {
     container = document.body,
@@ -93,6 +79,8 @@ export default class Fullscreen {
     this.buttons.close.addEventListener('click', this.close)
 
     swipeListener(this.element, e => {
+      if (e.srcElement && !e.srcElement.classList.contains('fullscreen__media')) return
+
       if (e.delta[0] < 0) this.goToPrevious()
       if (e.delta[0] > 0) this.goToNext()
     })

@@ -71,16 +71,39 @@
     cursor: default;
     background-color: $white;
     color: $black;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
   }
 
   &__caption {
     @include col(12);
     @include invisible-x-scroll;
     white-space: nowrap;
+
+    @include mobile {
+      @include col(16);
+      display: block;
+      height: $menu-height;
+      &:empty {
+        display: none;
+      }
+    }
   }
 
   &__toolbar {
     @include col(3, 1);
+
+    @include mobile {
+      @include col(16);
+      margin: 0;
+      display: flex;
+      height: $line-height;
+    }
+
     user-select: none;
     display: inline-flex;
     justify-content: space-between;
@@ -91,7 +114,17 @@
       width: auto;
       height: auto;
       margin-top: -$menu-padding-top;
-      padding: $menu-padding-top $menu-padding-top $menu-padding-bottom $menu-padding-top;
+      padding: $menu-padding-top 2rem $menu-padding-bottom 2rem;
+
+      &:first-of-type { padding-left: 0; }
+      &:last-of-type { padding-right: 0; }
     }
   }
+
+  // @include mobile {
+  //   &__caption:empty + &__toolbar {
+  //     @include debug;
+  //     height: $line-height;
+  //   }
+  // }
 }

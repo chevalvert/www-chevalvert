@@ -3,7 +3,7 @@
   $width = isset($width) ? min($width, $vimeo->width()) : $vimeo->width();
   $height = isset($height) ? $height : $width / $ratio;
 
-  $alt = isset($alt) ? $alt : $vimeo->caption();
+  $alt = isset($alt) ? Escape::html($alt) : Escape::html($vimeo->caption());
   $title = isset($title) ? $title : $vimeo->title()->value();
   $class = isset($class) ? $class : '';
   $attributes = isset($attributes) ? $attributes : [];

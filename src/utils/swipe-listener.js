@@ -14,11 +14,11 @@ export default (element, handler = noop) => {
   element.addEventListener('touchend', function (event) {
     touchendX = event.changedTouches[0].screenX
     touchendY = event.changedTouches[0].screenY
-    handler({
+    handler(Object.assign(event, {
       delta: [
         touchstartX - touchendX,
         touchstartY - touchendY
       ]
-    })
+    }))
   }, false)
 }
