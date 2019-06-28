@@ -5,18 +5,15 @@ translate: false
 
 empty: Aucune métadonnée renseignée
 
-sortBy: meta desc
-
 fields:
   meta: fields/meta
   fr:
     label: Français
     type: text
-    width: 1/2
     translate: false
     required: true
   en:
     label: Anglais
     type: text
-    width: 1/2
     translate: false
+    help: (si différent)

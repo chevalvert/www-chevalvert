@@ -7,14 +7,14 @@ columns:
     sections:
       drafts:
         extends: sections/projects
-        headline: Brouillons
+        headline: Projets brouillons
         status: draft
       unlisted:
         extends: sections/projects
-        headline: Projet non listés
+        headline: Projets non listés
         status: unlisted
         help: |
-          <b>Note</b> : ces projets ne sont accessibles que via URL
+          <b>Note</b> : ces projets ne sont accessibles que via leur URL. Ils ne sont pas visibles sur la page "projets" et ne peuvent pas être épinglés en page d'accueil
 
   - width: 2/3
     sections:
