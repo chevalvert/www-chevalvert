@@ -57,8 +57,11 @@ return [
 
   'routes' => [
     [ // Quick access to the panel from any page by suffixing url with /panel
-      'pattern' => '(?:(en|fr)/|)?(:all)/panel',
-      'action' => function ($lang, $path) {
+      'pattern' => '(:all)/panel',
+      'action' => function ($path) {
+        if (in_array($path, ['fr', 'en'])) return go('panel');
+
+        $path = str_replace(['fr/', 'en/'], '', $path);
         $panel_path = 'pages/' . str_replace('/', '+', $path);
         return site()->user()
           ? go("panel/$panel_path")
