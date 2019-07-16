@@ -8,8 +8,8 @@ html {
 body {
   font-family: 'Friction Mono', monospace;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
 
   background-color: $black;
   color: $white;

@@ -11,6 +11,10 @@
     @include grid($main-grid);
     @include menubar;
 
+    z-index: 1;
+    position: sticky;
+    top: $menu-height;
+
     background-color: $black;
     color: $white;
 
@@ -32,15 +36,6 @@
       display: block;
       width: 100%;
       height: auto;
-    }
-  }
-}
-
-body[data-template='home'] {
-  .project-preview:last-child .project-preview__header {
-    display: none;
-    @include mobile {
-      display: block;
     }
   }
 }

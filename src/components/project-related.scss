@@ -6,8 +6,6 @@
   }
 
   .project-preview {
-    display: flex;
-    flex-direction: column-reverse;
     width: 50%;
 
     @include mobile {
