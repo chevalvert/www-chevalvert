@@ -13,10 +13,11 @@
   $lazyload = isset($lazyload) ? $lazyload : false;
 
   $image = $image->focusCrop($width, $height, compact('quality'));
+  $full = $image->original()->resize(1920);
 ?>
 
 <?php if ($allow_fullscreen) : ?>
-<a href="<?= $image->original()->url() ?>" data-caption="<?= $alt ?>" data-fullscreen="<?= $image->original()->url() ?>">
+<a href="<?= $full->url() ?>" data-caption="<?= $alt ?>" data-fullscreen="<?= $full->url() ?>">
 <?php endif ?>
 
   <figure <?= r($class, "class=\"$class\"") ?>>
