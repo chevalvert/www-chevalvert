@@ -9,6 +9,7 @@
   $attributes = isset($attributes) ? $attributes : [];
 
   $allow_fullscreen = isset($allow_fullscreen) ? $allow_fullscreen : false;
+  $lazyload = isset($lazyload) ? $lazyload : false;
   $autoplay = isset($autoplay) ? $autoplay : false;
 ?>
 
@@ -25,10 +26,18 @@
   <iframe
     data-ratio="<?= number_format((1 / $ratio), 4) ?>"
     class="<?= $class ?> <?= r($autoplay, 'no-gui') ?>"
-    src="<?= $vimeo->src(['ui' => false, 'autoplay' => $autoplay]) ?>"
 
     width="<?= $width ?>"
     height="<?= $height ?>"
+
+    <?php if ($lazyload) : ?>
+      data-lozad
+      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 <?= intval($width) ?> <?= intval($height) ?>'%3E%3C/svg%3E"
+      data-src="<?= $vimeo->src(['ui' => false, 'autoplay' => $autoplay]) ?>"
+    <?php else : ?>
+      src="<?= $vimeo->src(['ui' => false, 'autoplay' => $autoplay]) ?>"
+    <?php endif ?>
+
 
     <?php foreach ($attributes as $attribute => $value) : ?>
       <?= "$attribute=\"$value\" " ?>

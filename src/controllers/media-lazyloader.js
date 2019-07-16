@@ -1,19 +1,25 @@
 import 'intersection-observer'
+import VimeoPlayer from '@vimeo/player'
 import lozad from 'lozad'
 
 export default ({
-  selector = '[data-lozad]',
-  parentAttribute = 'data-lozad-container'
+  selector = '[data-lozad]'
 } = {}) => {
   let observer = lozad(selector, {
     rootMargin: '200px',
     threshold: 0.1,
     loaded: el => {
-      const parent = el.parentNode
-      if (!parent || !parent.hasAttribute(parentAttribute)) return
-      parent.setAttribute('data-loaded', true)
+      const src = el.getAttribute('src')
+      const isVimeo = src && ~src.indexOf('player.vimeo.com')
+      if (!isVimeo) return
+
+      el.removeAttribute('data-loaded')
+
+      const player = new VimeoPlayer(el)
+      player.on('play', () => el.setAttribute('data-loaded', true))
     }
   })
+
   observer.observe()
 
   return {
