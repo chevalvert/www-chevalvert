@@ -26,6 +26,9 @@
 
     @include tablet { @include col(8); }
     @include mobile { @include col(16); }
+
+    display: inline-flex !important;
+    flex-direction: column-reverse !important;
   }
 
   .project-preview:hover h3 {
@@ -33,6 +36,8 @@
   }
 
   .project-preview__header {
+    top: unset;
+    position: relative;
     display: block !important;
     background-color: transparent !important;
     color: $white !important;
