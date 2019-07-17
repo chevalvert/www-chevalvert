@@ -5,6 +5,14 @@
   white-space: unset;
   height: auto;
 
+  z-index: 1;
+  position: sticky;
+
+  @include desktop {
+    margin-bottom: -$footer-height--desktop;
+    top: calc(100vh - #{$footer-height--desktop});
+  }
+
   color: $white;
   background-color: $black;
   text-transform: lowercase;
@@ -41,6 +49,25 @@
   }
 }
 
+body[data-template='home'] .footer {
+  position: fixed;
+  bottom: 0;
+}
+
 body[data-template='projects'] .footer {
   filter: invert(1);
+}
+
+body[data-template='project'] {
+  @include desktop {
+    .sticky-footer-wrapper {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .project__footer {
+      margin-top: -1px;
+      margin-bottom: $footer-height--desktop;
+    }
+  }
 }

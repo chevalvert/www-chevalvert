@@ -24,12 +24,15 @@
     <div class="project__body-column"><?= $page->text()->kirbytext() ?></div>
     <div class="project__body-column"><?= $page->aside()->kirbytext() ?></div>
   </section>
+</article>
 
+<div class="sticky-footer-wrapper">
   <footer class="project__footer">
     <?php snippet('project-related', ['project' => $page]) ?>
   </footer>
-</article>
+
+  <?php snippet('footer') ?>
+</div>
 
 <?php snippet('barba/footer') ?>
-<?php snippet('footer') ?>
 <?php snippet('html/footer') ?>
