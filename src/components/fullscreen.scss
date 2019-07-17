@@ -1,3 +1,13 @@
+@keyframes slide-from-left {
+  from { transform: translateX(-100%); }
+  to { transform: none; }
+}
+
+@keyframes slide-from-right {
+  from { transform: translateX(100%); }
+  to { transform: none; }
+}
+
 *[data-fullscreen],
 *[data-fullscreen] * {
   cursor: pointer;
@@ -49,6 +59,23 @@
     width: 100%;
     height: 100%;
     transform: translate(-50%, -50%);
+  }
+
+  &__media > * {
+    opacity: 0;
+  }
+
+  &__media > *[data-loaded="true"] {
+    @include easing(1s, opacity);
+    opacity: 1;
+  }
+
+  &[data-transition="from-left"] &__media > * {
+    animation: slide-from-left 100ms ease-out forwards;
+  }
+
+  &[data-transition="from-right"] &__media > * {
+    animation: slide-from-right 100ms ease-out forwards;
   }
 
   // NOTE: this pseudo-element allows capturing click event on iframe,
@@ -120,11 +147,4 @@
       &:last-of-type { padding-right: 0; }
     }
   }
-
-  // @include mobile {
-  //   &__caption:empty + &__toolbar {
-  //     @include debug;
-  //     height: $line-height;
-  //   }
-  // }
 }

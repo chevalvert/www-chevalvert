@@ -14,6 +14,7 @@ export default class Fullscreen {
     this.caption = caption
 
     this.interceptKey = this.interceptKey.bind(this)
+    this.interceptHistory = this.interceptHistory.bind(this)
     this.interceptClick = this.interceptClick.bind(this)
     this.goToPrevious = this.goToPrevious.bind(this)
     this.goToNext = this.goToNext.bind(this)
@@ -38,7 +39,7 @@ export default class Fullscreen {
       <div class='fullscreen__media ${this.isVimeo ? 'is-vimeo' : ''}'>
         ${this.media}
       </div>
-      <footer class="fullscreen__footer">
+      <footer class='fullscreen__footer'>
         <div class='fullscreen__caption'>
           ${this.caption}
         </div>
@@ -51,6 +52,12 @@ export default class Fullscreen {
 
   get isVimeo () {
     return ~this.url.indexOf('player.vimeo.com')
+  }
+
+  get id () {
+    return this.isVimeo
+      ? parseInt(this.url.split('/').pop()).toString()
+      : this.url.split('/').pop()
   }
 
   mount () {
@@ -73,6 +80,7 @@ export default class Fullscreen {
 
   bind () {
     window.addEventListener('keyup', this.interceptKey)
+    window.addEventListener('popstate', this.interceptHistory)
     this.element.addEventListener('click', this.interceptClick, false)
     this.buttons.previous.addEventListener('click', this.goToPrevious)
     this.buttons.next.addEventListener('click', this.goToNext)
@@ -81,13 +89,14 @@ export default class Fullscreen {
     swipeListener(this.element, e => {
       if (e.srcElement && !e.srcElement.classList.contains('fullscreen__media')) return
 
-      if (e.delta[0] < 0) this.goToPrevious()
-      if (e.delta[0] > 0) this.goToNext()
+      if (e.delta[0] < 0) this.goToPrevious({ transition: 'from-left' })
+      if (e.delta[0] > 0) this.goToNext({ transition: 'from-right' })
     })
   }
 
   unbind () {
     window.removeEventListener('keyup', this.interceptKey)
+    window.removeEventListener('popstate', this.interceptHistory)
     this.element.removeEventListener('click', this.interceptClick)
     this.buttons.previous.removeEventListener('click', this.goToPrevious)
     this.buttons.next.removeEventListener('click', this.goToNext)
@@ -102,50 +111,93 @@ export default class Fullscreen {
 
   interceptKey (e) {
     if (e.code === 'Escape') this.close()
-    if (~['ArrowLeft', 'ArrowUp'].indexOf(e.code)) {
-      this.close()
-      this.previous.open()
-    }
-    if (~['ArrowRight', 'ArrowDown'].indexOf(e.code)) {
-      this.close()
-      this.next.open()
-    }
+    if (~['ArrowLeft', 'ArrowUp'].indexOf(e.code)) this.goToPrevious()
+    if (~['ArrowRight', 'ArrowDown'].indexOf(e.code)) this.goToNext()
   }
 
-  open () {
+  interceptHistory (e) {
+    this.close()
+  }
+
+  get inHistory () {
+    return window.history.state && window.history.state.isFullscreen
+  }
+
+  pushToHistory () {
+    const state = { isFullscreen: true, id: this.id }
+
+    const action = this.inHistory ? 'replaceState' : 'pushState'
+    window.history[action](state, document.title, '#' + this.id)
+  }
+
+  cleanHistory () {
+    if (this.inHistory) window.history.back()
+  }
+
+  open ({ transition = null } = {}) {
     if (this.isOpen) return
     if (!this.mounted) this.mount()
 
     this.bind()
+    this.pushToHistory()
+    this.preloadNeighbors()
 
     this.isOpen = true
+    this.element.setAttribute('data-transition', transition || '')
     this.element.classList.add('is-open')
     this.element.style.display = ''
-
+    this.setMediaAsLoaded()
     if (this.player) this.player.play()
 
     document.body.setAttribute('no-scroll', '')
   }
 
-  close () {
+  setMediaAsLoaded () {
+    if (!this.isVimeo) this.media.onload = () => this.media.setAttribute('data-loaded', true)
+    if (this.media.complete) this.media.setAttribute('data-loaded', true)
+    if (this.player) this.player.on('play', () => this.media.setAttribute('data-loaded', true))
+  }
+
+  close ({ cleanHistory = true } = {}) {
     this.unbind()
 
     this.isOpen = false
     this.element.classList.remove('is-open')
+    this.element.removeAttribute('data-transition')
     this.element.style.display = 'none'
 
     if (this.player) this.player.pause()
+    if (cleanHistory) this.cleanHistory()
 
     document.body.removeAttribute('no-scroll')
   }
 
-  goToPrevious () {
-    this.close()
-    this.previous.open()
+  goToPrevious ({ transition = null } = {}) {
+    this.close({ cleanHistory: false })
+    this.previous.open({ transition })
   }
 
-  goToNext () {
-    this.close()
-    this.next.open()
+  goToNext ({ transition = null } = {}) {
+    this.close({ cleanHistory: false })
+    this.next.open({ transition })
+  }
+
+  static get PRELOAD_DELAY () { return 300 }
+
+  get preloaded () { return this.mounted }
+
+  preload () {
+    if (this.preloaded) return
+
+    this.mount()
+    this.close({ cleanHistory: false })
+  }
+
+  preloadNeighbors () {
+    clearTimeout(this.preloader)
+    this.preloader = setTimeout(() => {
+      this.previous.preload()
+      this.next.preload()
+    }, Fullscreen.PRELOAD_DELAY)
   }
 }

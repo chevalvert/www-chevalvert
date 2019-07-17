@@ -29,10 +29,24 @@ export default ({
     fullscreen.next = fullscreens[(index + 1) % fullscreens.length]
   })
 
+  window.addEventListener('popstate', handleHistory)
+  openFullscreen(window.location.hash.split('#')[1])
+
   return {
     destroy: () => {
+      window.removeEventListener('popstate', handleHistory)
       fullscreens.forEach(fullscreen => fullscreen.destroy())
       fullscreens = undefined
     }
+  }
+
+  function handleHistory (e) {
+    if (e.state && e.state.isFullscreen) openFullscreen(e.state.id)
+  }
+
+  function openFullscreen (id) {
+    if (!id) return
+    const matchedFullscreen = fullscreens.find(f => f.id === id)
+    if (matchedFullscreen) matchedFullscreen.open()
   }
 }
