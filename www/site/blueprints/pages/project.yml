@@ -7,7 +7,7 @@ tabs:
     label: Description
     icon: text
     columns:
-      - width: 1/3
+      - width: 1/4
         sections:
           info:
             type: info
@@ -18,7 +18,7 @@ tabs:
           files: sections/files
           vimeos: sections/vimeos
 
-      - width: 2/3
+      - width: 1/2
         sections:
           content:
             type: fields
@@ -48,11 +48,16 @@ tabs:
                 extends: fields/markdown
                 label: Informations complémentaires
 
+      - width: 1/4
+        sections:
+          notes: sections/notes
+
+
   tab_cover:
     label: Médias
     icon: image
     columns:
-      - width: 1/3
+      - width: 1/4
         sections:
           info:
             type: info
@@ -63,7 +68,7 @@ tabs:
           files: sections/files
           vimeos: sections/vimeos
 
-      - width: 2/3
+      - width: 3/4
         fields:
           cover_raw:
             label: Couverture
@@ -107,3 +112,13 @@ tabs:
         image:
           query: page.panelPreviewCover
           back: black
+
+  # tab_notes:
+  #   label: Notes
+  #   icon: text
+  #   fields:
+  #     notes:
+  #       extends: fields/markdown
+  #       size: large
+  #       help: |
+  #         Important: ce champ ne sera jamais visible par les visiteurs du site ; il n'a d'intérêt que pour la prise de note lors de l'édition d'un projet

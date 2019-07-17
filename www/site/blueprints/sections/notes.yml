@@ -1,0 +1,8 @@
+type: fields
+fields:
+  notes:
+    type: textarea
+    buttons: false
+    counter: false
+    font: monospace
+    size: large
