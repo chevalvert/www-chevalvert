@@ -50,8 +50,10 @@
 }
 
 body[data-template='home'] .footer {
-  position: fixed;
-  bottom: 0;
+  @include desktop {
+    position: fixed;
+    bottom: 0;
+  }
 }
 
 body[data-template='projects'] .footer {
