@@ -13,10 +13,21 @@
 
     z-index: 1;
     position: sticky;
-    top: $menu-height;
+    top: $menu-height - 0.05rem;
 
     background-color: $black;
     color: $white;
+
+    @include tablet {
+      & > *:nth-child(2) {
+        display: none;
+      }
+
+      & > *:nth-child(3) {
+        float: right;
+        text-align: right;
+      }
+    }
 
     @include mobile {
       & > *:first-child {
