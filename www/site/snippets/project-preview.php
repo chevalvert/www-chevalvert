@@ -1,5 +1,5 @@
 <section class="project-preview">
-  <a href="<?= $project->url() ?>" title="<?= $project->title() ?>" class="project-preview__header" style="background-color:#<?= $project->color()->value() ?>" data-contrast="<?= Contrast::compute('#' . $project->color()->value()) ?>">
+  <a href="<?= $project->url() ?>" class="project-preview__header" style="background-color:#<?= $project->color()->value() ?>" data-contrast="<?= Contrast::compute('#' . $project->color()->value()) ?>">
     <?php if (isset($show_title) ? $show_title : true) : ?>
     <div class="project__header-column">
       <h3><?= $project->title()->html() ?></h3>
@@ -18,7 +18,7 @@
     </div>
     <?php endif ?>
   </a>
-  <a href="<?= $project->url() ?>" title="<?= $project->title() ?>">
+  <a href="<?= $project->url() ?>" tabIndex="-1">
     <div class="project-preview__cover">
       <?= $project->cover(isset($cover_preset) ? $cover_preset : 'default') ?>
     </div>
