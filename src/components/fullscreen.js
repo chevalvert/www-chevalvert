@@ -25,7 +25,7 @@ export default class Fullscreen {
     this.media = !this.isVimeo
       ? html`<img src='${this.url}'>`
       : html`<div style='padding-top:56.25%'>
-        <iframe src='${this.url}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen>
+        <iframe src='${this.url}' allow='autoplay' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </div>`
 
     this.buttons = {
@@ -146,16 +146,25 @@ export default class Fullscreen {
     this.element.setAttribute('data-transition', transition || '')
     this.element.classList.add('is-open')
     this.element.style.display = ''
-    this.setMediaAsLoaded()
-    if (this.player) this.player.play()
+    this.activateMedia()
 
     document.body.setAttribute('no-scroll', '')
   }
 
-  setMediaAsLoaded () {
-    if (!this.isVimeo) this.media.onload = () => this.media.setAttribute('data-loaded', true)
+  activateMedia () {
+    if (this.player) {
+      this.player
+        .play()
+        .then(() => this.media.setAttribute('data-loaded', true))
+        .catch(err => {
+          console.warn(err)
+          this.media.setAttribute('data-loaded', true)
+        })
+      return
+    }
+
     if (this.media.complete) this.media.setAttribute('data-loaded', true)
-    if (this.player) this.player.on('play', () => this.media.setAttribute('data-loaded', true))
+    this.media.onload = () => this.media.setAttribute('data-loaded', true)
   }
 
   close ({ cleanHistory = true } = {}) {
