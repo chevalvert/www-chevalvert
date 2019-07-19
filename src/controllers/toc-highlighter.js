@@ -12,6 +12,14 @@ export default ({
     if (!element) return
 
     anchor.y = window.pageYOffset + element.getBoundingClientRect().top
+
+    anchor.addEventListener('click', e => {
+      e.preventDefault()
+      window.scroll({
+        top: anchor.y,
+        behavior: 'smooth'
+      })
+    })
   })
 
   checkForActiveness()
