@@ -1,6 +1,6 @@
 .projects {
   &__header {
-    @include grid($main-grid);
+    @include grid($main-grid, 0, $site-margin);
     @include menubar;
 
     position: sticky;
@@ -16,12 +16,19 @@
   }
 
   &__items {
-    @include row;
-    margin-top: $gutter;
+    width: 100%;
+    font-size: 0;
+    padding-top: $site-margin;
+    padding-left: ($site-margin - $gutter / 2);
+    padding-right: ($site-margin - $gutter / 2);
   }
 
   .project-preview {
     @include col(4);
+
+    &:first-child { padding-left: $gutter / 2 !important; }
+    &:last-child { padding-right: $gutter / 2 !important; }
+
     margin-bottom: $gutter + $line-height;
 
     @include tablet { @include col(8); }
@@ -29,25 +36,27 @@
 
     display: inline-flex !important;
     flex-direction: column-reverse !important;
-  }
 
-  .project-preview:hover h3 {
-    @include underline;
-  }
+    &:hover h3 {
+      @include underline;
+    }
 
-  .project-preview__header {
-    top: unset;
-    position: relative;
-    display: block !important;
-    background-color: transparent !important;
-    color: $white !important;
-    padding: $menu-padding-top 0 0 0;
-    height: auto;
-    white-space: nowrap;
+    &__header {
+      top: unset;
+      position: relative;
+      display: block !important;
+      background-color: transparent !important;
+      color: $white !important;
+      padding: $menu-padding-top 0 0 0;
+      * { padding-left: 0 !important; }
+      height: auto;
+      white-space: nowrap;
 
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .project__header-column {

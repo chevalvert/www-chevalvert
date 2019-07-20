@@ -1,7 +1,7 @@
 .about-section {
   position: relative;
   padding-top: $menu-padding-top;
-  padding-bottom: $line-height * 2;
+  padding-bottom: $menu-height * 3;
   background-color: $white;
   color: $black;
 
@@ -30,6 +30,10 @@
     top: -($menu-height * 2);
     visibility: hidden;
 
+    @include devices(mobile, tablet) {
+      top: -$menu-height;
+    }
+
     @if $debug {
       visibility: visible;
       height: 0px;
@@ -56,17 +60,23 @@
     min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--desktop});
 
     @include devices(mobile, tablet) {
-      min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--mobile});
+      min-height: calc(100vh - #{$menu-height} - #{$footer-height--mobile});
     }
   }
 
   @include devices(mobile, tablet) {
     padding-top: 0;
+    margin-top: -$menu-height;
+
     &__column:first-child h1,
     &__column:first-child h2,
     &__column:first-child h3 {
       @include menubar;
       @include hr;
+      padding-left: $site-margin;
+      padding-right: $site-margin;
+      margin-left: -$site-margin;
+      margin-right: -$site-margin;
     }
   }
 

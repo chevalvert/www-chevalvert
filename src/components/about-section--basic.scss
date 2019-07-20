@@ -1,6 +1,6 @@
 .about-section--basic {
   @include desktop {
-    .about-section__row { @include row; }
+    .about-section__row { @include row($site-margin); }
     .about-section__column:nth-child(1) { @include col(4); }
     .about-section__column:nth-child(2) { @include col(7, 1); }
     .about-section__column:nth-child(3) { @include col(3, 1); }

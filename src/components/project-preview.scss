@@ -8,7 +8,7 @@
   }
 
   &__header {
-    @include grid($main-grid);
+    @include grid($main-grid, 0, $site-margin);
     @include menubar;
 
     z-index: 1;

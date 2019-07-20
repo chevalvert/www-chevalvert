@@ -1,5 +1,5 @@
 .menu {
-  @include grid($main-grid);
+  @include grid($main-grid, 0, $site-margin);
   @include menubar;
 
   z-index: 2;
@@ -19,6 +19,7 @@
     ul {
       display: flex;
       justify-content: space-between;
+
       @include devices(mobile, tablet) {
         justify-content: flex-end;
       }

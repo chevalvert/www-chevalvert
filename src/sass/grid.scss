@@ -1,13 +1,16 @@
-$grid-gutter: $gutter;
-$grid-length: 16;
-
 // Define a block as a row containing columns
-@mixin row () {
+@mixin row ($padding: 0) {
   position: relative;
   width: 100%;
-  padding-left: $site-margin - ($grid-gutter / 2);
-  padding-right: $site-margin - ($grid-gutter / 2);
   font-size: 0;
+
+  // NOTE: to prevent discrepencies between projet gallery grid (which has no
+  // outer gutter), outer gutter is done by padding inside the first and last
+  // columns… Thanks Patrick !
+  @if $padding {
+    & > *:first-child { padding-left: $padding !important; }
+    & > *:last-child { padding-right: $padding !important; }
+  }
 
   @if $debug {
     &::after {
@@ -30,14 +33,24 @@ $grid-length: 16;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: $vertical-align;
+  width: percentage($width / $grid-length);
+
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child:not(:first-child) {
+    padding-right: 0;
+  }
 
   @if $offset > 0 {
     @include col-offset($offset);
+    &:first-child:last-child { padding-right: 0; }
+    &:first-child { padding-left: $gutter / 2 !important; }
   }
-
-  padding-left: $grid-gutter / 2;
-  padding-right: $grid-gutter / 2;
-  width: percentage($width / $grid-length);
 
   @if $debug {
     position: relative;
@@ -46,10 +59,10 @@ $grid-length: 16;
       z-index: 1;
       position: absolute;
       pointer-events: none;
-      top: -$grid-gutter;
-      bottom: -$grid-gutter;
-      left: $grid-gutter / 2;
-      right: $grid-gutter / 2;
+      top: -$gutter;
+      bottom: -$gutter;
+      left: $gutter / 2;
+      right: $gutter / 2;
       border-left: 1px dotted cyan;
       border-right: 1px dotted cyan;
     }
@@ -61,11 +74,64 @@ $grid-length: 16;
 }
 
 // Apply grid to a corresponding markup
-@mixin grid ($grid-columns, $offset: 0) {
-  @include row;
+@mixin grid ($grid-columns, $offset: 0, $padding: 0) {
+  @include row($padding);
+
+  $total: $offset;
   @for $index from 1 through length($grid-columns) {
+    $can-offset: $index == 1;
+    $width: nth($grid-columns, $index);
+    $total: $total + $width;
+
     & > *:nth-child(#{$index}) {
-      @include col(nth($grid-columns, $index), if($index == 1, $offset, 0));
+      @include col($width, if($can-offset, $offset, 0));
     }
   }
+
+  // NOTE: in some column ratio cases, an empty div must be added in order to
+  // get the proper padding-right configuration on the previous column
+  // This is due to the fact that the outer columns of the gallery do not have
+  // gutter… Thanks Patrick !
+  @if $total < $grid-length {
+    & > *:nth-child(#{length($grid-columns) + 1}) { @include col($grid-length - $total); }
+  } @else {
+    & > *:nth-child(#{length($grid-columns)}) { padding-right: 0; }
+    & > *:nth-child(#{length($grid-columns) + 1}) { display: none; }
+  }
+}
+
+.debug-grid {
+  @include grid((1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1));
+
+  display: none;
+  @if $display-grid {
+    display: block;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+
+  * {
+    position: relative;
+    height: 100%;
+  }
+
+  *::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: $gutter / 2;
+    right: $gutter / 2;
+    border-left: 1px dotted cyan;
+    border-right: 1px dotted cyan;
+  }
+
+  *:nth-child(odd)::before { background: rgba(white, $display-grid--opacity); }
+  *:nth-child(even)::before { background: rgba(cyan, $display-grid--opacity); }
 }

@@ -1,6 +1,6 @@
 .about-section--grid {
   @include desktop {
-    .about-section__row { @include row; }
+    .about-section__row { @include row($site-margin); }
     .about-section__column:nth-child(1) { @include col(4); }
     .about-section__column:nth-child(2) { @include col(11, 1); }
   }
@@ -8,7 +8,7 @@
   &__items {
     font-size: 0;
     margin-left: -$gutter / 2;
-    margin-right: -$gutter / 2;
+    margin-right: -$site-margin;
   }
 
   &__item {
@@ -16,6 +16,10 @@
     width: percentage(3 / ($grid-length - 5));
     font-size: $font-size;
     margin-bottom: $line-height;
+
+    &:first-child {
+      padding-left: $gutter / 2 !important;
+    }
 
     &:not(:nth-child(3n + 1)) {
       margin-left: percentage(1 / ($grid-length - 5));

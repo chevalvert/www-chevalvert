@@ -1,5 +1,5 @@
 .default {
-  @include row;
+  @include row($site-margin);
 
   @include desktop {
     padding-top: $menu-padding-top;
@@ -25,14 +25,19 @@
       background-color: $white;
       z-index: 1;
     }
-    &__column:nth-child(2) { @include col(16); }
+
+    &__column:nth-child(2) {
+      @include col(16);
+      padding-left: $site-margin;
+      padding-right: $site-margin;
+    }
   }
 
   padding-bottom: $line-height * 2;
   background-color: $white;
   color: $black;
 
-  min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--desktop});
+  min-height: calc(100vh - #{$menu-height} - #{$footer-height--desktop});
 
   h2, h3 {
     text-transform: lowercase;

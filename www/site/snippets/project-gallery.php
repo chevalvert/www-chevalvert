@@ -3,6 +3,14 @@
     preg_match_all('/\d+/', $str, $matches);
     return $matches[0];
   }
+
+  // NOTE: in some column ratio cases, an empty div must be added in order to
+  // get the proper padding-right configuration on the previous column
+  // This is due to the fact that the outer columns of the gallery do not have
+  // gutter… Thanks Patrick !
+  function padHack () {
+    echo '<li class="grid__padding-right--hack"></li>';
+  }
 ?>
 
 <ul class="project-gallery">
@@ -26,6 +34,8 @@
           snippet('project-gallery__media', array_merge(['key' => 'media_3', 'cols' => $widths[2]], compact('project', 'line')));
           break;
       }
+
+      if (array_sum($widths) < 16) padHack();
     ?>
   </div>
 <?php endforeach ?>

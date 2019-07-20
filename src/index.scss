@@ -4,6 +4,8 @@
 @import 'sass/devices';
 
 $debug: false;
+$display-grid: false;
+$display-grid--opacity: 0.1;
 
 $black: #000000;
 $white: #FFFFFF;
@@ -12,6 +14,7 @@ $font-size: 1.6rem;
 $line-height: 2.0rem;
 
 $main-grid: (5, 8, 3);
+$grid-length: 16;
 $gutter: 1.2rem;
 $site-margin: $gutter;
 
@@ -19,7 +22,7 @@ $menu-height: 3.6rem;
 $menu-padding-top: 0.9rem;
 $menu-padding-bottom: 0.9rem;
 
-$footer-height--desktop: 5.7rem;
+$footer-height--desktop: 8.4rem;
 $footer-height--mobile: 31.9rem;
 
 @import 'sass/mixins';
@@ -47,3 +50,4 @@ $footer-height--mobile: 31.9rem;
 @import 'components/projects-categories';
 @import 'components/sitemap';
 @import 'components/vimeo';
+

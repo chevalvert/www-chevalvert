@@ -1,5 +1,5 @@
 .footer {
-  @include grid((5, 2, 2, 4, 3));
+  @include grid((5, 2, 2, 4, 3), 0, $site-margin);
   @include menubar;
 
   white-space: unset;
@@ -11,6 +11,7 @@
   @include desktop {
     margin-bottom: -$footer-height--desktop;
     top: calc(100vh - #{$footer-height--desktop});
+    padding-bottom: $menu-height;
   }
 
   color: $white;
@@ -38,6 +39,11 @@
 
     &__column {
       width: 100% !important;
+
+      &:not(:first-child) {
+        margin-left: $site-margin - $gutter / 2;
+      }
+
       &:not(.should-not-break) {
         margin-bottom: $line-height;
       }

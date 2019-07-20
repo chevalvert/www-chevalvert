@@ -1,6 +1,6 @@
 .about {
   &__sections {
-    @include row;
+    @include row($site-margin);
     @include inline-list;
     @include menubar;
     @include invisible-x-scroll;

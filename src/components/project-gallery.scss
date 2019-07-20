@@ -22,8 +22,9 @@
   }
 
   &__row {
-    margin-top: $grid-gutter;
-    margin-bottom: $grid-gutter;
+    & + & {
+      margin-top: $gutter;
+    }
 
     @include desktop {
       &[data-ratio='█████████████░░░ (13-)'] { @include grid((13)); }
@@ -49,9 +50,12 @@
 
     @include devices(mobile, tablet) {
       @include grid((16, 16, 16));
-      li + li {
-        margin-top: $gutter;
+      li {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
       }
+      li + li { margin-top: $gutter; }
+      .grid__padding-right--hack { display: none; }
     }
   }
 }
