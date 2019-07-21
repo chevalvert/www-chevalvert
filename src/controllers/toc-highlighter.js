@@ -19,6 +19,7 @@ export default ({
         top: anchor.y,
         behavior: 'smooth'
       })
+      anchor.blur()
     })
   })
 
