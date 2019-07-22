@@ -1,3 +1,7 @@
 .project-categories {
   @include inline-list;
+
+  *:hover {
+    border: none;
+  }
 }

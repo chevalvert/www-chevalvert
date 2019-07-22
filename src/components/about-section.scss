@@ -50,7 +50,8 @@
     margin-bottom: $line-height;
   }
 
-  p + p {
+  p + p,
+  p + ul {
     margin-top: $line-height;
   }
 

@@ -25,16 +25,21 @@
   .logo {
     float: left;
     margin-right: $gutter;
+    display: block;
     border: none;
+    padding-right: 0.2rem;
     img {
-      height: calc(1em + #{$line-height});
+      // TODO
+      margin-top: 1px;
+      height: 32px;
     }
   }
 
   @include devices(mobile, tablet) {
+    padding-top: $menu-padding-top * 1.5;
     .logo {
       float: none;
-      margin-bottom: $menu-padding-top;
+      padding-bottom: $menu-padding-top * 1.5;
     }
 
     &__column {
