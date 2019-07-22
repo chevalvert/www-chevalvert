@@ -1,6 +1,6 @@
 import barba from 'controllers/barba'
 import lazyloader from 'controllers/media-lazyloader'
-import subtitleShuffler from 'controllers/subtitle-alternates-shuffler'
+import shuffleSubtitle from 'controllers/subtitle-shuffler'
 
 import 'views/about'
 import 'views/home'
@@ -17,11 +17,11 @@ barba({
     document.body.removeAttribute('no-scroll')
   },
 
-  newPageReady: () => lazyloader(),
+  newPageReady: lazyloader,
 
   transitionCompleted: () => {
     document.body.classList.remove('is-loading')
-    subtitleShuffler()
+    shuffleSubtitle()
   },
 
   transitionsMap: {
