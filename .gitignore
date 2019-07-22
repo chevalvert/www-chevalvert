@@ -74,7 +74,6 @@ Temporary Items
 # <KirbyWebpack>
 www/kirby
 www/site/plugins/kirby3-autoid
-www/site/plugins/focus
 www/site/plugins/kirby-builder
 # </KirbyWebpack>
 *.bak

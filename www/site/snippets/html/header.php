@@ -8,7 +8,7 @@
 
   <script>document.getElementsByTagName('html')[0].className = 'js'</script>
 
-  <?php snippet('html.header.metas') ?>
+  <?php snippet('html/header-metas') ?>
 
   <title><?= r($page !== $site->homePage(), $page->title()->html() . ' | ') . $site->title()->html() ?></title>
 

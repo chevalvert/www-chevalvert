@@ -49,8 +49,8 @@
 
 <?php if (isset($cover) && $cover) : ?>
 <?php
-  $og_cover = $cover->focusCrop(1200, 630);
-  $tw_cover = $cover->focusCrop(280, 150);
+  $og_cover = $cover->thumb(['width' => 1200, 'height' => 630, 'crop' => true]);
+  $tw_cover = $cover->thumb(['width' => 280, 'height' => 150, 'crop' => true]);
 ?>
 <meta property="og:image" content="<?= $og_cover->url() ?>">
 <meta property="og:image:width" content="<?= $og_cover->width() ?>">

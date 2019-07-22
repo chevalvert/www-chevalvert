@@ -3,7 +3,6 @@
     "core": "https://github.com/getkirby/kirby.git",
     "plugins": {
       "kirby3-autoid": "https://github.com/bnomei/kirby3-autoid.git",
-      "focus": "https://github.com/flokosiol/kirby-focus.git",
       "kirby-builder": "https://github.com/TimOetting/kirby-builder.git"
     }
   }
