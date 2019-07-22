@@ -1,7 +1,8 @@
 <?php
   $lang = $kirby->language()->code();
 
-  $category = autoid($category)->$lang();
+  $id = autoid($category);
+  $category = $id ? $id->$lang() : '';
   $linkable = isset($linkable) && $linkable;
 
   $slug = str::slug($category);
