@@ -1,17 +1,17 @@
 <?php
-  $ratio = isset($ratio) ? $ratio : $image->ratio();
+  $ratio = $ratio ?? $image->ratio();
   $width = min($width, $image->width());
-  $height = isset($height) ? $height : $width / $ratio;
-  $quality = isset($quality) ? $quality : 100;
+  $height = $height ?? $width / $ratio;
+  $quality = $quality ?? 100;
   $srcset = isset($srcset) ? make_srcset($image, $srcset, $quality) : null;
 
   $alt = isset($alt) ? Escape::html($alt) : Escape::html($image->caption());
-  $title = isset($title) ? $title : $alt;
-  $class = isset($class) ? $class : '';
-  $attributes = isset($attributes) ? $attributes : [];
+  $title = $title ?? $alt;
+  $class = $class ?? '';
+  $attributes = $attributes ?? [];
 
-  $allow_fullscreen = isset($allow_fullscreen) ? $allow_fullscreen : false;
-  $lazyload = isset($lazyload) ? $lazyload : false;
+  $allow_fullscreen = $allow_fullscreen ?? false;
+  $lazyload = $lazyload ?? false;
 
   $image = $image->thumb(compact('width', 'height', 'quality'));
   $full = $image->original()->resize(1920);

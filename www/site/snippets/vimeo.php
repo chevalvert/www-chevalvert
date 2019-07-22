@@ -1,16 +1,16 @@
 <?php
-  $ratio = isset($ratio) ? $ratio : $vimeo->ratio();
+  $ratio = $ratio ?? $vimeo->ratio();
   $width = isset($width) ? min($width, $vimeo->width()) : $vimeo->width();
-  $height = isset($height) ? $height : $width / $ratio;
+  $height = $height ?? $width / $ratio;
 
   $alt = isset($alt) ? Escape::html($alt) : Escape::html($vimeo->caption());
-  $title = isset($title) ? $title : $vimeo->title()->value();
-  $class = isset($class) ? $class : '';
-  $attributes = isset($attributes) ? $attributes : [];
+  $title = $title ?? $vimeo->title()->value();
+  $class = $class ?? '';
+  $attributes = $attributes ?? [];
 
-  $allow_fullscreen = isset($allow_fullscreen) ? $allow_fullscreen : false;
-  $lazyload = isset($lazyload) ? $lazyload : false;
-  $autoplay = isset($autoplay) ? $autoplay : false;
+  $allow_fullscreen = $allow_fullscreen ?? false;
+  $lazyload = $lazyload ?? false;
+  $autoplay = $autoplay ?? false;
 ?>
 
 <div
