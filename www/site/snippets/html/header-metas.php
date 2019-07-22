@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="<?= $kirby->urls()->assets() ?>/favicons/favicon-32x32.png?v=3">
 <link rel="icon" type="image/png" sizes="16x16" href="<?= $kirby->urls()->assets() ?>/favicons/favicon-16x16.png?v=3">
 <link rel="mask-icon" href="<?= $kirby->urls()->assets() ?>/favicons/safari-pinned-tab.svg?v=3" color="#000000">
-<link rel="shortcut icon" href="favicon.ico?v=3">
+<link rel="shortcut icon" href="/favicon.ico?v=3">
 
 <meta name="application-name" content="<?= $site->title() ?>">
 <meta name="msapplication-TileColor" content="#000000">
@@ -37,21 +37,24 @@
 
   // On a page without cover, randomly find a project with a usable cover
   if (!$cover) {
-    $firstCoveredProject = $site->pinned()
-      ->toPages()
-      ->filter(function ($p) { return $p->cover(null, true)->isVimeo() !== true; })
-      ->shuffle()
-      ->first();
+    $pinned = $site->pinned()->toPages()->shuffle();
 
-    if ($firstCoveredProject) $cover = $firstCoveredProject->cover(null, true);
+    $nonVimeoProject = $pinned->filter(function ($p) {
+      return $p->cover(null, true)->isVimeo() == false;
+    })->first();
+
+    $cover = $nonVimeoProject
+      ? $nonVimeoProject->cover(null, true)
+      : $pinned->first()->images()->first();
   }
 ?>
 
-<?php if (isset($cover) && $cover) : ?>
+<?php if ($cover) : ?>
 <?php
   $og_cover = $cover->thumb(['width' => 1200, 'height' => 630, 'crop' => true]);
   $tw_cover = $cover->thumb(['width' => 280, 'height' => 150, 'crop' => true]);
 ?>
+
 <meta property="og:image" content="<?= $og_cover->url() ?>">
 <meta property="og:image:width" content="<?= $og_cover->width() ?>">
 <meta property="og:image:height" content="<?= $og_cover->height() ?>">
