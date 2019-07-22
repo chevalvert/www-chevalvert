@@ -61,6 +61,7 @@ fieldsets:
         type: select
         required: true
         translate: false
+        width: 3/4
         options:
           '███████████▓▓▓▓▓ (11-5)': "⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ (11-5)"
           '█████▓▓▓▓▓▓▓▓▓▓▓ (5-11)': "⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ (5-11)"
@@ -71,6 +72,11 @@ fieldsets:
           '░░░█████▓▓▓▓▓▓▓▓ (-5-8)': "➖➖➖⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ (-5-8)"
           '█████▓▓▓▓▓░░░░░░ (5-5-)': "⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜➖➖➖➖➖➖ (5-5-)"
           '░░░░░░█████▓▓▓▓▓ (-5-5)': "➖➖➖➖➖➖⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ (-5-5)"
+      match_height:
+        label: Forcer une hauteur égale
+        type: toggle
+        translate: false
+        width: 1/4
 
   three:
     label: Ligne de trois images
@@ -108,6 +114,12 @@ fieldsets:
         type: select
         required: true
         translate: false
+        width: 3/4
         options:
           '█████▓▓▓▓▓█████░ (5-5-5-)': "⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛➖ (5-5-5-)"
           '░█████▓▓▓▓▓█████ (-5-5-5)': "➖⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛ (-5-5-5)"
+      match_height:
+        label: Forcer une hauteur égale
+        type: toggle
+        translate: false
+        width: 1/4

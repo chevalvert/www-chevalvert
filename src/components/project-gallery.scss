@@ -21,6 +21,29 @@
     }
   }
 
+  // NOTE: This opt-in class allows the user to force the height of all images
+  // to be the same. This is used when a user want to display several images
+  // side by side with the same ratio: because of the way the grid handles outer
+  // gutters (thanks Patrick !), the width of the far left and far right images
+  // are always greater than the inside images (by one gutter).
+  // The solution is to artificially increase by one gutter the width of the
+  // inside image, then crop to the correct container width.
+  &__row.should-match-height {
+    @include desktop {
+      display: flex;
+
+      a, figure, img {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      li:not(:last-child) figure,
+      li:not(:first-child) figure {
+        width: calc(100% + #{$gutter});
+      }
+    }
+  }
+
   &__row {
     & + & {
       margin-top: $gutter;

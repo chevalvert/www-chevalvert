@@ -15,7 +15,7 @@
 
 <ul class="project-gallery">
 <?php foreach ($project->gallery()->toBuilderBlocks() as $line) : ?>
-  <div class="project-gallery__row" data-ratio="<?= $line->ratio() ?>">
+  <div class="project-gallery__row <?= r($line->match_height()->bool(), 'should-match-height') ?>" data-ratio="<?= $line->ratio() ?>">
     <?php
       $widths = extractNumbers($line->ratio());
       switch ($line->_key()) {
