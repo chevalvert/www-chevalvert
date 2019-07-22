@@ -42,8 +42,8 @@
 
     display: grid;
     height: 100%;
-    width: calc(100vw - #{$site-margin * 2});
-    max-height: calc(100vh - #{$menu-height + $gutter * 2});
+    width: calc(100vw);
+    max-height: calc(100vh - #{$menu-height});
   }
 
   &__media img {
@@ -81,13 +81,20 @@
   // NOTE: this pseudo-element allows capturing click event on iframe,
   // without interfering with Vimeo's toolbar
   &__media::after {
+    $vimeo-ui-area: 50px;
+
     content: '';
     position: absolute;
-    top: 0;
     left: 0;
-    right: 0;
-    bottom: 80px;
-    max-height: calc(100vh - 80px);
+    right: $vimeo-ui-area;
+    top: calc(50% - 56.25vw / 2);
+    bottom: calc(50% - 56.25vw / 2 + #{$vimeo-ui-area});
+
+    @media (min-aspect-ratio: 16/9) {
+      top: 0;
+      bottom: $vimeo-ui-area;
+      right: calc(50% - 82.22vh + #{$vimeo-ui-area});
+    }
   }
 
   &__footer {
@@ -96,8 +103,11 @@
     position: absolute;
     bottom: 0;
     cursor: default;
-    background-color: $white;
-    color: $black;
+    background-color: $black;
+    color: $white;
+
+    padding-left: $site-margin;
+    padding-right: $site-margin;
 
     @include mobile {
       display: flex;
@@ -114,7 +124,6 @@
     @include mobile {
       @include col(16);
       display: block;
-      height: $menu-height;
       &:empty {
         display: none;
       }
@@ -122,29 +131,35 @@
   }
 
   &__toolbar {
-    @include col(3, 1);
-
-    @include mobile {
-      @include col(16);
-      margin: 0;
-      display: flex;
-      height: $line-height;
-    }
-
+    float: right;
     user-select: none;
     display: inline-flex;
-    justify-content: space-between;
 
     button {
       @include reset-input;
       cursor: pointer;
       width: auto;
       height: auto;
+      color: $white;
       margin-top: -$menu-padding-top;
       padding: $menu-padding-top 2rem $menu-padding-bottom 2rem;
 
       &:first-of-type { padding-left: 0; }
       &:last-of-type { padding-right: 0; }
+    }
+  }
+
+  @include mobile {
+    &__toolbar button:not(:last-child) {
+      display: none;
+    }
+
+    &__toolbar button:last-child {
+      position: fixed;
+      top: $gutter / 2;
+      right: 0;
+      padding: $gutter;
+      mix-blend-mode: difference;
     }
   }
 }
