@@ -22,6 +22,7 @@ columns:
         extends: sections/projects
         headline: Projets publiés
         layout: cards
-        size: medium
+        size: small
+        limit: 100
         status: listed
 
