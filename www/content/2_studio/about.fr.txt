@@ -2,7 +2,7 @@ Title: Studio
 
 ----
 
-Sections: 
+Sections:
 
 - 
   title: Studio
@@ -89,24 +89,6 @@ Sections:
   _key: list
   _uid: list_1560524462120_870
 - 
-  title: stagiaires depuis 2013
-  ismergedwithprevious: 'true'
-  list: |
-    + Romain Garcia
-    + Victor Boonen
-    + Thomas Bouillet
-    + Baptiste Plantin
-    + Émilie Pillet
-    + Pierre-Henri Terrade
-    + Dylan Cote-Colisson
-    + Marine Stephan
-    + Thibaut Evrard
-    + Yohann Le Goff
-    + Anne-Dorothée Schulz
-  nocsscol: 'false'
-  _key: list
-  _uid: list_1560523238839_544
-- 
   title: Prix
   ismergedwithprevious: 'false'
   items:
@@ -175,6 +157,49 @@ Sections:
   nocsscol: 'true'
   _key: list
   _uid: list_1560522427521_488
+- 
+  title: Stages
+  ismergedwithprevious: 'false'
+  left: ""
+  center: |
+    Pour toute demande de stage, merci de vous adresser à (mail: jobs@chevalvert.fr)
+    
+    Nous accueillons régulièrement des stagiaires conventionnés.
+    
+    Avant de nous envoyer votre demande, vérifiez bien que vous respectez les conditions suivantes:
+    
+    — Design graphique
+    • Vous avez un niveau Bac+3 minimum (école d’art et de design)
+    • Votre période de stage est de 3 mois minimum
+    • Vous n’êtes pas en alternance
+    • Vous maîtrisez les logiciels standards de conception graphique
+    • Vous avez des notions de motion design
+    
+    — Art & technologies
+    • Vous avez un niveau Bac+3 minimum (école d’art, de design et/ou d’ingénieurie)
+    • Votre période de stage est de 3 mois minimum
+    • Vous n’êtes pas en alternance
+    • Vous maîtrisez les languages de programmation (HTML, CSS, JS, C++, et autre si vous êtes un génie…)
+    
+    Nous n’avons pas besoin de lettre de motivation, votre travail parle pour vous.
+    Alors n’hésitez pas à nous envoyer uniquement un PDF (10Mo maximum) et/ou un lien de site web permettant de découvrir votre travail.
+  right: |
+    stagiaires
+    depuis 2013
+    
+    + Romain Garcia
+    + Victor Boonen
+    + Thomas Bouillet
+    + Baptiste Plantin
+    + Émilie Pillet
+    + Pierre-Henri Terrade
+    + Dylan Cote-Colisson
+    + Marine Stephan
+    + Thibaut Evrard
+    + Yohann Le Goff
+    + Anne-Dorothée Schulz
+  _key: basic
+  _uid: basic_1563791227981_1048
 
 ----
 
@@ -182,7 +207,7 @@ Anchors: studio/le-studio, studio/credits
 
 ----
 
-Pinned: 
+Pinned:
 
 - studio/1-le-studio
 - studio/3-stephane-buellet
