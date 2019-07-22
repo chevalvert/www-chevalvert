@@ -29,6 +29,7 @@ return [
 
   'project.media.presets.home' => [
     'width' => 1920,
+    'srcset' => [1920, 900, 600],
     'ratio' => 16/9,
     'lazyload' => true,
     'allow_fullscreen' => false,

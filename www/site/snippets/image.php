@@ -3,6 +3,7 @@
   $width = min($width, $image->width());
   $height = isset($height) ? $height : $width / $ratio;
   $quality = isset($quality) ? $quality : 100;
+  $srcset = isset($srcset) ? make_srcset($image, $srcset, $quality) : null;
 
   $alt = isset($alt) ? Escape::html($alt) : Escape::html($image->caption());
   $title = isset($title) ? $title : $alt;
@@ -12,7 +13,7 @@
   $allow_fullscreen = isset($allow_fullscreen) ? $allow_fullscreen : false;
   $lazyload = isset($lazyload) ? $lazyload : false;
 
-  $image = $image->focusCrop($width, $height, compact('quality'));
+  $image = $image->thumb(compact('width', 'height', 'quality'));
   $full = $image->original()->resize(1920);
 ?>
 
@@ -35,8 +36,10 @@
         data-lozad
         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 <?= $image->width() ?> <?= $image->height() ?>'%3E%3C/svg%3E"
         data-src="<?= $image->url() ?>"
+        <?= r($srcset, "data-srcset='$srcset'") ?>
       <?php else : ?>
         src="<?= $image->url() ?>"
+        <?= r($srcset, "srcset='$srcset'") ?>
       <?php endif ?>
     />
     <noscript><img src="<?= $image->url() ?>" <?= r($alt, 'alt="'.$alt.'"') ?> <?= r($title, 'title="'.$title.'"') ?>/></noscript>
