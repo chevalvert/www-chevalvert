@@ -3,6 +3,7 @@
   $width = min($width, $image->width());
   $height = $height ?? $width / $ratio;
   $quality = $quality ?? 100;
+  $crop = $crop ?? false;
   $srcset = isset($srcset) ? make_srcset($image, $srcset, $quality) : null;
 
   $alt = isset($alt) ? Escape::html($alt) : Escape::html($image->caption());
@@ -13,7 +14,7 @@
   $allow_fullscreen = $allow_fullscreen ?? false;
   $lazyload = $lazyload ?? false;
 
-  $image = $image->thumb(compact('width', 'height', 'quality'));
+  $image = $image->thumb(compact('width', 'height', 'quality', 'crop'));
   $full = $image->original()->resize(1920);
 ?>
 

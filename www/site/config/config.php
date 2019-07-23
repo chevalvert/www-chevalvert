@@ -38,6 +38,7 @@ return [
   'project.media.presets.projects' => [
     'width' => 600,
     'ratio' => 16/9,
+    'crop' => true,
     'lazyload' => true,
     'allow_fullscreen' => false,
     'autoplay' => true
