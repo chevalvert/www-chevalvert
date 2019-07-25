@@ -6,7 +6,7 @@ export default ({
   selector = '[data-lozad]'
 } = {}) => {
   let observer = lozad(selector, {
-    rootMargin: '200px',
+    rootMargin: '512px 0px',
     threshold: 0.1,
     loaded: el => {
       const src = el.getAttribute('src')
