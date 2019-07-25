@@ -4,7 +4,7 @@
   $height = $height ?? $width / $ratio;
   $quality = $quality ?? 100;
   $crop = $crop ?? false;
-  $srcset = isset($srcset) ? make_srcset($image, $srcset, $quality) : null;
+  $srcset = isset($srcset) ? make_srcset($image, $srcset, compact('quality', 'crop', 'ratio')) : null;
 
   $alt = isset($alt) ? Escape::html($alt) : Escape::html($image->caption());
   $title = $title ?? $alt;

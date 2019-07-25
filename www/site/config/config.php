@@ -43,6 +43,14 @@ return [
     'allow_fullscreen' => false,
     'autoplay' => true
   ],
+  'project.media.presets.related' => [
+    'width' => 900,
+    'srcset' => [900, 600],
+    'ratio' => 16/9,
+    'crop' => true,
+    'lazyload' => true,
+    'autoplay' => true
+  ],
   'project.media.presets.panel-gallery' => [
     'width' => 600,
     'allow_fullscreen' => false,

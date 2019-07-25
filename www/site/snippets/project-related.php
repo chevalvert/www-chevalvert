@@ -2,7 +2,7 @@
   <?php foreach ($project->related()->toPages() as $related) {
     snippet('project-preview', [
       'project' => $related,
-      'cover_preset' => 'home'
+      'cover_preset' => 'related'
     ]);
   } ?>
 </ul>
