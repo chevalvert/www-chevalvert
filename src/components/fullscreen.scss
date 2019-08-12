@@ -34,7 +34,7 @@
     cursor: zoom-out;
 
     position: absolute;
-    margin-top: -#{$menu-height / 2};
+    margin-top: #{$menu-height / 2};
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -101,7 +101,7 @@
     @include row;
     @include menubar;
     position: absolute;
-    bottom: 0;
+    top: 0;
     cursor: default;
     background-color: $black;
     color: $white;

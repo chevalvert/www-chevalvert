@@ -29,9 +29,9 @@ export default class Fullscreen {
       </div>`
 
     this.buttons = {
-      previous: html`<button type='button'>${raw('&lt;')}</button>`,
-      next: html`<button type='button'>${raw('&gt;')}</button>`,
-      close: html`<button type='button'>x</button>`
+      previous: html`<button type='button'>${raw('&larr;')}</button>`,
+      next: html`<button type='button'>${raw('&rarr;')}</button>`,
+      close: html`<button type='button'>${raw('&harr;')}</button>`
     }
 
     return html`
