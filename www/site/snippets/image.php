@@ -14,8 +14,12 @@
   $allow_fullscreen = $allow_fullscreen ?? false;
   $lazyload = $lazyload ?? false;
 
-  $image = $image->thumb(compact('width', 'height', 'quality', 'crop'));
-  $full = $image->original()->resize(1920);
+  $image = ($image->extension() != 'gif')
+    ? $image->thumb(compact('width', 'height', 'quality', 'crop'))
+    : $image;
+  $full = ($image->extension() != 'gif')
+    ? $image->original()->resize(1920)
+    : $image;
 ?>
 
 <?php if ($allow_fullscreen) : ?>

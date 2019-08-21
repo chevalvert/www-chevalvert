@@ -74,7 +74,7 @@ tabs:
             label: Couverture
             type: select
             options: query
-            query: page.medias
+            query: page.allowed_cover
             translate: false
             required: true
             width: 2/3

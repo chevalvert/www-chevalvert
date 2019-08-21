@@ -7,6 +7,10 @@ class ProjectPage extends Page {
     });
   }
 
+  public function allowed_cover () {
+    return array_merge($this->images()->filterBy('extension', '!=', 'gif')->values(), $this->vimeos()->values());
+  }
+
   public function medias () {
     return array_merge($this->images()->values(), $this->vimeos()->values());
   }
