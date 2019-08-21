@@ -11,7 +11,6 @@
   @include desktop {
     margin-bottom: -$footer-height--desktop;
     top: calc(100vh - #{$footer-height--desktop});
-    padding-bottom: $menu-height;
   }
 
   color: $white;
@@ -22,25 +21,8 @@
     border: none;
   }
 
-  .logo {
-    float: left;
-    margin-right: $gutter;
-    display: block;
-    border: none;
-    padding-right: 0.2rem;
-    img {
-      // TODO
-      margin-top: 1px;
-      height: 32px;
-    }
-  }
-
   @include devices(mobile, tablet) {
     padding-top: $menu-padding-top * 1.5;
-    .logo {
-      float: none;
-      padding-bottom: $menu-padding-top * 1.5;
-    }
 
     &__column {
       width: 100% !important;
@@ -57,13 +39,6 @@
     div {
       width: 100%;
     }
-  }
-}
-
-body[data-template='home'] .footer {
-  @include desktop {
-    position: fixed;
-    bottom: 0;
   }
 }
 

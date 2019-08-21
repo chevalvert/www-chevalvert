@@ -1,8 +1,5 @@
 <footer class="footer" role="main">
   <div class="footer__column">
-    <a href="<?= $site->url() ?>" class="logo">
-      <img src="<?= asset('assets/images/logo.svg')->url() ?>">
-    </a>
     <div><?= kirbytag('tel') ?></div>
     <div><?= kirbytag('email') ?></div>
   </div>
