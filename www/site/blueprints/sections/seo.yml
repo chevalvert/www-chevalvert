@@ -8,13 +8,6 @@ fields:
     label: Sous-titres alternatifs
     type: tags
     help: Ces sous-titres remplacent le sous-titre officiel au bout d'une durée prédéfinie. Ils sont tirés au hasard à chaque changement.
-    width: 2/3
-
-  subtitle_alternates_duration:
-    label: Délai avant remplacement
-    type: number
-    after: secondes
-    width: 1/3
 
   description:
     label: Description

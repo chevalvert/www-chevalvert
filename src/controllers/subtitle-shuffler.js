@@ -1,25 +1,37 @@
+import html from 'nanohtml'
 import randomOf from 'utils/array-random'
-import lastOf from 'utils/array-last-of'
 
-const NS = '__SUBTITLE-ALTERNATES-SHUFFLER.'
+let lastValue
 
 export default ({
-  selector = '.menu__subtitle[data-alternates]'
+  selector = '.menu__subtitle[data-alternates]',
+  clickCaptureSelector = 'span'
 } = {}) => {
-  clearInterval(window[NS + 'timer'])
-
   const element = document.querySelector(selector)
   if (!element) return
 
   const alternates = element.getAttribute('data-alternates')
-  const delay = element.getAttribute('data-alternates-delay') || 1000
-  if (!alternates || !alternates.length || !delay) return
+  if (!alternates || !alternates.length) return
 
-  element.addEventListener('click', () => {
-    element.innerHTML = lastOf(alternates.split(element.innerHTML + ',')).split(',')[0]
-  })
+  bind()
+  update(lastValue)
 
-  window[NS + 'timer'] = setInterval(() => {
-    element.innerHTML = randomOf(alternates.split(','))
-  }, delay * 1000)
+  function bind () {
+    const clicker = element.querySelector(clickCaptureSelector)
+    if (!clicker) return
+
+    clicker.addEventListener('click', () => {
+      const newValue = randomOf(alternates.split(','), { exclude: lastValue })
+      update(newValue)
+    })
+  }
+
+  function update (value) {
+    if (!value) return
+
+    element.innerHTML = ''
+    element.appendChild(html`<span>${value.trim()}</span>`)
+    lastValue = value
+    bind()
+  }
 }

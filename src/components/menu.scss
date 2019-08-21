@@ -38,6 +38,10 @@
     }
   }
 
+  &__subtitle[data-alternates]:not([data-alternates='']) span {
+    cursor: help;
+  }
+
   @include mobile {
     &__subtitle {
       visibility: hidden;

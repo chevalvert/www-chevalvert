@@ -5,8 +5,8 @@
     </a>
   </div>
 
-  <div class="menu__subtitle" data-alternates="<?= $site->subtitle_alternates() ?>" data-alternates-delay="<?= $site->subtitle_alternates_duration() ?>">
-    <?= $site->subtitle() ?>
+  <div class="menu__subtitle" data-alternates="<?= $site->subtitle_alternates() ?>">
+    <span><?= $site->subtitle() ?></span>
   </div>
 
   <nav role="navigation" class="menu__nav">
