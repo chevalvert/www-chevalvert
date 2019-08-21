@@ -74,6 +74,8 @@ fieldsets:
           '░░░░░░█████▓▓▓▓▓ (-5-5)': "➖➖➖➖➖➖⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ (-5-5)"
       match_height:
         label: Forcer une hauteur égale
+        help: >
+          Attention : à n'utiliser que pour des images aux ratios égaux
         type: toggle
         translate: false
         width: 1/4
@@ -120,6 +122,8 @@ fieldsets:
           '░█████▓▓▓▓▓█████ (-5-5-5)': "➖⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛ (-5-5-5)"
       match_height:
         label: Forcer une hauteur égale
+        help: >
+          Attention : à n'utiliser que pour des images aux ratios égaux
         type: toggle
         translate: false
         width: 1/4
