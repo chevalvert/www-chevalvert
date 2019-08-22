@@ -25,7 +25,7 @@
 
   <iframe
     data-ratio="<?= number_format((1 / $ratio), 4) ?>"
-    class="<?= $class ?> <?= r($autoplay, 'no-gui') ?>"
+    class="<?= r($autoplay, 'no-gui') ?> <?= $class ?>"
 
     width="<?= $width ?>"
     height="<?= $height ?>"
