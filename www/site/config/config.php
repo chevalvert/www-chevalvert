@@ -23,13 +23,13 @@ return [
   'project.media.presets.default' => [
     'quality' => 90,
     'lazyload' => true,
+    'srcset' => [1920, 900, 600],
     'allow_fullscreen' => true,
     'autoplay' => true,
   ],
 
   'project.media.presets.home' => [
     'width' => 1920,
-    'srcset' => [1920, 900, 600],
     'ratio' => 16/9,
     'lazyload' => true,
     'allow_fullscreen' => false,
