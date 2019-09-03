@@ -45,6 +45,7 @@
   height: 100%;
 }
 
+[data-ratio='████████████████ (16)'] > *:nth-child(1) { width: calc(100%) }
 [data-ratio='█████████████░░░ (13-)'] > *:nth-child(1) { width: calc(13 / 16 * 100%) }
 [data-ratio='░░░█████████████ (-13)'] > *:nth-child(1) { width: calc(13 / 16 * 100%); margin-left: calc(3 / 16 * 100%) }
 [data-ratio='███████████░░░░░ (11-)'] > *:nth-child(1) { width: calc(11 / 16 * 100%) }

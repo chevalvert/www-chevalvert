@@ -50,6 +50,7 @@
     }
 
     @include desktop {
+      &[data-ratio='████████████████ (16)'] { @include grid((16)); }
       &[data-ratio='█████████████░░░ (13-)'] { @include grid((13)); }
       &[data-ratio='░░░█████████████ (-13)'] { @include grid((13), 3); }
       &[data-ratio='███████████░░░░░ (11-)'] { @include grid((11)); }
