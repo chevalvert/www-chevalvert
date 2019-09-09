@@ -11,7 +11,7 @@ $black: #000000;
 $white: #FFFFFF;
 
 $font-size: 1.6rem;
-$line-height: 2.0rem;
+$line-height: 2.1rem;
 
 $main-grid: (5, 8, 3);
 $grid-length: 16;
@@ -22,8 +22,8 @@ $menu-height: 3.6rem;
 $menu-padding-top: 0.9rem;
 $menu-padding-bottom: 0.9rem;
 
-$footer-height--desktop: 5.8rem;
-$footer-height--mobile: 31.9rem;
+$footer-height--desktop: 5.9rem;
+$footer-height--mobile: 29.5rem;
 
 @import 'sass/mixins';
 @import 'sass/base';
