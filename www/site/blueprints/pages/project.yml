@@ -1,5 +1,4 @@
 title: Projet
-num: '{{ page.modified }}'
 
 tabs:
 
@@ -9,12 +8,6 @@ tabs:
     columns:
       - width: 1/4
         sections:
-          info:
-            type: info
-            headline: ''
-            text: >
-              Page créée le <b>{{ page.cdate.toDate('d/m/Y') }}</b><br>
-              Dernière modification le <b>{{ page.modified('d/m/Y') }}</b> à <b>{{ page.modified('H:i') }}</b><br>
           files: sections/files
           vimeos: sections/vimeos
 
@@ -50,8 +43,13 @@ tabs:
 
       - width: 1/4
         sections:
+          info:
+            type: info
+            headline: ''
+            text: >
+              Page créée le <b>{{ page.cdate.toDate('d/m/Y') }}</b><br>
+              Dernière modification le <b>{{ page.modified('d/m/Y') }}</b> à <b>{{ page.modified('H:i') }}</b><br>
           notes: sections/notes
-
 
   tab_cover:
     label: Médias
@@ -59,12 +57,6 @@ tabs:
     columns:
       - width: 1/4
         sections:
-          info:
-            type: info
-            headline: ''
-            text: >
-              Page créée le <b>{{ page.cdate.toDate('d/m/Y') }}</b><br>
-              Dernière modification le <b>{{ page.modified('d/m/Y') }}</b> à <b>{{ page.modified('H:i') }}</b><br>
           files: sections/files
           vimeos: sections/vimeos
 
@@ -112,13 +104,3 @@ tabs:
         image:
           query: page.panelPreviewCover
           back: black
-
-  # tab_notes:
-  #   label: Notes
-  #   icon: text
-  #   fields:
-  #     notes:
-  #       extends: fields/markdown
-  #       size: large
-  #       help: |
-  #         Important: ce champ ne sera jamais visible par les visiteurs du site ; il n'a d'intérêt que pour la prise de note lors de l'édition d'un projet

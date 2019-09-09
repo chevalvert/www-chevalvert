@@ -13,7 +13,7 @@ return function ($page) {
       };
     }
     return $found;
-  })->sortBy('title', 'ASC');
+  });
   $categories = $page->children()->listed()->pluck('categories', ',', true);
 
   return compact(
