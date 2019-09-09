@@ -5,27 +5,10 @@ export default ({
 } = {}) => {
   if (!anchors || !anchors.length) return
 
-  anchors.forEach(anchor => {
-    const url = anchor.getAttribute('href')
-    const id = url[0] === '#' && url.substring(1)
-    const element = document.getElementById(id)
-    if (!element) return
-
-    anchor.y = window.pageYOffset + element.getBoundingClientRect().top
-
-    anchor.addEventListener('click', e => {
-      e.preventDefault()
-      window.scroll({
-        top: anchor.y,
-        behavior: 'smooth'
-      })
-      anchor.blur()
-    })
-  })
-
+  init()
   checkForActiveness()
 
-  window.addEventListener('load', update)
+  window.addEventListener('load', init)
   window.addEventListener('scroll', update)
 
   return {
@@ -33,6 +16,26 @@ export default ({
       window.removeEventListener('load', update)
       window.removeEventListener('scroll', update)
     }
+  }
+
+  function init () {
+    anchors.forEach(anchor => {
+      const url = anchor.getAttribute('href')
+      const id = url[0] === '#' && url.substring(1)
+      const element = document.getElementById(id)
+      if (!element) return
+
+      anchor.y = window.scrollY + element.getBoundingClientRect().top
+
+      anchor.addEventListener('click', e => {
+        e.preventDefault()
+        window.scroll({
+          top: anchor.y,
+          behavior: 'smooth'
+        })
+        anchor.blur()
+      })
+    })
   }
 
   function update () {
