@@ -11,7 +11,7 @@
     <?php endif ?>
 
     <span class="project-metas__meta-value">
-      <?= r($meta->$lang()->isNotEmpty(), $meta->$lang()->html(), $meta->fr()->html()) ?>
+      <?= r($meta->$lang()->isNotEmpty(), $meta->$lang()->kt(), $meta->fr()->kt()) ?>
     </span>
   </li>
 <?php endforeach ?>

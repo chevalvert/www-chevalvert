@@ -9,11 +9,10 @@ fields:
   meta: fields/meta
   fr:
     label: Français
-    type: text
+    extends: fields/markdown
     translate: false
     required: true
   en:
-    label: Anglais
-    type: text
+    label: Anglais (si différent)
+    extends: fields/markdown
     translate: false
-    help: (si différent)
