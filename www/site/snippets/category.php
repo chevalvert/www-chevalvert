@@ -2,7 +2,7 @@
   $lang = $kirby->language()->code();
 
   $id = autoid($category);
-  $category = $id ? $id->$lang() : '';
+  $category = $id ? $id->$lang() : 'undefined';
   $linkable = isset($linkable) && $linkable;
 
   $slug = str::slug($category);

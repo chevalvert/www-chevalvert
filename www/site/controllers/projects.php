@@ -7,7 +7,9 @@ return function ($page) {
     if (!param('category', false)) return true;
     $found = false;
     foreach ($p->categories()->split() as $category) {
-      if (param('category', false) === str::slug(autoid($category)->$lang())) {
+      $id = autoid($category);
+      $category = $id ? $id->$lang() : 'undefined';
+      if (param('category', false) === str::slug($category)) {
         $found = true;
         break;
       };
