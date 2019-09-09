@@ -1,7 +1,8 @@
 .project-categories {
   @include inline-list;
+  @include invisible-x-scroll;
 
-  *:hover {
+  &:hover a:not(:hover) {
     border: none;
   }
 }
