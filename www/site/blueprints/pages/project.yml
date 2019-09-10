@@ -104,3 +104,19 @@ tabs:
         image:
           query: page.panelPreviewCover
           back: black
+
+  tab_files:
+    label: Fichiers
+    icon: file-image
+    sections:
+      files_all:
+        extends: sections/files
+        layout: cards
+        size: tiny
+        limit: 10000
+
+      vimeos_all:
+        extends: sections/vimeos
+        layout: cards
+        size: tiny
+        limit: 10000
