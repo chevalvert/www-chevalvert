@@ -72,7 +72,8 @@
     "lozad": "^1.7.0",
     "missing-math": "^2.0.1",
     "nanohtml": "^1.4.0",
-    "nodelist-foreach": "^1.0.1"
+    "nodelist-foreach": "^1.0.1",
+    "tiny-throttle": "^1.0.1"
   },
   "private": true
 }

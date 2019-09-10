@@ -57,8 +57,11 @@
 
   // NOTE: this allows the last .about-section to be big enough
   // to trigger controllers/toc-highlighter on its anchor
-  &:last-child {
-    // min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--desktop});
+  // When last-child is merged-with-previous-section, previous section height
+  // should be taken in consideration, which is not possible in CSS:
+  // SEE views/about.js for this implementation.
+  &:last-child:not(.is-merged-with-previous-section) {
+    min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--desktop});
 
     @include devices(mobile, tablet) {
       min-height: calc(100vh - #{$menu-height} - #{$footer-height--mobile});
