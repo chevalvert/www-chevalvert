@@ -49,6 +49,12 @@ tabs:
                 type: number
                 after: secondes
 
+              playback_offset_end:
+                label: Fini à…
+                default: -1
+                type: number
+                after: secondes
+
               caption:
                 label: Légende de la vidéo
                 type: text

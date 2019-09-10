@@ -9,7 +9,11 @@ export default ({
   let observer = lozad(selector, {
     rootMargin: '512px 0px',
     threshold: 0.1,
-    loaded: el => isVimeo(el) && setLoadedAttributeOnPlay(el)
+    loaded: el => {
+      if (!isVimeo(el)) return
+      setLoadedAttributeOnPlay(el)
+      autoLoop(el)
+    }
   })
 
   // NOTE: as loading Vimeo can take some time, it is better for the user
@@ -32,10 +36,34 @@ export default ({
     return src && ~src.indexOf('player.vimeo.com')
   }
 
-  function setLoadedAttributeOnPlay (vimeoEl) {
-    vimeoEl.removeAttribute('data-loaded')
+  function setLoadedAttributeOnPlay (el) {
+    el.player = el.player || new VimeoPlayer(el)
 
-    vimeoEl.player = new VimeoPlayer(vimeoEl)
-    vimeoEl.player.on('play', () => vimeoEl.setAttribute('data-loaded', true))
+    el.removeAttribute('data-loaded')
+    el.player.on('play', () => el.setAttribute('data-loaded', true))
+  }
+
+  async function autoLoop (el) {
+    el.player = el.player || new VimeoPlayer(el)
+
+    // Fail if this player has already been autoLooped
+    if (el.player.autoLooped) return
+    el.player.autoLooped = true
+
+    // Fail if no loop is needed for this vimeo
+    if (!await el.player.getLoop()) return
+
+    const offset = el.getAttribute('src')
+      .split('#').pop()
+      .split('&').map(str => +str.split('=').pop())
+
+    offset[0] = (isNaN(offset[0]) || !offset[0]) ? 0 : offset[0]
+    offset[1] = (isNaN(offset[1]) || !offset[1]) ? await el.player.getDuration() : offset[1]
+
+    el.player.on('timeupdate', ({ seconds }) => {
+      if (seconds < offset[0] || seconds > offset[1]) {
+        el.player.setCurrentTime(offset[0])
+      }
+    })
   }
 }

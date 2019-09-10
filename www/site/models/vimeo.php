@@ -52,6 +52,7 @@ class VimeoPage extends Page {
     $id = $this->vimeo_id();
     $autoplay = $options['autoplay'] ? 'autoplay=1&background=1&loop=1&muted=1&' : '';
     $playback = $this->playback_offset() ? '#t=' . $this->playback_offset() : '';
+    $playback .= '&e=' . ($this->playback_offset_end() ?? 0);
     return $options['ui']
       ? "https://player.vimeo.com/video/$id?loop=1&color=ffffff&title=0&byline=0&portrait=0"
       : "https://player.vimeo.com/video/$id?controls=0&" . $autoplay . "color=ffffff&title=0&byline=0&portrait=0$playback";
