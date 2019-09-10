@@ -1,3 +1,6 @@
+$fullscreen__nav--width: 5rem;
+$fullscreen__nav--vertical-optical-adjustment: 9px;
+
 @keyframes slide-from-left {
   from { transform: translateX(-100%); }
   to { transform: none; }
@@ -17,6 +20,8 @@
 .fullscreen {
   @include loader;
 
+  @include debug;
+
   cursor: pointer;
   cursor: zoom-out;
 
@@ -28,13 +33,27 @@
   bottom: 0;
   background: rgba($black, 1);
 
+  &__caption {
+    @include menubar;
+    @include invisible-x-scroll;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding-left: $site-margin;
+    padding-right: $site-margin;
+    background-color: $black;
+
+    &:empty { display: none; }
+  }
+
   &__media {
     user-select: none;
     cursor: pointer;
     cursor: zoom-out;
 
     position: absolute;
-    margin-top: #{$menu-height / 2};
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -42,7 +61,11 @@
 
     display: grid;
     height: 100%;
-    width: calc(100vw);
+    width: calc(100vw - #{$fullscreen__nav--width * 2});
+  }
+
+  &.is-vimeo &__caption:not(:empty) + &__media {
+    margin-top: -$menu-height / 2;
     max-height: calc(100vh - #{$menu-height});
   }
 
@@ -80,86 +103,45 @@
 
   // NOTE: this pseudo-element allows capturing click event on iframe,
   // without interfering with Vimeo's toolbar
-  &__media::after {
-    $vimeo-ui-area: 50px;
+  &.is-vimeo &__media::after {
+    $vimeo__progressbar--height: 7.5rem;
+    $vimeo__share--width: 5rem;
+    $vimeo__ratio: 16/9;
 
     content: '';
+
     position: absolute;
     left: 0;
-    right: $vimeo-ui-area;
-    top: calc(50% - 56.25vw / 2);
-    bottom: calc(50% - 56.25vw / 2 + #{$vimeo-ui-area});
+    right: $vimeo__share--width;
+
+    top: calc(50% - (56.25vw - #{$fullscreen__nav--width}) / 2);
+    bottom: calc(50% - (56.25vw - #{$fullscreen__nav--width}) / 2 + #{$vimeo__progressbar--height});
 
     @media (min-aspect-ratio: 16/9) {
       top: 0;
-      bottom: $vimeo-ui-area;
-      right: calc(50% - 82.22vh + #{$vimeo-ui-area});
+      bottom: $vimeo__progressbar--height;
+      right: calc(50% - 82.22vh + #{$vimeo__share--width});
     }
   }
 
-  &__footer {
-    @include row;
-    @include menubar;
-    position: absolute;
-    top: 0;
-    cursor: default;
-    background-color: $black;
+  &__btn {
+    @include reset-input;
+    position: fixed;
+
+    font-size: 4rem;
+    text-align: center;
+
+    cursor: pointer;
     color: $white;
-
-    padding-left: $site-margin;
-    padding-right: $site-margin;
-
-    @include mobile {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-    }
   }
 
-  &__caption {
-    @include col(12);
-    @include invisible-x-scroll;
-    white-space: nowrap;
-
-    @include mobile {
-      @include col(16);
-      display: block;
-      &:empty {
-        display: none;
-      }
-    }
+  &__btn--left,
+  &__btn--right {
+    top: 0;
+    height: calc(100vh + #{$fullscreen__nav--vertical-optical-adjustment});
+    width: $fullscreen__nav--width;
   }
 
-  &__toolbar {
-    float: right;
-    user-select: none;
-    display: inline-flex;
-
-    button {
-      @include reset-input;
-      cursor: pointer;
-      width: auto;
-      height: auto;
-      color: $white;
-      margin-top: -$menu-padding-top;
-      padding: $menu-padding-top 2rem $menu-padding-bottom 2rem;
-
-      &:first-of-type { padding-left: 0; }
-      &:last-of-type { padding-right: 0; }
-    }
-  }
-
-  @include mobile {
-    &__toolbar button:not(:last-child) {
-      display: none;
-    }
-
-    &__toolbar button:last-child {
-      position: fixed;
-      top: $gutter / 2;
-      right: 0;
-      padding: $gutter;
-      mix-blend-mode: difference;
-    }
-  }
+  &__btn--left { left: 0; }
+  &__btn--right { right: 0; }
 }

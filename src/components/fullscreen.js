@@ -29,24 +29,20 @@ export default class Fullscreen {
       </div>`
 
     this.buttons = {
-      previous: html`<button type='button'>${raw('&larr;')}</button>`,
-      next: html`<button type='button'>${raw('&rarr;')}</button>`,
-      close: html`<button type='button'>${raw('&harr;')}</button>`
+      previous: html`<button type='button' class='fullscreen__btn fullscreen__btn--left'>${raw('&larr;')}</button>`,
+      next: html`<button type='button' class='fullscreen__btn fullscreen__btn--right'>${raw('&rarr;')}</button>`
     }
 
     return html`
-    <div class='fullscreen'>
-      <div class='fullscreen__media ${this.isVimeo ? 'is-vimeo' : ''}'>
+    <div class='fullscreen ${this.isVimeo ? 'is-vimeo' : ''}'>
+      <div class='fullscreen__caption'>
+        ${this.caption}
+      </div>
+      <div class='fullscreen__media'>
         ${this.media}
       </div>
-      <footer class='fullscreen__footer'>
-        <div class='fullscreen__caption'>
-          ${this.caption}
-        </div>
-        <div class='fullscreen__toolbar'>
-          ${Object.values(this.buttons)}
-        </div>
-      </footer>
+      ${this.buttons.previous}
+      ${this.buttons.next}
     </div>`
   }
 
@@ -84,7 +80,6 @@ export default class Fullscreen {
     this.element.addEventListener('click', this.interceptClick, false)
     this.buttons.previous.addEventListener('click', this.goToPrevious)
     this.buttons.next.addEventListener('click', this.goToNext)
-    this.buttons.close.addEventListener('click', this.close)
 
     swipeListener(this.element, e => {
       if (e.srcElement && !e.srcElement.classList.contains('fullscreen__media')) return
@@ -100,7 +95,6 @@ export default class Fullscreen {
     this.element.removeEventListener('click', this.interceptClick)
     this.buttons.previous.removeEventListener('click', this.goToPrevious)
     this.buttons.next.removeEventListener('click', this.goToNext)
-    this.buttons.close.removeEventListener('click', this.close)
   }
 
   interceptClick (e) {
