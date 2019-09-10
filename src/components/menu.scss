@@ -15,18 +15,33 @@
     border: none;
   }
 
-  &__nav {
-    ul {
-      display: flex;
-      justify-content: space-between;
+  @include devices(iphone5SE) {
+    &__logo a {
+      // NOTE: this is a hack to hide the content
+      font-size: 0.1rem;
+      letter-spacing: -0.1rem;
 
-      @include devices(mobile, tablet) {
-        justify-content: flex-end;
-      }
+      border: 0;
 
-      @include big-ass-desktop {
-        justify-content: flex-start;
+      margin-left: -0.4rem;
+      &::before {
+        font-size: 2.4rem;
+        vertical-align: -0.3rem;
+        content: '\0025CA';
       }
+    }
+  }
+
+  &__nav ul {
+    display: flex;
+    justify-content: space-between;
+
+    @include devices(mobile, tablet) {
+      justify-content: flex-end;
+    }
+
+    @include big-ass-desktop {
+      justify-content: flex-start;
     }
 
     li {

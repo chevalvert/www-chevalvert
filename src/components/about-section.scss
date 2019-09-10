@@ -58,7 +58,7 @@
   // NOTE: this allows the last .about-section to be big enough
   // to trigger controllers/toc-highlighter on its anchor
   &:last-child {
-    min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--desktop});
+    // min-height: calc(100vh - #{$menu-height * 2} - #{$footer-height--desktop});
 
     @include devices(mobile, tablet) {
       min-height: calc(100vh - #{$menu-height} - #{$footer-height--mobile});

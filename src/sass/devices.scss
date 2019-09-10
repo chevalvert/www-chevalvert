@@ -1,3 +1,9 @@
+@mixin iphone5SE {
+  @media only screen and (max-width: 340px) {
+    @content
+  }
+}
+
 @mixin mobile {
   @media only screen and (max-width: 768px) {
     @content
@@ -25,6 +31,7 @@
 @mixin devices ($device-list...) {
   @each $device in $device-list {
     // NOTE: you cannot dynamically invoke mixins using `@include #{mixin-name}`
+    @if $device == 'iphone5SE' { @include iphone5SE { @content } }
     @if $device == 'mobile' { @include mobile { @content } }
     @if $device == 'tablet' { @include tablet { @content } }
     @if $device == 'desktop' { @include desktop { @content } }
