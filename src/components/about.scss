@@ -17,6 +17,10 @@
       @include col(16);
     }
 
+    li:last-child {
+      margin-right: $site-margin;
+    }
+
     a:not(:hover):not(.is-active) {
       border: none;
     }

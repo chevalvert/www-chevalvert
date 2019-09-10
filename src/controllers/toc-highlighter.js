@@ -1,5 +1,6 @@
 export default ({
   anchors = document.querySelectorAll('nav a'),
+  anchorsScrollContainer = document.querySelector('nav'),
   offset = 0,
   activeClass = 'is-active'
 } = {}) => {
@@ -49,6 +50,7 @@ export default ({
       if (anchor.y < y + offset) {
         anchors.forEach(deactivate)
         activate(anchor)
+        scrollIntoView(i / anchors.length)
         break
       }
     }
@@ -62,5 +64,12 @@ export default ({
   function deactivate (element) {
     if (!element.classList.contains(activeClass)) return
     element.classList.remove(activeClass)
+  }
+
+  function scrollIntoView (percent) {
+    if (!anchorsScrollContainer) return
+
+    const width = anchorsScrollContainer.offsetWidth
+    anchorsScrollContainer.scrollLeft = Math.floor(percent * width)
   }
 }

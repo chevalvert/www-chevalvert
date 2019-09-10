@@ -5,6 +5,7 @@ export default view('about', {
   onEnterCompleted: refs => {
     refs.tocHighlighter = tocHighlighter({
       anchors: document.querySelectorAll('.about__sections a'),
+      anchorsScrollContainer: document.querySelector('.about__sections'),
       offset: 20
     })
   }
