@@ -12,6 +12,7 @@
 
   <title><?= r($page !== $site->homePage(), $page->title()->html() . ' | ') . $site->title()->html() ?></title>
 
+  <link rel="alternate" type="application/rss+xml" title="<?= t('feed') ?>" href="<?= site()->url() ?>/feed"/>
   <?php echo liveCSS('assets/builds/bundle.css') ?>
 </head>
 <body data-template="<?= $page->intendedTemplate() ?>">

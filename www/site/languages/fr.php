@@ -11,6 +11,8 @@ return [
     'go-to' => 'Aller à la page',
     'switch-language' => 'View in English',
 
+    'feed' => 'Derniers projets',
+
     'projects-list.name' => 'nom',
     'projects-list.type' => 'type',
     'projects-list.date' => 'date',

@@ -90,6 +90,23 @@ return [
       'action' => function ($lang, $length = 1) {
         return site()->visit('home', $lang)->render(['random' => $length]);
       }
+    ],
+    [ // RSS feed
+      'pattern' => ['feed', '(:any)/feed'],
+      'method' => 'GET',
+      'action' => function ($lang = 'fr') {
+        $page = site()->visit('projects', $lang);
+        $feed = $page
+          ->children()
+          ->listed()
+          ->limit(10)
+          ->feed([
+            'datefield' => 'cdate',
+            'modified' => 'modified',
+            'title' => $page->title()
+          ]);
+        return $feed;
+      }
     ]
   ]
 ];
