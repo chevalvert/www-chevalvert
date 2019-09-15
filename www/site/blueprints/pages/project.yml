@@ -73,16 +73,13 @@ tabs:
 
           color:
             label: Couleur
-            type: text
+            type: color
             placeholder: '000000'
-            before: '#'
-            maxlength: 6
-            minlength: 6
+            editableAlpha: false
             translate: false
             required: true
             width: 1/3
-            default: '000000'
-            help: "TODO: color picker"
+            default: '#FFFFFF'
 
           gallery: fields/gallery
 

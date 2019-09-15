@@ -3,7 +3,7 @@
 <?php snippet('menu') ?>
 
 <article class="project">
-  <header class="project__header" style="background-color:#<?= $page->color()->value() ?>" data-contrast="<?= Contrast::compute('#' . $page->color()->value()) ?>">
+  <header class="project__header" style="background-color:<?= $page->color()->value() ?>" data-contrast="<?= Contrast::compute($page->color()->value()) ?>">
     <div class="project__header-column">
       <h1><?= $page->title()->html() ?></h1>
     </div>

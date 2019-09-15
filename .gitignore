@@ -76,5 +76,6 @@ www/kirby
 www/site/plugins/kirby3-autoid
 www/site/plugins/kirby-builder
 www/site/plugins/kirby3-feed
+www/site/plugins/kirby-color
 # </KirbyWebpack>
 *.bak
