@@ -38,7 +38,7 @@ export default view('about', {
       : noop
 
     window.addEventListener('load', refs.autofitLastMergedSection)
-    window.addEventListener('resize', refs.autofitLastMergedSection) // TODO: throttle
+    window.addEventListener('resize', refs.autofitLastMergedSection)
     refs.autofitLastMergedSection()
   },
 
