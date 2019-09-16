@@ -23,13 +23,14 @@ return [
   'project.media.presets.default' => [
     'quality' => 90,
     'lazyload' => true,
-    'srcset' => [1920, 900, 600],
+    'srcset' => [1920, 900, 600, 340],
     'allow_fullscreen' => true,
     'autoplay' => true,
   ],
 
   'project.media.presets.home' => [
     'width' => 1920,
+    'srcset' => [1920, 900, 600, 340],
     'ratio' => 16/9,
     'lazyload' => true,
     'allow_fullscreen' => false,
@@ -45,7 +46,7 @@ return [
   ],
   'project.media.presets.related' => [
     'width' => 900,
-    'srcset' => [900, 600],
+    'srcset' => [900, 600, 340],
     'ratio' => 16/9,
     'crop' => true,
     'lazyload' => true,
@@ -77,12 +78,6 @@ return [
         return site()->user()
           ? go("panel/$panel_path")
           : go("panel/login?_redirect=$panel_path");
-      }
-    ],
-    [ // Redirect */studio#subpage to */studio#anchor
-      'pattern' => '(:any)/studio/(:any)',
-      'action' => function ($lang, $uid) {
-        go(site()->find("studio/$uid") ? "studio#$uid" : 'error');
       }
     ],
     [ // Redirect /random & random/<LENGTH> to the homepage with random projects
