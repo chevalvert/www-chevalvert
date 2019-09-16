@@ -5,7 +5,8 @@
       "kirby3-autoid": "https://github.com/bnomei/kirby3-autoid.git",
       "kirby-builder": "https://github.com/TimOetting/kirby-builder.git",
       "kirby3-feed": "https://github.com/bnomei/kirby3-feed.git",
-      "kirby-color": "https://github.com/TimOetting/kirby-color.git"
+      "kirby-color": "https://github.com/TimOetting/kirby-color.git",
+      "retour": "https://github.com/distantnative/retour-for-kirby.git"
     }
   }
 }
