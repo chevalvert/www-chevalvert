@@ -19,7 +19,6 @@ $fullscreen__nav--vertical-optical-adjustment: 9px;
 
 .fullscreen {
   @include loader;
-
   @include debug;
 
   cursor: pointer;
@@ -71,6 +70,9 @@ $fullscreen__nav--vertical-optical-adjustment: 9px;
   }
 
   &__media img {
+    @if $debug { @include checkerboard(24px); }
+    @else { background-color: $black; }
+
     max-width: 100%;
     max-height: 100%;
     margin: auto;

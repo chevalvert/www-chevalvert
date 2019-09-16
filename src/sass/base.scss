@@ -68,6 +68,8 @@ sup {
 
 [data-lozad][data-loaded="true"] {
   @include easing(1s, opacity);
+  @if $debug { @include checkerboard(24px); }
+  @else { background-color: $black; }
   opacity: 1;
 }
 
