@@ -1,10 +1,9 @@
 <?php
   $ratio = $ratio ?? $image->ratio();
   $width = min($width, $image->width());
-  $height = $height ?? $width / $ratio;
+  $height = $height ?? round($width / $ratio);
   $quality = $quality ?? 100;
   $crop = $crop ?? false;
-  $srcset = isset($srcset) ? make_srcset($image, $srcset, compact('quality', 'crop', 'ratio')) : null;
 
   $alt = isset($alt) ? Escape::html($alt) : Escape::html($image->caption());
   $title = $title ?? $alt;
@@ -14,6 +13,9 @@
   $allow_fullscreen = $allow_fullscreen ?? false;
   $lazyload = $lazyload ?? false;
 
+  $srcset = ($image->extension() != 'gif')
+    ? (isset($srcset) ? make_srcset($image, $srcset, compact('quality', 'crop', 'ratio')) : null)
+    : null;
   $image = ($image->extension() != 'gif')
     ? $image->thumb(compact('width', 'height', 'quality', 'crop'))
     : $image;
