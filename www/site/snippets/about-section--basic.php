@@ -9,7 +9,7 @@
       <div><?= $section->left()->kt() ?></div>
     </div>
 
-    <div class="about-section__column">
+    <div class="about-section__column about-section__content">
       <?= $section->center()->kt() ?>
     </div>
 

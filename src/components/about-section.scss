@@ -68,6 +68,28 @@
     }
   }
 
+  &__content {
+    h3 {
+      margin-top: $line-height;
+      text-transform: unset;
+    }
+
+    h3 + ul {
+      margin-top: -$line-height;
+    }
+
+    ul {
+      margin-bottom: $line-height;
+      margin-left: 0;
+      padding-left: 2ch;
+      text-indent: -2ch;
+    }
+
+    li::before {
+      content: '–\00a0';
+    }
+  }
+
   @include devices(mobile, tablet) {
     padding-top: 0;
     margin-top: -$menu-height;
