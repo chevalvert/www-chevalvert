@@ -24,7 +24,7 @@ export default view('about', {
       ? debounce(() => {
         // Disable autofitting below a specific breakpoint (SEE sass/devices.scss)
         if (window.innerWidth < 1120) {
-          mergedSection.style['height'] = 'auto'
+          mergedSection.style['min-height'] = 'auto'
           return
         }
 
@@ -33,7 +33,7 @@ export default view('about', {
         const footerHeight = document.querySelector('.footer').offsetHeight
         const targetHeight = window.innerHeight - (menuHeight * 2) - footerHeight - sectionHeight + 22
 
-        mergedSection.style['height'] = targetHeight + 'px'
+        mergedSection.style['min-height'] = targetHeight + 'px'
       }, 50)
       : noop
 
