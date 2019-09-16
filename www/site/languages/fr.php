@@ -18,6 +18,7 @@ return [
     'projects-list.date' => 'date',
 
     'categories.all' => 'tout',
-  ]
 
+    'alt.schema' => "{ projectTitle }, Chevalvert"
+  ]
 ];

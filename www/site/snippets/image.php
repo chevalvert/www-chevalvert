@@ -5,8 +5,8 @@
   $quality = $quality ?? 100;
   $crop = $crop ?? false;
 
-  $alt = isset($alt) ? Escape::html($alt) : Escape::html($image->caption());
-  $title = $title ?? $alt;
+  $alt = isset($alt) ? Escape::html($alt) : tt('alt.schema', ['projectTitle' => $image->parent()->title()]);
+  $title = $title ?? Escape::html($image->caption());
   $class = $class ?? '';
   $attributes = $attributes ?? [];
 

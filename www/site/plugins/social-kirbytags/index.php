@@ -45,7 +45,7 @@ function createSocialTag ($name, $url) {
     'html' => function ($tag) use ($name, $url) {
       $id = site()->$name();
       $text = $tag->$name() ? $tag->$name() : $name;
-      return "<a href=\"$url/$id\" target=\"_blank\">$text</a>";
+      return "<a href='$url/$id' target='_blank' rel='noopener'>$text</a>";
     }
   ];
 }

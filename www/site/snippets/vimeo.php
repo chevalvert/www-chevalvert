@@ -20,13 +20,13 @@
   style="padding-top:<?= number_format((1 / $ratio) * 100, 2) ?>%"
 >
   <?php if ($allow_fullscreen) : ?>
-  <a class="vimeo__link" title="<?= $title ?>" href="<?= $vimeo->externalUrl() ?>"></a>
+  <a class="vimeo__link" title="<?= Escape::html($title) ?>" href="<?= $vimeo->externalUrl() ?>"></a>
   <?php endif ?>
 
   <iframe
     data-ratio="<?= number_format((1 / $ratio), 4) ?>"
     class="<?= r($autoplay, 'no-gui') ?> <?= $class ?>"
-
+    title="<?= Escape::html($title) ?>"
     width="<?= $width ?>"
     height="<?= $height ?>"
 
