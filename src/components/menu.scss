@@ -55,6 +55,7 @@
 
   &__subtitle[data-alternates]:not([data-alternates='']) span {
     cursor: help;
+    display: inline-block;
   }
 
   @include mobile {

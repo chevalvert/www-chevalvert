@@ -13,6 +13,11 @@ export default ({
   const alternates = element.getAttribute('data-alternates')
   if (!alternates || !alternates.length) return
 
+  const longestValue = alternates
+    .split(',')
+    .map(str => str.trim())
+    .sort((a, b) => b.length - a.length)[0]
+
   bind()
   update(lastValue)
 
@@ -30,7 +35,7 @@ export default ({
     if (!value) return
 
     element.innerHTML = ''
-    element.appendChild(html`<span>${value.trim()}</span>`)
+    element.appendChild(html`<span style="width:${longestValue.length}ch;">${value.trim()}</span>`)
     lastValue = value
     bind()
   }
