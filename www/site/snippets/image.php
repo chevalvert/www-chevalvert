@@ -25,7 +25,7 @@
 ?>
 
 <?php if ($allow_fullscreen) : ?>
-<a href="<?= $full->url() ?>" data-caption="<?= $alt ?>" data-fullscreen="<?= $full->url() ?>">
+<a href="<?= $full->url() ?>" data-caption="<?= $title ?>" data-fullscreen="<?= $full->url() ?>">
 <?php endif ?>
 
   <figure <?= r($class, "class=\"$class\"") ?>>
