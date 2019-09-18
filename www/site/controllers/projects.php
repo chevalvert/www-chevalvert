@@ -16,7 +16,9 @@ return function ($page) {
     }
     return $found;
   });
+
   $categories = $page->children()->listed()->pluck('categories', ',', true);
+  sort($categories);
 
   return compact(
     'categories',
