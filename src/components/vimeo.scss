@@ -25,7 +25,7 @@
     }
 
     &[data-fullscreen] &__cover::after {
-      content: url('assets/images/play-button.svg');
+      content: url('/assets/images/play-button.svg');
       position: absolute;
       top: 50%;
       left: 50%;
