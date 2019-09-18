@@ -59,6 +59,7 @@ columns:
       cover:
         label: Couverture de la vidéo
         type: files
+        translate: false
         max: 1
         help: >
           <b>Note :</b> Cette image sera utilisée lorsque le chargement automatique de la vidéo n'est pas recommandé (connexions lentes, version mobile, etc…).
