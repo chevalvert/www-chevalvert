@@ -1,5 +1,6 @@
 $fullscreen__nav--width: 5rem;
 $fullscreen__nav--vertical-optical-adjustment: 9px;
+$fullscreen__nav--vertical-optical-adjustment--mobile: 3px;
 
 @keyframes slide-from-left {
   from { transform: translateX(-100%); }
@@ -19,7 +20,6 @@ $fullscreen__nav--vertical-optical-adjustment: 9px;
 
 .fullscreen {
   @include loader;
-  @include debug;
 
   cursor: pointer;
   cursor: zoom-out;
@@ -45,6 +45,12 @@ $fullscreen__nav--vertical-optical-adjustment: 9px;
     padding-right: $site-margin;
     background-color: $black;
 
+
+    @include mobile (portrait) {
+      left: $fullscreen__nav--width;
+      right: $fullscreen__nav--width;
+    }
+
     &:empty { display: none; }
   }
 
@@ -62,6 +68,11 @@ $fullscreen__nav--vertical-optical-adjustment: 9px;
     display: grid;
     height: 100%;
     width: calc(100vw - #{$fullscreen__nav--width * 2});
+    @include mobile (portrait) {
+      width: 100vw;
+      margin-top: -$menu-height / 2;
+      max-height: calc(100vh - #{$menu-height});
+    }
   }
 
   &.is-vimeo &__caption:not(:empty) + &__media {
@@ -117,11 +128,10 @@ $fullscreen__nav--vertical-optical-adjustment: 9px;
     left: 0;
     right: $vimeo__share--width;
 
-    top: calc(50% - (56.25vw - #{$fullscreen__nav--width}) / 2);
+    top: 0;
     bottom: calc(50% - (56.25vw - #{$fullscreen__nav--width}) / 2 + #{$vimeo__progressbar--height});
 
     @media (min-aspect-ratio: 16/9) {
-      top: 0;
       bottom: $vimeo__progressbar--height;
       right: calc(50% - 82.22vh + #{$vimeo__share--width});
     }
@@ -143,6 +153,13 @@ $fullscreen__nav--vertical-optical-adjustment: 9px;
     top: 0;
     height: calc(100vh + #{$fullscreen__nav--vertical-optical-adjustment});
     width: $fullscreen__nav--width;
+
+    @include mobile (portrait) {
+      z-index: 3;
+      bottom: $fullscreen__nav--vertical-optical-adjustment--mobile;
+      top: unset;
+      height: auto;
+    }
   }
 
   &__btn--left { left: 0; }

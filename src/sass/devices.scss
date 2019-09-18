@@ -4,9 +4,15 @@
   }
 }
 
-@mixin mobile {
-  @media only screen and (max-width: 768px) {
-    @content
+@mixin mobile ($orientation: false) {
+  @if $orientation {
+    @media only screen and (max-width: 768px) and (orientation: $orientation) {
+      @content
+    }
+  } @else {
+    @media only screen and (max-width: 768px) {
+     @content
+    }
   }
 }
 
