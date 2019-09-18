@@ -50,6 +50,7 @@ paths.basepaths = {
 paths.kirby = {
   core: path.join(paths.www, 'kirby'),
   assets: path.join(paths.www, 'assets'),
+  site: path.join(paths.www, 'site'),
   cache: path.join(paths.www, 'site', 'cache'),
   plugins: path.join(paths.www, 'site', 'plugins')
 }
@@ -88,7 +89,9 @@ const devServer = {
 
   // Force browserSync to not watch some specific files/folder
   ignored: [
-    path.join(paths.kirby.plugins, 'page-lock')
+    path.join(paths.kirby.site, 'cache'),
+    path.join(paths.kirby.site, 'logs'),
+    path.join(paths.kirby.site, 'sessions')
   ]
 }
 
