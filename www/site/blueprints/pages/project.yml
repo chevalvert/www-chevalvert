@@ -1,16 +1,17 @@
 title: Projet
 
 tabs:
-
+  #-----------------------------------------------------------------------------
   content:
     label: Description
     icon: text
     columns:
+      #-------------------------------------------------------------------------
       - width: 1/4
         sections:
           files: sections/files
           vimeos: sections/vimeos
-
+      #-------------------------------------------------------------------------
       - width: 1/2
         sections:
           content:
@@ -40,7 +41,7 @@ tabs:
               aside:
                 extends: fields/markdown
                 label: Informations complémentaires
-
+      #-------------------------------------------------------------------------
       - width: 1/4
         sections:
           info:
@@ -50,16 +51,17 @@ tabs:
               Page créée le <b>{{ page.cdate.toDate('d/m/Y') }}</b><br>
               Dernière modification le <b>{{ page.modified('d/m/Y') }}</b> à <b>{{ page.modified('H:i') }}</b><br>
           notes: sections/notes
-
+  #-----------------------------------------------------------------------------
   tab_cover:
     label: Médias
     icon: image
     columns:
+      #-------------------------------------------------------------------------
       - width: 1/4
         sections:
           files: sections/files
           vimeos: sections/vimeos
-
+      #-------------------------------------------------------------------------
       - width: 3/4
         fields:
           cover_raw:
@@ -82,7 +84,7 @@ tabs:
             default: '#FFFFFF'
 
           gallery: fields/gallery
-
+  #-----------------------------------------------------------------------------
   tab_related:
     label: Projets connexes
     icon: page
@@ -101,7 +103,7 @@ tabs:
         image:
           query: page.panelPreviewCover
           back: black
-
+  #-----------------------------------------------------------------------------
   tab_files:
     label: Fichiers
     icon: file-image

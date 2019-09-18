@@ -9,6 +9,7 @@ options:
   preview: false
 
 tabs:
+  #-----------------------------------------------------------------------------
   categories:
     label: Catégories
     icon: text
@@ -32,6 +33,7 @@ tabs:
           autoid:
             type: hidden
             translate: false
+  #-----------------------------------------------------------------------------
   metas:
     label: Métadonnées
     icon: text

@@ -4,10 +4,12 @@ options:
   changeTitle: false
 
 tabs:
+  #-----------------------------------------------------------------------------
   projects:
     label: Site
     icon: text
     columns:
+      #-------------------------------------------------------------------------
       - width: 1/4
         sections:
           latest_draft_projects:
@@ -24,7 +26,7 @@ tabs:
                 translate: false
                 # NOTE: change this to edit which links should be in this section
                 disabled: true
-
+      #-------------------------------------------------------------------------
       - width: 2/4
         fields:
           pinned:
@@ -38,11 +40,11 @@ tabs:
             image:
               query: page.panelPreviewCover
               back: black
-
+      #-------------------------------------------------------------------------
       - width: 1/4
         sections:
           notes: sections/notes
-
+  #-----------------------------------------------------------------------------
   options:
     label: Options
     icon: cog

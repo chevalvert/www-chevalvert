@@ -14,10 +14,12 @@ addFields:
     icon: url
 
 tabs:
+  #-----------------------------------------------------------------------------
   main:
     label: Vimeo
     icon: video
     columns:
+      #-------------------------------------------------------------------------
       - width: 2/3
         sections:
           - type: fields
@@ -27,7 +29,7 @@ tabs:
                 type: vimeo
                 id: "{{ page.vimeo_id }}"
                 playback_offset: "{{ page.playback_offset }}"
-
+      #-------------------------------------------------------------------------
       - width: 1/3
         sections:
           info:
@@ -58,7 +60,7 @@ tabs:
               caption:
                 label: Légende de la vidéo
                 type: text
-
+  #-----------------------------------------------------------------------------
   metas:
     label: Méta-données
     icon: template
