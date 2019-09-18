@@ -1,6 +1,6 @@
 <?php
   $ratio = $ratio ?? $image->ratio();
-  $width = min($width, $image->width());
+  $width = min($width ?? $image->width(), $image->width());
   $height = $height ?? round($width / $ratio);
   $quality = $quality ?? 100;
   $crop = $crop ?? false;

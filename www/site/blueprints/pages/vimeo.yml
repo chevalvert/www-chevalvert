@@ -13,60 +13,56 @@ addFields:
     required: true
     icon: url
 
-tabs:
+columns:
   #-----------------------------------------------------------------------------
-  main:
-    label: Vimeo
-    icon: video
-    columns:
-      #-------------------------------------------------------------------------
-      - width: 2/3
-        sections:
-          - type: fields
-            fields:
-              preview:
-                label: Preview
-                type: vimeo
-                id: "{{ page.vimeo_id }}"
-                playback_offset: "{{ page.playback_offset }}"
-      #-------------------------------------------------------------------------
-      - width: 1/3
-        sections:
-          info:
-            type: info
-            headline: ''
-            text: >
-              <b>ID :</b> <a href="{{ page.externalUrl }}" target="_blank">{{ page.vimeo_id }}</a><br>
-              <b>Format :</b> {{ page.width }}x{{ page.height }} px<br>
+  - width: 1/2
+    sections:
+      - type: info
+        headline: ''
+        text: >
+          <b>ID :</b> <a href="{{ page.externalUrl }}" target="_blank">{{ page.vimeo_id }}</a><br>
+          <b>Format :</b> {{ page.width }}×{{ page.height }}px<br>
+          <b>Ratio :</b> {{ page.ratio }}<br>
 
-          content:
-            type: fields
-            fields:
-              vimeo_id:
-                type: hidden
-
-              playback_offset:
-                label: Commence à…
-                default: 0
-                type: number
-                after: secondes
-
-              playback_offset_end:
-                label: Fini à…
-                default: -1
-                type: number
-                after: secondes
-
-              caption:
-                label: Légende de la vidéo
-                type: text
+      - type: fields
+        fields:
+          preview:
+            label: Preview
+            type: vimeo
+            id: "{{ page.vimeo_id }}"
+            playback_offset: "{{ page.playback_offset }}"
+          metadatas:
+            label: Méta-données
+            type: textarea
+            buttons: false
+            disabled: true
   #-----------------------------------------------------------------------------
-  metas:
-    label: Méta-données
-    icon: template
+  - width: 1/2
     fields:
-      metadatas:
-        label: Méta-données
-        type: textarea
-        buttons: false
-        disabled: true
+      vimeo_id:
+        type: hidden
+
+      playback_offset:
+        label: Commence à…
+        default: 0
+        type: number
+        after: secondes
+        width: 1/2
+
+      playback_offset_end:
+        label: Fini à…
+        default: -1
+        type: number
+        after: secondes
+        width: 1/2
+
+      cover:
+        label: Couverture de la vidéo
+        type: files
+        max: 1
+        help: >
+          <b>Note :</b> Cette image sera utilisée lorsque le chargement automatique de la vidéo n'est pas recommandé (connexions lentes, version mobile, etc…).
+
+      caption:
+        label: Légende de la vidéo
+        type: text

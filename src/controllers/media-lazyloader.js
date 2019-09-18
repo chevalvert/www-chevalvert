@@ -1,6 +1,7 @@
 import 'intersection-observer'
 import 'nodelist-foreach'
 import VimeoPlayer from '@vimeo/player'
+import isMobile from 'utils/is-mobile'
 import lozad from 'lozad'
 
 export default ({
@@ -9,7 +10,14 @@ export default ({
   let observer = lozad(selector, {
     rootMargin: '512px 0px',
     threshold: 0.1,
+    load: el => {
+      // Do not lazyload vimeo on mobile
+      if (isMobile() && willBeVimeo(el)) return
+
+      el.src = el.getAttribute('data-src')
+    },
     loaded: el => {
+      if (isMobile()) return
       if (!isVimeo(el)) return
       setLoadedAttributeOnPlay(el)
       autoLoop(el)
@@ -29,6 +37,11 @@ export default ({
     destroy: () => {
       observer = undefined
     }
+  }
+
+  function willBeVimeo (el) {
+    const datasrc = el.getAttribute('data-src')
+    return datasrc && ~datasrc.indexOf('player.vimeo.com')
   }
 
   function isVimeo (el) {

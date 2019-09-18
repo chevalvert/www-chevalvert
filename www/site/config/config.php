@@ -52,6 +52,13 @@ return [
     'lazyload' => true,
     'autoplay' => true
   ],
+  'project.media.presets.vimeo-cover' => [
+    // NOTE: ratio is defined inside vimeo.php snippet
+    'allow_fullscreen' => false,
+    'srcset' => [1920, 900, 600, 340],
+    'lazyload' => true,
+    'crop' => true
+  ],
   'project.media.presets.panel-gallery' => [
     'width' => 600,
     'allow_fullscreen' => false,

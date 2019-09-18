@@ -6,24 +6,37 @@
 
   line-height: 0;
   font-size: 0;
+  overflow: hidden;
 
-  .vimeo__link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: none;
-  }
-
+  &__link,
+  &__cover,
   iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    &.no-gui {
-      pointer-events: none;
+    border: none;
+  }
+
+  @include mobile {
+    iframe {
+      display: none;
     }
+
+    &[data-fullscreen] &__cover::after {
+      content: url('assets/images/play-button.svg');
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      // NOTE: play-button.svg is 100×100px, so scaling unit can be read as px
+      transform: translate(-50%, -50%) scale(0.7);
+      cursor: pointer;
+    }
+  }
+
+  iframe.no-gui {
+    pointer-events: none;
   }
 }

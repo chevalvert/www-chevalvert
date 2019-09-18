@@ -36,8 +36,12 @@ class VimeoPage extends Page {
     return parent::metadatas()->yaml();
   }
 
+  public function hasCover () {
+    return !!$this->cover();
+  }
+
   public function cover () {
-    return $this->image('thumb.jpg');
+    return parent::cover()->toFile();
   }
 
   public function metadata ($key, $default = null) {
@@ -70,7 +74,7 @@ class VimeoPage extends Page {
     return $this->metadata('height');
   }
 
-  public function ratio () {
+  public function ratio (): float {
     return $this->width() / $this->height();
   }
 

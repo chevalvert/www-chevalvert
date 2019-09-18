@@ -23,6 +23,15 @@
   <a class="vimeo__link" title="<?= Escape::html($title) ?>" href="<?= $vimeo->externalUrl() ?>"></a>
   <?php endif ?>
 
+  <?php if ($vimeo->hasCover()) {
+    snippet('image', array_merge(option('project.media.presets.vimeo-cover'), [
+      'class' => 'vimeo__cover',
+      'image' => $vimeo->cover(),
+      'ratio' => $ratio,
+    ]));
+  } ?>
+
+
   <iframe
     data-ratio="<?= number_format((1 / $ratio), 4) ?>"
     class="<?= r($autoplay, 'no-gui') ?> <?= $class ?>"
