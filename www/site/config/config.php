@@ -80,6 +80,12 @@ return [
           : go("panel/login?_redirect=$panel_path");
       }
     ],
+    [ // Redirect project subpages like vimeos etc to the project page
+      'pattern' => '(:all)/projects/(:any)/(:all)',
+      'action' => function ($lang, $project) {
+        return go("$lang/projects/$project");
+      }
+    ],
     [ // Redirect /random & random/<LENGTH> to the homepage with random projects
       'pattern' => ['(?:(en|fr)/|)?random', '(?:(en|fr)/|)?random/(:num)'],
       'action' => function ($lang, $length = 1) {
