@@ -25,13 +25,18 @@
     }
 
     &[data-fullscreen] &__cover::after {
-      content: url('/assets/images/play-button.svg');
+      $vimeo__cover-button--size: 70px;
+      content: '';
       position: absolute;
       top: 50%;
       left: 50%;
 
-      // NOTE: play-button.svg is 100×100px, so scaling unit can be read as px
-      transform: translate(-50%, -50%) scale(0.7);
+      background-image: url('/assets/images/play-button.svg');
+      background-size: $vimeo__cover-button--size $vimeo__cover-button--size;
+      width: $vimeo__cover-button--size;
+      height: $vimeo__cover-button--size;
+
+      transform: translate(-50%, -50%);
       cursor: pointer;
     }
   }
