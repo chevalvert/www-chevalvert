@@ -17,8 +17,11 @@ return function ($page) {
     return $found;
   });
 
-  $categories = $page->children()->listed()->pluck('categories', ',', true);
-  sort($categories);
+  $categories = [];
+
+  foreach (page('taxonomy')->categories()->toStructure() as $category) {
+    $categories[] = $category->autoid();
+  }
 
   return compact(
     'categories',
