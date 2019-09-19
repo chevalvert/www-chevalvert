@@ -1,5 +1,90 @@
 # Kirby .htaccess
 
+
+
+Redirect 301 https://chevalvert.fr/installation/ https://chevalvert.fr/fr/projects/category:installation/
+Redirect 301 /about/ https://chevalvert.fr/fr/studio
+Redirect 301 /installation/murmur/ https://chevalvert.fr/fr/projects/murmur
+Redirect 301 /installation/stratum/ https://chevalvert.fr/fr/projects/stratum
+Redirect 301 /installation/mechane/ https://chevalvert.fr/fr/projects/mechane
+Redirect 301 /installation/hydrometeor/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /installation/bassins-de-lumiere/ https://chevalvert.fr/fr/projects/bassins-de-lumiere
+Redirect 301 /installation/canopee-sonore/ https://chevalvert.fr/fr/projects/tout-se-transforme
+Redirect 301 /installation/wip-map/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /futouristes-atelier/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /installation/wings/ https://chevalvert.fr/fr/projects/murmur
+Redirect 301 /espace/hip-hop-institut-du-monde-arabe/ https://chevalvert.fr/fr/projects/hip-hop
+Redirect 301 /espace/radio-ouvrez-grand-vos-oreilles/ https://chevalvert.fr/fr/projects/category:signaletique
+Redirect 301 /installation/sonophage/ https://chevalvert.fr/fr/projects/tout-se-transforme
+Redirect 301 /identite/bloc-d/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /installation/murmur-whispers/ https://chevalvert.fr/fr/projects/murmur
+Redirect 301 /installation/social-boids/ https://chevalvert.fr/fr/projects/interstices
+Redirect 301 /data-fossil/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /identite/centre-national-du-design/ https://chevalvert.fr/fr/projects/category:edition
+Redirect 301 /identite/miravus/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /installation/mechanical-frames/ https://chevalvert.fr/fr/projects/interstices
+Redirect 301 /archives/langues-en-fete/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /archives/paris-comic-street/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /affiche/apci/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /affiche/plastique-danse-flore-11/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /affiche/ag2r-la-mondiale/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /objet/science-pops-beauty/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /installation/en-wip-map-plotter/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /installation/particules-reactives/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /rearview-atelier/ https://chevalvert.fr/fr/projects
+Redirect 301 /espace/exposition-metropolis/ https://chevalvert.fr/fr/projects/category:signaletique
+Redirect 301 /identite/marianne/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /edition/les-monteurs-associes/ https://chevalvert.fr/fr/projects/monteurs-associes
+Redirect 301 /identite/jslagrange/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /edition/entre/ https://chevalvert.fr/fr/projects/category:edition
+Redirect 301 /edition/ https://chevalvert.fr/fr/projects/category:edition
+Redirect 301 /identite/tothwallyn/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /affiche/plastique-danse-flore-13-14/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /identite/jpmallet/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /affiche/fabfest/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /category/conferences/ https://chevalvert.fr/fr/studio
+Redirect 301 /installation/paul-hoc-an-electro-life-story/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /trou-noir/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /edition/revue-culturelle-2017plus-n4/ https://chevalvert.fr/fr/projects/2017-plus
+Redirect 301 /installation/ink-under-paper/ https://chevalvert.fr/fr/projects/interstices
+Redirect 301 /la-ville-de-demain/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /affiche/biennale-de-rennes-playtime/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /resonate-2014-new-media-festival-in-belgrade/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /artefacts-de-vision/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /identite/bcom/ https://chevalvert.fr/fr/projects/b-com
+Redirect 301 /archives/spektr/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /plan-a3-atelier/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /edition/ https://chevalvert.fr/en/projects/category:edition
+Redirect 301 /portfolio-category/preview/ https://chevalvert.fr/en/projects
+Redirect 301 /installation/le-temps-suspendu/ https://chevalvert.fr/en/projects/le-temps-suspendu
+Redirect 301 /edition/cnap/ https://chevalvert.fr/en/projects/category:edition
+Redirect 301 /objet/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /david/ https://chevalvert.fr/fr/studio
+Redirect 301 /identite/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /espace/gus-van-sant-icones/ https://chevalvert.fr/en/projects/gus-van-sant
+Redirect 301 /typographie/ https://chevalvert.fr/en/projects/category:type-design
+Redirect 301 /identite/artviatic/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /typographie/talion/ https://chevalvert.fr/en/projects/category:type-design
+Redirect 301 /portfolio-category/preview/ https://chevalvert.fr/en/projects
+Redirect 301 /installation/camera-linea/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /identite/criss-crossing/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /identite/avise-identite/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /identite/berthonkravtsova/ https://chevalvert.fr/fr/projects/category:identite
+Redirect 301 /edition/revue-culturelle-2017plus-n3/ https://chevalvert.fr/fr/projects/2017-plus
+Redirect 301 /installation/geologie-des-flux-mirage-festival/ https://chevalvert.fr/en/projects/geologie-des-flux
+Redirect 301 /edition/2017plus-no6/ https://chevalvert.fr/fr/projects/2017-plus
+Redirect 301 /edition/revue-culturelle-2017plus/ https://chevalvert.fr/fr/projects/2017-plus
+Redirect 301 /objet/idill-2011-trophy/ https://chevalvert.fr/fr/projects/category:installation
+Redirect 301 /typographie/tcl/ https://chevalvert.fr/en/projects/category:type-design
+Redirect 301 /journal  https://chevalvert.fr/fr/studio
+Redirect 301 /typographie https://chevalvert.fr/fr/projects/category:typographie
+Redirect 301 /typographie/foldera/ https://chevalvert.fr/fr/projects/category:typographie
+Redirect 301 /typographie/relief/ https://chevalvert.fr/fr/projects/category:typographie
+Redirect 301 /category/workshops/ https://chevalvert.fr/fr/projects/category:installation
+
+
+
+
 # rewrite rules
 <IfModule mod_rewrite.c>
 
