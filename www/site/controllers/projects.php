@@ -3,8 +3,9 @@
 return function ($page) {
   $lang = kirby()->language()->code();
 
-  $projects = $page->children()->listed()->filter(function ($p) use ($lang) {
-    if (!param('category', false)) return true;
+  $hasFilter = param('category', false);
+  $projects = $page->children()->listed()->filter(function ($p) use ($lang, $hasFilter) {
+    if (!$hasFilter) return true;
     $found = false;
     foreach ($p->categories()->split() as $category) {
       $id = autoid($category);
@@ -16,6 +17,8 @@ return function ($page) {
     }
     return $found;
   });
+
+  if ($hasFilter) $projects = $projects->shuffle();
 
   $categories = [];
 
