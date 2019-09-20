@@ -25,6 +25,11 @@ $menu-padding-bottom: 0.9rem;
 $footer-height--desktop: 5.9rem;
 $footer-height--mobile: 29.5rem;
 
+// NOTE: this allows getting sass variable in js using controllers/sass-variables
+:root {
+  --site-margin: #{$site-margin};
+}
+
 @import 'sass/mixins';
 @import 'sass/base';
 @import 'sass/grid';
