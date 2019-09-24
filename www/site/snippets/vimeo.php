@@ -52,6 +52,7 @@
       <?= "$attribute=\"$value\" " ?>
     <?php endforeach ?>
 
+    <?= r($autoplay, 'allow="autoplay"') ?>
     frameborder="0"
     webkitallowfullscreen
     mozallowfullscreen
