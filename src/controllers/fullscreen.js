@@ -1,13 +1,10 @@
 import Fullscreen from 'components/fullscreen'
 import isMeta from 'utils/is-meta-key'
-import isMobile from 'utils/is-mobile'
 
 export default ({
   selector = '[data-fullscreen]',
   container = document.body
 } = {}) => {
-  if (isMobile()) return
-
   const elements = document.querySelectorAll(selector)
   if (!elements || !elements.length) return
 

@@ -20,7 +20,8 @@
   }
 
   @include mobile {
-    iframe {
+    &.has-user-request-to-play &__cover,
+    &:not(.has-user-request-to-play) iframe {
       display: none;
     }
 
