@@ -7,7 +7,7 @@
   <?php if (in_array(getTopLevelPage($p)->uri(), option('sitemap.ignore'))) continue ?>
   <url>
     <loc><?= html($p->url()) ?></loc>
-    <lastmod><?= $p->modified('%c') ?></lastmod>
+    <lastmod><?= $p->modified('c') ?></lastmod>
     <priority><?= ($p->isHomePage()) ? 1 : number_format(0.5/$p->depth(), 1) ?></priority>
   </url>
   <?php endforeach ?>
