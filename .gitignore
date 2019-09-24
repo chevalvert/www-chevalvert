@@ -78,5 +78,6 @@ www/site/plugins/kirby-builder
 www/site/plugins/kirby3-feed
 www/site/plugins/kirby-color
 www/site/plugins/retour
+www/site/plugins/cachebuster
 # </KirbyWebpack>
 *.bak

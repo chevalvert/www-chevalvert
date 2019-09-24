@@ -5,6 +5,7 @@ return [
   'whoops' => true,
   'cache' => false,
   'language.detect' => false,
+  'schnti.cachebuster.active' => false,
 
   // The code below is required for the kirby-webpack dev server to work
   'url' => function () {

@@ -6,7 +6,8 @@
       "kirby-builder": "https://github.com/TimOetting/kirby-builder.git",
       "kirby3-feed": "https://github.com/bnomei/kirby3-feed.git",
       "kirby-color": "https://github.com/TimOetting/kirby-color.git",
-      "retour": "https://github.com/distantnative/retour-for-kirby.git"
+      "retour": "https://github.com/distantnative/retour-for-kirby.git",
+      "cachebuster": "https://github.com/schnti/kirby3-cachebuster.git"
     }
   }
 }
