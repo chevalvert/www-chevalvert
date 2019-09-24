@@ -92,19 +92,9 @@ Redirect 301 /category/workshops/ https://chevalvert.fr/fr/projects/category:ins
 # http://yourdomain.com/about-us/team
 RewriteEngine on
 
-# make sure to set the RewriteBase correctly
-# if you are running the site in a subfolder.
-# Otherwise links or the entire site will break.
-#
-# If your homepage is http://yourdomain.com/mysite
-# Set the RewriteBase to:
-#
-# RewriteBase /mysite
-
-# In some enviroments it's necessary to
-# set the RewriteBase to:
-#
-# RewriteBase /
+# SEE https://github.com/schnti/kirby3-cachebuster
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)\.(\d+)\.(js|css)$ $1.$3 [L]
 
 # block files and folders beginning with a dot, such as .git
 # except for the .well-known folder, which is used for Let's Encrypt and security.txt
@@ -155,7 +145,3 @@ Header set Cache-Control "max-age=172800, public, must-revalidate"
 <FilesMatch "\.(html|htm)$"> # 2 hours
 Header set Cache-Control "max-age=7200, must-revalidate"
 </FilesMatch>
-
-# SEE https://github.com/schnti/kirby3-cachebuster
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)\.(\d+)\.(js|css)$ $1.$3 [L]
