@@ -1,6 +1,6 @@
 {
   "name": "www-chevalvert",
-  "version": "0.2.37",
+  "version": "0.2.38",
   "description": "chevalvert website",
   "scripts": {
     "stats": "node scripts/check-preprocessor.js && cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js --profile --json > stats.json && echo \"→ Stats.json created\" && echo \"→ Drop your file to https://chrisbateman.github.io/webpack-visualizer/\"",
