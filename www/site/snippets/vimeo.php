@@ -41,7 +41,6 @@
 
     <?php if ($lazyload) : ?>
       data-lozad
-      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 <?= intval($width) ?> <?= intval($height) ?>'%3E%3C/svg%3E"
       data-src="<?= $vimeo->src(['ui' => false, 'autoplay' => $autoplay]) ?>"
     <?php else : ?>
       src="<?= $vimeo->src(['ui' => false, 'autoplay' => $autoplay]) ?>"
