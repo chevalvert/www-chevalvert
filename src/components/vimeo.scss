@@ -19,6 +19,13 @@
     border: none;
   }
 
+  // NOTE: this disables the lazyloading fade-in animation on all lazyloaded
+  // iframe, because the fade-in from cover to moving video is really ugly
+  iframe[data-lozad][data-loaded="true"] {
+    animation: none !important;
+    opacity: 1;
+  }
+
   @include mobile {
     &.has-user-request-to-play &__cover,
     &:not(.has-user-request-to-play) iframe {
