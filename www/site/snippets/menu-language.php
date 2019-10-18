@@ -11,5 +11,5 @@
 ?>
 
 <a data-lang-switcher title="<?= t('switch-language', null, $other_language->code()) ?>" href="<?= $page->url($other_language->code()) ?>">
-  <?= html($current_language) ?>
+  <?= html($other_language) ?>
 </a>
