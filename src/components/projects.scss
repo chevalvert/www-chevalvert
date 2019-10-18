@@ -32,7 +32,7 @@
     margin-bottom: $gutter + $line-height;
 
     @include tablet { @include col(8); }
-    @include mobile { @include col(16); }
+    @include mobile { @include col(8); }
 
     display: inline-flex !important;
     flex-direction: column-reverse !important;
@@ -51,7 +51,7 @@
       * { padding-left: 0 !important; }
       height: auto;
       white-space: nowrap;
-
+      @include mobile { white-space: normal; }
 
       width: 100%;
       overflow: hidden;
