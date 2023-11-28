@@ -1,12 +1,12 @@
 <header role="banner" class="menu">
   <div class="menu__logo">
     <a href="<?= $site->url() ?>" title="<?= t('go-home') ?>" class="menu__logo-link">
-      <?= $site->title()->html() ?>
+      <h1><?= $site->title()->html() ?></h1>
     </a>
   </div>
 
   <div class="menu__subtitle" data-alternates="<?= $site->subtitle_alternates() ?>">
-    <span><?= $site->subtitle() ?></span>
+    <h2><?= $site->subtitle() ?></h2>
   </div>
 
   <nav role="navigation" class="menu__nav">

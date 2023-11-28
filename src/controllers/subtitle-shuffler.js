@@ -5,7 +5,7 @@ let lastValue
 
 export default ({
   selector = '.menu__subtitle[data-alternates]',
-  clickCaptureSelector = 'span'
+  clickCaptureSelector = 'h2'
 } = {}) => {
   const element = document.querySelector(selector)
   if (!element) return
@@ -35,7 +35,7 @@ export default ({
     if (!value) return
 
     element.innerHTML = ''
-    element.appendChild(html`<span style="width:${longestValue.length}ch;">${value.trim()}</span>`)
+    element.appendChild(html`<h2 style="width:${longestValue.length}ch;">${value.trim()}</h2>`)
     lastValue = value
     bind()
   }

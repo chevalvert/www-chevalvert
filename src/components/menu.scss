@@ -53,7 +53,7 @@
     }
   }
 
-  &__subtitle[data-alternates]:not([data-alternates='']) span {
+  &__subtitle[data-alternates]:not([data-alternates='']) h2 {
     cursor: help;
     display: inline-block;
   }

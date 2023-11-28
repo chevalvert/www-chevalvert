@@ -1,4 +1,9 @@
-<meta name="description" content="<?= $site->description()->text() ?>">
+<?php
+  $description = $site->description()->text();
+  if ($page->intendedTemplate()->name() === 'project') $description = $page->text()->excerpt(150);
+?>
+
+<meta name="description" content="<?= $description ?>">
 <meta name="keywords" content="<?= $site->keywords()->text() ?>">
 
 <link rel="apple-touch-icon" sizes="180x180" href="<?= $kirby->urls()->assets() ?>/favicons/apple-touch-icon.png?v=3">
@@ -18,7 +23,7 @@
 <meta property="og:url" content="<?= $site->url() ?>">
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?= r($page !== $site->homePage(), $page->title()->html() . ' | ') . $site->title()->html() ?>">
-<meta property="og:description" content="<?= $site->description()->text() ?>">
+<meta property="og:description" content="<?= $description ?>">
 <meta property="og:site_name" content="<?= $site->title() ?>">
 <meta property="og:locale" content="<?= $site->language() ?>">
 
